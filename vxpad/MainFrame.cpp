@@ -70,7 +70,6 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_SIZE(MainFrame::OnSize)
     EVT_MENU(MainFrame::ID_CreateTree, MainFrame::OnCreateTree)
     EVT_MENU(MainFrame::ID_CreateGrid, MainFrame::OnCreateGrid)
-    EVT_MENU(MainFrame::ID_CreateText, MainFrame::OnCreateText)
     EVT_MENU(MainFrame::ID_CreateHTML, MainFrame::OnCreateHTML)
     EVT_MENU(MainFrame::ID_CreateStyleText, MainFrame::OnCreateStyleTextCtrl)
     EVT_MENU(MainFrame::ID_CreateNotebook, MainFrame::OnCreateNotebook)
@@ -149,55 +148,28 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 END_EVENT_TABLE()
 
 
-//-- Main Menu --
-#include "img/mainmenu/new_file.xpm"
-#include "img/mainmenu/open_file.xpm"
-#include "img/mainmenu/save.xpm"
-#include "img/mainmenu/save_all.xpm"
-#include "img/mainmenu/undo.xpm"
-#include "img/mainmenu/redo.xpm"
-#include "img/mainmenu/cut.xpm"
-#include "img/mainmenu/copy.xpm"
-#include "img/mainmenu/paste.xpm"
-
-//-- System --
-/*#include "system/ApplicationSettings.xpm"
-#include "system/ViewHardware.xpm"
-#include "system/performance.xpm"
-#include "system/nodeTree.xpm"
-#include "system/console.xpm"
-#include "system/ManageAddins.xpm"
-*/
 
 
+// Declare the bitmap loading function
+extern void wxC9ED9InitBitmapResources();
+
+static bool bBitmapLoaded = false;
 
 void MainFrame::LoadAllImages()
 {
-    //
-    //Main Menu
-    //
-    xIMG_newFile = wxBitmap(wxImage(new_file_xpm));
-    xIMG_openFile = wxBitmap(wxImage(open_file_xpm));
-    xIMG_saveFile = wxBitmap(wxImage(save_xpm));
-    xIMG_saveAllFiles = wxBitmap(wxImage(save_all_xpm));
-    xIMG_Undo = wxBitmap(wxImage(undo_xpm));
-    xIMG_Redo = wxBitmap(wxImage(redo_xpm));
-    xIMG_Cut = wxBitmap(wxImage(cut_xpm));
-    xIMG_Copy = wxBitmap(wxImage(copy_xpm));
-    xIMG_Paste = wxBitmap(wxImage(paste_xpm));
-
-    //System
-    /*
-    xIMG_SYS_APPSETTINGS = wxBitmap(wxImage(ApplicationSettings_xpm));
-    xIMG_SYS_VIEWHARDWARE = wxBitmap(wxImage(ViewHardware_xpm));
-    xIMG_SYS_PERFORMANCE = wxBitmap(wxImage(performance_xpm));
-    xIMG_SYS_NODETREE = wxBitmap(wxImage(nodeTree_xpm));
-    xIMG_SYS_CONSOLE = wxBitmap(wxImage(console_xpm));
-    xIMG_SYS_ADDINS = wxBitmap(wxImage(ManageAddins_xpm));
-*/
+      if ( !bBitmapLoaded ) {
+        // We need to initialise the default bitmap handler
+        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+        wxC9ED9InitBitmapResources();
+        bBitmapLoaded = true;
+    }
+    
+    vxAppImgs = new vxIcons();
+    
+    
+    wxIcon icon;
+    icon.CopyFromBitmap(vxAppImgs->AppIcon16);
 }
-
-
 
 MainFrame::MainFrame(wxWindow* parent,
                  wxWindowID id,
@@ -215,14 +187,8 @@ MainFrame::MainFrame(wxWindow* parent,
     LoadAllImages();
 
 
-        bool SHOW_DEBUG_CONSOLE = true;
-    if(SHOW_DEBUG_CONSOLE)
-    {
-        AllocConsole() ;
-        AttachConsole( GetCurrentProcessId() ) ;
-        freopen( "CON", "w", stdout ) ;
-    }
-
+    
+    
     // set up default notebook style
     m_notebook_style = wxAUI_NB_DEFAULT_STYLE | wxAUI_NB_TAB_EXTERNAL_MOVE | wxNO_BORDER;
     m_notebook_theme = 0;
@@ -243,9 +209,9 @@ MainFrame::MainFrame(wxWindow* parent,
     file_menu->AppendSeparator();
     file_menu->Append(wxID_SAVE);
     file_menu->Append(wxID_SAVEAS);
-    file_menu->Append(wxID_SAVEAS);
+    file_menu->Append(ID_SaveAll, _("Save All"));
     file_menu->AppendSeparator();
-    file_menu->Append(ID_New, _("Document Properties"));
+    file_menu->Append(ID_DocumentProperties, _("Document Properties"));
     file_menu->AppendSeparator();
     file_menu->Append(wxID_EXIT);
 
@@ -268,7 +234,6 @@ MainFrame::MainFrame(wxWindow* parent,
     menu_lexar->AppendRadioItem(ID_CPP, _("C++ Source File(*.cpp, *.h)"));
     menu_lexar->AppendRadioItem(ID_HLSL, _("HLSL - High Level Shader Language(*.fx)"));
     menu_lexar->AppendRadioItem(ID_HTML, _("HTML(*.html,*.htm)"));
-    menu_lexar->AppendRadioItem(ID_FEM_NASTRAN, _("NASTRAN File(*.bdf, *. f06)"));
     menu_lexar->AppendRadioItem(ID_PY, _("Python Script(*.py, *.pyw)"));
 
     // convert EOL submenu
@@ -398,75 +363,24 @@ MainFrame::MainFrame(wxWindow* parent,
     tb_mainmenu->SetToolBitmapSize(wxSize(16,16));
 
     wxBitmap tb_mainmenu_bmp1 = wxArtProvider::GetBitmap(wxART_QUESTION, wxART_OTHER, wxSize(16,16));
-    tb_mainmenu->AddTool(ID_New, wxT("New"), xIMG_newFile);
-    tb_mainmenu->AddTool(wxID_OPEN, wxT("Open"), xIMG_openFile);
-    tb_mainmenu->AddTool(wxID_SAVE, wxT("Save"), xIMG_saveFile);
-    tb_mainmenu->AddTool(wxID_SAVEAS, wxT("Save All"), xIMG_saveAllFiles);
+    tb_mainmenu->AddTool(ID_New, wxT("New"), vxAppImgs->FileNew16);
+    tb_mainmenu->AddTool(wxID_OPEN, wxT("Open"),  vxAppImgs->FileOpen16);
+    tb_mainmenu->AddTool(wxID_SAVE, wxT("Save"),  vxAppImgs->Save16);
+    tb_mainmenu->AddTool(wxID_SAVEAS, wxT("Save As"), vxAppImgs->SaveAs16);
+    tb_mainmenu->AddTool(ID_SaveAll, wxT("Save All"), vxAppImgs->SaveAll16);
     tb_mainmenu->AddSeparator();
-    tb_mainmenu->AddTool(wxID_UNDO, wxT("Undo"), xIMG_Undo);
-    tb_mainmenu->AddTool(wxID_REDO, wxT("Redo"), xIMG_Redo);
+    tb_mainmenu->AddTool(wxID_UNDO, wxT("Undo"), vxAppImgs->Undo16);
+    tb_mainmenu->AddTool(wxID_REDO, wxT("Redo"), vxAppImgs->Redo16);
     tb_mainmenu->AddSeparator();
-    tb_mainmenu->AddTool(wxID_CUT, wxT("Cut"), xIMG_Cut);
-    tb_mainmenu->AddTool(wxID_COPY, wxT("Copy"), xIMG_Copy);
-    tb_mainmenu->AddTool(wxID_PASTE, wxT("Paste"), xIMG_Paste);
+    tb_mainmenu->AddTool(wxID_CUT, wxT("Cut"), vxAppImgs->Cut16);
+    tb_mainmenu->AddTool(wxID_COPY, wxT("Copy"), vxAppImgs->Copy16);
+    tb_mainmenu->AddTool(wxID_PASTE, wxT("Paste"), vxAppImgs->Paste16);
     tb_mainmenu->SetCustomOverflowItems(prepend_items, append_items);
     
     //tb_mainmenu->EnableTool(ID_SampleItem+6, false);
     tb_mainmenu->Realize();
 
-/*
-        wxAuiToolBar* tb4 = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize,
-                                             wxAUI_TB_DEFAULT_STYLE |
-                                             wxAUI_TB_OVERFLOW |
-                                             wxAUI_TB_TEXT |
-                                             wxAUI_TB_HORZ_TEXT);
-        tb4->SetToolBitmapSize(wxSize(16,16));
-        wxBitmap tb4_bmp1 = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16,16));
-        tb4->AddTool(ID_DropDownToolbarItem, wxT("Item 1"), tb4_bmp1);
-        tb4->AddTool(ID_SampleItem+23, wxT("Item 2"), tb4_bmp1);
-        tb4->AddTool(ID_SampleItem+24, wxT("Item 3"), tb4_bmp1);
-        tb4->AddTool(ID_SampleItem+25, wxT("Item 4"), tb4_bmp1);
-        tb4->AddSeparator();
-        tb4->AddTool(ID_SampleItem+26, wxT("Item 5"), tb4_bmp1);
-        tb4->AddTool(ID_SampleItem+27, wxT("Item 6"), tb4_bmp1);
-        tb4->AddTool(ID_SampleItem+28, wxT("Item 7"), tb4_bmp1);
-        tb4->AddTool(ID_SampleItem+29, wxT("Item 8"), tb4_bmp1);
-        tb4->SetToolDropDown(ID_DropDownToolbarItem, true);
-        tb4->SetCustomOverflowItems(prepend_items, append_items);
-        wxChoice* choice = new wxChoice(tb4, ID_SampleItem+35);
-        choice->AppendString(wxT("One choice"));
-        choice->AppendString(wxT("Another choice"));
-        tb4->AddControl(choice);
-        tb4->Realize();
-*/
 
-/*
-    wxWindow* wnd10 = CreateTextCtrl(wxT("This pane will prompt the user before hiding."));
-
-    // Give this pane an icon, too, just for testing.
-    int iconSize = m_mgr.GetArtProvider()->GetMetric(wxAUI_DOCKART_CAPTION_SIZE);
-
-    // Make it even to use 16 pixel icons with default 17 caption height.
-    iconSize &= ~1;
-
-    m_mgr.AddPane(wnd10, wxAuiPaneInfo().
-                  Name(wxT("test10")).Caption(wxT("Text Pane with Hide Prompt")).
-                  Bottom().Layer(1).Position(1));
-
-
-    // create some center panes
-
-    m_mgr.AddPane(CreateGrid(), wxAuiPaneInfo().Name(wxT("grid_content")).
-                  CenterPane().Hide());
-
-    m_mgr.AddPane(CreateTreeCtrl(), wxAuiPaneInfo().Name(wxT("tree_content")).
-                  CenterPane().Hide());
-
-    m_mgr.AddPane(CreateTextCtrl(), wxAuiPaneInfo().Name(wxT("text_content")).
-                  CenterPane().Hide());
-
-    m_mgr.AddPane(CreateHTMLCtrl(), wxAuiPaneInfo().Name(wxT("html_content")).
-                  CenterPane().Hide());*/
 
     m_mgr.AddPane(CreateNotebook(), wxAuiPaneInfo().Name(wxT("notebook_content")).
                   CenterPane().PaneBorder(false));
@@ -584,7 +498,7 @@ wxAuiNotebook* MainFrame::CreateNotebook()
 
     m_ntbk->SetArtProvider(new vxDefaultAuiTabArt());
     
-    m_ntbk->AddPage(CreateStyleTextCtrl(wxString::Format(wxT("newFile %i"),INT_NewFileList)), wxString::Format(wxT("newFile %i"),INT_NewFileList), true,xIMG_newFile);
+    m_ntbk->AddPage(CreateStyleTextCtrl(wxString::Format(wxT("newFile %i"),INT_NewFileList)), wxString::Format(wxT("newFile %i"),INT_NewFileList), true, vxAppImgs->FileTypeScript);
     INT_NewFileList++;
 
     m_ntbk->Thaw();
@@ -667,7 +581,7 @@ wxString MainFrame::GetIntroText()
 
 void MainFrame::New(wxCommandEvent& WXUNUSED(event))
 {
-    m_ntbk->AddPage(CreateStyleTextCtrl(wxString::Format(wxT("newFile %i"),INT_NewFileList)), wxString::Format(wxT("newFile %i"),INT_NewFileList), true,xIMG_newFile);
+    m_ntbk->AddPage(CreateStyleTextCtrl(wxString::Format(wxT("newFile %i"),INT_NewFileList)), wxString::Format(wxT("newFile %i"),INT_NewFileList), true,vxAppImgs->FileTypeScript);
     INT_NewFileList++;
     SetToolbarStatus();
 }
@@ -679,7 +593,6 @@ void MainFrame::Open(wxCommandEvent& WXUNUSED(event))
     filter += _("|C++ File (*.cpp;*.h)|*.cpp;*.h");
     filter += _("|HLSL File (*.fx)|*.fx");
     filter += _("|HTML File (*.html;*.htm)|*.html;*.htm");
-    filter += _("|NASTRAN ASCII File (*.bdf;*.f06)|*.bdf;*.f06");
     filter += _("|Python Script (*.py;*.pyw)|*.py;*.pyw");
     filter += _("|Text File (*.txt)|*.txt");
     filter += _("");
@@ -692,21 +605,27 @@ void MainFrame::Open(wxCommandEvent& WXUNUSED(event))
 
     // Creates a "open file" dialog with 4 file types
     if (OpenDialog->ShowModal() == wxID_OK) // if the user click "Open" instead of "Cancel"
-        m_ntbk->AddPage(CreateStyleTextCtrl(OpenDialog->GetPath()), OpenDialog->GetFilename(), true,xIMG_newFile);
+        m_ntbk->AddPage(CreateStyleTextCtrl(OpenDialog->GetPath()), OpenDialog->GetFilename(), true,vxAppImgs->FileTypeScript);
 
     // Clean up after ourselves
     OpenDialog->Destroy();
     SetToolbarStatus();
 }
 
-
-void MainFrame::Save(wxCommandEvent& WXUNUSED(event))
+void MainFrame::SaveActiveFile()
 {
-    GetActiveDocument()->Save();
-    SetToolbarStatus();
+    if(GetActiveDocument()->IsNewFile == true)
+    {       
+        SaveActiveFileAs();   
+    }
+    else
+    {
+        GetActiveDocument()->Save();
+        SetToolbarStatus();
+    }
 }
 
-void MainFrame::SaveAs(wxCommandEvent& WXUNUSED(event))
+void MainFrame::SaveActiveFileAs()
 {
     wxFileDialog *SaveDialog = new wxFileDialog(
 		this, _("Save File As..."), wxEmptyString, wxEmptyString,
@@ -725,6 +644,20 @@ void MainFrame::SaveAs(wxCommandEvent& WXUNUSED(event))
 	// Clean up after ourselves
 	SaveDialog->Destroy();
     SetToolbarStatus();
+}
+void MainFrame::SaveAllOpenFIles()
+{
+    
+}
+
+void MainFrame::Save(wxCommandEvent& WXUNUSED(event))
+{
+    SaveActiveFile();
+}
+
+void MainFrame::SaveAs(wxCommandEvent& WXUNUSED(event))
+{
+    SaveActiveFileAs();
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
@@ -916,22 +849,8 @@ void MainFrame::OnCreateNotebook(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnCreateText(wxCommandEvent& WXUNUSED(event))
-{
-    m_mgr.AddPane(CreateTextCtrl(), wxAuiPaneInfo().
-                  Caption(wxT("Text Control")).
-                  Float().FloatingPosition(GetStartPosition()));
-    m_mgr.Update();
-}
-
 void MainFrame::OnCreateStyleTextCtrl(wxCommandEvent& WXUNUSED(event))
 {
-    /*
-    m_mgr.AddPane(CreateStyleTextCtrl(_("")), wxAuiPaneInfo().
-                  Caption(wxT("Style Text Control")).
-                  Float().FloatingPosition(GetStartPosition()));
-    m_mgr.Update();
-    */
     m_ntbk->AddPage(CreateStyleTextCtrl(wxString::Format(wxT("newFile %i"),INT_NewFileList)), wxString::Format(wxT("newFile %i"),INT_NewFileList), true);
     INT_NewFileList++;
     SetToolbarStatus();
@@ -1289,16 +1208,17 @@ void MainFrame::OnUpdateUI(wxUpdateUIEvent& event)
 }
 
 void MainFrame::OnPaneClose(wxAuiManagerEvent& evt)
-{
+{/*
     if (evt.pane->name == wxT("test10"))
     {
+        */
         int res = wxMessageBox(wxT("Are you sure you want to close/hide this pane?"),
                                wxT("wxAUI"),
                                wxYES_NO,
                                this);
         if (res != wxYES)
             evt.Veto();
-    }
+    //}
 }
 
 void MainFrame::OnCreatePerspective(wxCommandEvent& WXUNUSED(event))
@@ -1340,14 +1260,24 @@ void MainFrame::OnRestorePerspective(wxCommandEvent& evt)
 void MainFrame::OnNotebookPageClose(wxAuiNotebookEvent& evt)
 {
     wxAuiNotebook* ctrl = (wxAuiNotebook*)evt.GetEventObject();
-    if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxHtmlWindow)))
+    //if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxHtmlWindow)))
+    if(GetActiveDocument()->GetModify())
     {
-        int res = wxMessageBox(wxT("Are you sure you want to close/hide this notebook page?"),
-                               wxT("wxAUI"),
-                               wxYES_NO,
+        int res = wxMessageBox(wxT("Do you want to save before closing this file?"),
+                               wxT("Save before closing?"),
+                               wxYES_NO|wxCANCEL|wxICON_QUESTION,
                                this);
-        if (res != wxYES)
-            evt.Veto();
+                               
+        //If Yes is clicked, then Save the File before closing.
+        if (res == wxYES)
+        {
+            SaveActiveFile();
+        }
+        //wxNO Means Nothing should Happen
+        
+        //If Canceled is clicked, then abort closing the file
+        else if (res == wxCANCEL)
+            evt.Veto();            
     }
 }
 
@@ -1451,12 +1381,6 @@ void MainFrame::OnExit(wxCommandEvent& WXUNUSED(event))
 {
     Close(true);
 }
-
-TextCtrl* MainFrame::CreateTextCtrl(const wxString& ctrl_text)
-{
-   return new TextCtrl(this, "test.cpp");
-}
-
 
 wxGrid* MainFrame::CreateGrid()
 {

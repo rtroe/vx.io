@@ -48,6 +48,11 @@
     <VirtualDirectory Name="gui">
       <File Name="src/gui/vxAUIToolbarArt.cpp"/>
       <File Name="src/gui/vxAuiTabArt.cpp"/>
+      <File Name="src/gui/Icon.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="menus">
+      <File Name="src/menus/menu_edit.h"/>
+      <File Name="src/menus/menu_file.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
@@ -56,6 +61,7 @@
     <VirtualDirectory Name="gui">
       <File Name="include/gui/vxAUIToolbarArt.h"/>
       <File Name="include/gui/vxAuiTabArt.h"/>
+      <File Name="include/gui/Icon.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="resources">

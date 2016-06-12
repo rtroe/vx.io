@@ -31,6 +31,7 @@ TextCtrl::TextCtrl(wxWindow* parent, wxString filePath) : wxStyledTextCtrl(paren
         if(wxFileName::FileExists(FilePath))
         {
             LoadFile(FilePath);
+             IsNewFile = false;
         }
     }
         else
@@ -83,6 +84,7 @@ void TextCtrl::Save()
             FileName = FilePath.substr(StartIndex,FilePath.length()-StartIndex);
         }
         }
+        IsNewFile = false;
 
     SaveFile(FilePath);
 

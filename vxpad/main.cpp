@@ -11,6 +11,17 @@ public:
     virtual ~MainApp() {}
 
     virtual bool OnInit() {
+        
+        
+    bool SHOW_DEBUG_CONSOLE = true;
+    if(SHOW_DEBUG_CONSOLE)
+    {
+        AllocConsole() ;
+        AttachConsole( GetCurrentProcessId() ) ;
+        freopen( "CON", "w", stdout ) ;
+    }
+
+        
         // Add the common image handlers
         wxImage::AddHandler( new wxPNGHandler );
         wxImage::AddHandler( new wxJPEGHandler );

@@ -155,10 +155,14 @@ bin/win/Debug/MainFrame.cpp.o: MainFrame.cpp MainFrame.h \
  C:/wxWidgets/include/wx/msw/msgdlg.h C:/wxWidgets/include/wx/textdlg.h \
  C:/wxWidgets/include/wx/generic/textdlgg.h \
  C:/wxWidgets/include/wx/valtext.h C:/wxWidgets/include/wx/filedlg.h \
- C:/wxWidgets/include/wx/msw/filedlg.h C:/wxWidgets/include/wx/aui/aui.h \
+ C:/wxWidgets/include/wx/msw/filedlg.h \
+ C:/wxWidgets/include/wx/xrc/xh_bmp.h \
+ C:/wxWidgets/include/wx/xrc/xmlres.h C:/wxWidgets/include/wx/animate.h \
+ C:/wxWidgets/include/wx/animdecod.h C:/wxWidgets/include/wx/timer.h \
+ C:/wxWidgets/include/wx/generic/animate.h \
+ C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/aui/aui.h \
  C:/wxWidgets/include/wx/aui/framemanager.h \
- C:/wxWidgets/include/wx/timer.h C:/wxWidgets/include/wx/sizer.h \
- C:/wxWidgets/include/wx/aui/dockart.h \
+ C:/wxWidgets/include/wx/sizer.h C:/wxWidgets/include/wx/aui/dockart.h \
  C:/wxWidgets/include/wx/aui/floatpane.h \
  C:/wxWidgets/include/wx/minifram.h \
  C:/wxWidgets/include/wx/msw/minifram.h \
@@ -170,7 +174,7 @@ bin/win/Debug/MainFrame.cpp.o: MainFrame.cpp MainFrame.h \
  C:/wxWidgets/include/wx/msw/ole/dropsrc.h \
  C:/wxWidgets/include/wx/msw/ole/droptgt.h \
  C:/wxWidgets/include/wx/textfile.h C:/wxWidgets/include/wx/textbuf.h \
- C:/wxWidgets/include/wx/convauto.h img/xui_images.h \
+ C:/wxWidgets/include/wx/convauto.h include/gui/Icon.h \
  include/gui/vxAUIToolbarArt.h C:/wxWidgets/include/wx/wx.h \
  C:/wxWidgets/include/wx/dcmemory.h C:/wxWidgets/include/wx/dcprint.h \
  C:/wxWidgets/include/wx/dcscreen.h C:/wxWidgets/include/wx/checklst.h \
@@ -197,12 +201,8 @@ bin/win/Debug/MainFrame.cpp.o: MainFrame.cpp MainFrame.h \
  C:/wxWidgets/include/wx/propgrid/propgridpagestate.h \
  C:/wxWidgets/include/wx/propgrid/props.h \
  C:/wxWidgets/include/wx/propgrid/editors.h \
- C:/wxWidgets/include/wx/propgrid/advprops.h \
- C:/wxWidgets/include/wx/xml/xml.h include/gui/vxAUITabArt.h \
- C:/wxWidgets/include/wx/renderer.h img/mainmenu/new_file.xpm \
- img/mainmenu/open_file.xpm img/mainmenu/save.xpm \
- img/mainmenu/save_all.xpm img/mainmenu/undo.xpm img/mainmenu/redo.xpm \
- img/mainmenu/cut.xpm img/mainmenu/copy.xpm img/mainmenu/paste.xpm
+ C:/wxWidgets/include/wx/propgrid/advprops.h include/gui/vxAUITabArt.h \
+ C:/wxWidgets/include/wx/renderer.h
 
 MainFrame.h:
 
@@ -716,11 +716,23 @@ C:/wxWidgets/include/wx/filedlg.h:
 
 C:/wxWidgets/include/wx/msw/filedlg.h:
 
+C:/wxWidgets/include/wx/xrc/xh_bmp.h:
+
+C:/wxWidgets/include/wx/xrc/xmlres.h:
+
+C:/wxWidgets/include/wx/animate.h:
+
+C:/wxWidgets/include/wx/animdecod.h:
+
+C:/wxWidgets/include/wx/timer.h:
+
+C:/wxWidgets/include/wx/generic/animate.h:
+
+C:/wxWidgets/include/wx/xml/xml.h:
+
 C:/wxWidgets/include/wx/aui/aui.h:
 
 C:/wxWidgets/include/wx/aui/framemanager.h:
-
-C:/wxWidgets/include/wx/timer.h:
 
 C:/wxWidgets/include/wx/sizer.h:
 
@@ -756,7 +768,7 @@ C:/wxWidgets/include/wx/textbuf.h:
 
 C:/wxWidgets/include/wx/convauto.h:
 
-img/xui_images.h:
+include/gui/Icon.h:
 
 include/gui/vxAUIToolbarArt.h:
 
@@ -834,26 +846,6 @@ C:/wxWidgets/include/wx/propgrid/editors.h:
 
 C:/wxWidgets/include/wx/propgrid/advprops.h:
 
-C:/wxWidgets/include/wx/xml/xml.h:
-
 include/gui/vxAUITabArt.h:
 
 C:/wxWidgets/include/wx/renderer.h:
-
-img/mainmenu/new_file.xpm:
-
-img/mainmenu/open_file.xpm:
-
-img/mainmenu/save.xpm:
-
-img/mainmenu/save_all.xpm:
-
-img/mainmenu/undo.xpm:
-
-img/mainmenu/redo.xpm:
-
-img/mainmenu/cut.xpm:
-
-img/mainmenu/copy.xpm:
-
-img/mainmenu/paste.xpm:

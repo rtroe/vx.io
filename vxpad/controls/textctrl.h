@@ -20,6 +20,7 @@ class TextCtrl : public wxStyledTextCtrl
     {
         ID_Test,
     };
+    
 
 //Methods
 public:
@@ -53,6 +54,10 @@ public:
 public:
     wxString FilePath;
     wxString FileName;
+    
+    
+    //A flag to trigger the "Save As" the first time the file is saved.
+    bool IsNewFile = true;
 
     DECLARE_EVENT_TABLE();
 };

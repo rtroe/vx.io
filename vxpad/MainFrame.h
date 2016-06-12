@@ -26,12 +26,13 @@
 #include "wx/msgdlg.h"
 #include "wx/textdlg.h"
 #include <wx/filedlg.h>
+#include <wx/xrc/xh_bmp.h>
 
 #include "wx/aui/aui.h"
 //#include "../sample.xpm"
 
 #include "controls/textctrl.h"
-#include "img/xui_images.h"
+#include "include/gui/Icon.h"
 
 
 // -- menu methods --
@@ -57,6 +58,7 @@ class MainFrame : public wxFrame
         ID_Close_File,
         ID_Close_All,
         ID_Close_Program,
+        ID_DocumentProperties,
 
 
         // -- edit --
@@ -147,29 +149,8 @@ public:
 
     wxAuiDockArt* GetDockArt();
     void DoUpdate();
+    vxIcons* vxAppImgs;
     
-    ///////////////////////////////////////////////////
-    //                  IMAGES
-    ///////////////////////////////////////////////////
-
-    //Main Menu
-    wxBitmap xIMG_newFile;
-    wxBitmap xIMG_openFile;
-    wxBitmap xIMG_saveFile;
-    wxBitmap xIMG_saveAllFiles;
-    wxBitmap xIMG_Undo;
-    wxBitmap xIMG_Redo;
-    wxBitmap xIMG_Cut;
-    wxBitmap xIMG_Copy;
-    wxBitmap xIMG_Paste;
-
-    //System
-    wxBitmap xIMG_SYS_APPSETTINGS;
-    wxBitmap xIMG_SYS_VIEWHARDWARE;
-    wxBitmap xIMG_SYS_PERFORMANCE;
-    wxBitmap xIMG_SYS_NODETREE;
-    wxBitmap xIMG_SYS_CONSOLE;
-    wxBitmap xIMG_SYS_ADDINS;
 
     //global variables
     int INT_NewFileList;
@@ -187,6 +168,9 @@ private:
 
 private:
 
+    void SaveActiveFile();
+    void SaveActiveFileAs();
+    void SaveAllOpenFIles();
 
     //MENU EVENTS
 

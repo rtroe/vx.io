@@ -75,7 +75,8 @@ bin/win/Debug/wxcrafter.cpp.o: wxcrafter.cpp wxcrafter.h \
  C:/wxWidgets/include/wx/msw/statusbar.h \
  C:/wxWidgets/include/wx/tooltip.h C:/wxWidgets/include/wx/msw/tooltip.h \
  C:/wxWidgets/include/wx/msw/frame.h C:/wxWidgets/include/wx/sizer.h \
- C:/wxWidgets/include/wx/panel.h C:/wxWidgets/include/wx/msw/panel.h \
+ C:/wxWidgets/include/wx/statbox.h C:/wxWidgets/include/wx/msw/statbox.h \
+ C:/wxWidgets/include/wx/statbmp.h C:/wxWidgets/include/wx/msw/statbmp.h \
  C:/wxWidgets/include/wx/menu.h C:/wxWidgets/include/wx/menuitem.h \
  C:/wxWidgets/include/wx/msw/menuitem.h \
  C:/wxWidgets/include/wx/ownerdrw.h \
@@ -83,7 +84,22 @@ bin/win/Debug/wxcrafter.cpp.o: wxcrafter.cpp wxcrafter.h \
  C:/wxWidgets/include/wx/msw/menu.h C:/wxWidgets/include/wx/toolbar.h \
  C:/wxWidgets/include/wx/tbarbase.h C:/wxWidgets/include/wx/msw/toolbar.h \
  C:/wxWidgets/include/wx/imaglist.h \
- C:/wxWidgets/include/wx/msw/imaglist.h
+ C:/wxWidgets/include/wx/msw/imaglist.h C:/wxWidgets/include/wx/persist.h \
+ C:/wxWidgets/include/wx/confbase.h C:/wxWidgets/include/wx/base64.h \
+ C:/wxWidgets/include/wx/persist/toplevel.h \
+ C:/wxWidgets/include/wx/persist/window.h \
+ C:/wxWidgets/include/wx/display.h C:/wxWidgets/include/wx/vidmode.h \
+ C:/wxWidgets/include/wx/persist/bookctrl.h \
+ C:/wxWidgets/include/wx/bookctrl.h C:/wxWidgets/include/wx/withimages.h \
+ C:/wxWidgets/include/wx/notebook.h \
+ C:/wxWidgets/include/wx/msw/notebook.h \
+ C:/wxWidgets/include/wx/persist/treebook.h \
+ C:/wxWidgets/include/wx/treebook.h C:/wxWidgets/include/wx/treectrl.h \
+ C:/wxWidgets/include/wx/treebase.h C:/wxWidgets/include/wx/itemid.h \
+ C:/wxWidgets/include/wx/textctrl.h C:/wxWidgets/include/wx/textentry.h \
+ C:/wxWidgets/include/wx/msw/textentry.h \
+ C:/wxWidgets/include/wx/ioswrap.h C:/wxWidgets/include/wx/msw/textctrl.h \
+ C:/wxWidgets/include/wx/msw/treectrl.h
 
 wxcrafter.h:
 
@@ -365,9 +381,13 @@ C:/wxWidgets/include/wx/msw/frame.h:
 
 C:/wxWidgets/include/wx/sizer.h:
 
-C:/wxWidgets/include/wx/panel.h:
+C:/wxWidgets/include/wx/statbox.h:
 
-C:/wxWidgets/include/wx/msw/panel.h:
+C:/wxWidgets/include/wx/msw/statbox.h:
+
+C:/wxWidgets/include/wx/statbmp.h:
+
+C:/wxWidgets/include/wx/msw/statbmp.h:
 
 C:/wxWidgets/include/wx/menu.h:
 
@@ -390,3 +410,49 @@ C:/wxWidgets/include/wx/msw/toolbar.h:
 C:/wxWidgets/include/wx/imaglist.h:
 
 C:/wxWidgets/include/wx/msw/imaglist.h:
+
+C:/wxWidgets/include/wx/persist.h:
+
+C:/wxWidgets/include/wx/confbase.h:
+
+C:/wxWidgets/include/wx/base64.h:
+
+C:/wxWidgets/include/wx/persist/toplevel.h:
+
+C:/wxWidgets/include/wx/persist/window.h:
+
+C:/wxWidgets/include/wx/display.h:
+
+C:/wxWidgets/include/wx/vidmode.h:
+
+C:/wxWidgets/include/wx/persist/bookctrl.h:
+
+C:/wxWidgets/include/wx/bookctrl.h:
+
+C:/wxWidgets/include/wx/withimages.h:
+
+C:/wxWidgets/include/wx/notebook.h:
+
+C:/wxWidgets/include/wx/msw/notebook.h:
+
+C:/wxWidgets/include/wx/persist/treebook.h:
+
+C:/wxWidgets/include/wx/treebook.h:
+
+C:/wxWidgets/include/wx/treectrl.h:
+
+C:/wxWidgets/include/wx/treebase.h:
+
+C:/wxWidgets/include/wx/itemid.h:
+
+C:/wxWidgets/include/wx/textctrl.h:
+
+C:/wxWidgets/include/wx/textentry.h:
+
+C:/wxWidgets/include/wx/msw/textentry.h:
+
+C:/wxWidgets/include/wx/ioswrap.h:
+
+C:/wxWidgets/include/wx/msw/textctrl.h:
+
+C:/wxWidgets/include/wx/msw/treectrl.h:

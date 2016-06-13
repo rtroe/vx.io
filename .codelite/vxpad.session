@@ -5,45 +5,38 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\MainFrame.h" Name="FileName"/>
-      <int Value="134" Name="FirstVisibleLine"/>
-      <int Value="153" Name="CurrentLine"/>
+      <int Value="69" Name="FirstVisibleLine"/>
+      <int Value="83" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\MainFrame.cpp" Name="FileName"/>
-      <int Value="207" Name="FirstVisibleLine"/>
-      <int Value="172" Name="CurrentLine"/>
+      <int Value="215" Name="FirstVisibleLine"/>
+      <int Value="228" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks">
-        <wxString Value="1249:3"/>
+        <wxString Value="1331:3"/>
       </wxArrayString>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\textctrl.cpp" Name="FileName"/>
-      <int Value="15" Name="FirstVisibleLine"/>
-      <int Value="21" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\lexars\web.h" Name="FileName"/>
+      <int Value="62" Name="FirstVisibleLine"/>
+      <int Value="66" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\textctrl.h" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="59" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\vxTextCtrl.h" Name="FileName"/>
+      <int Value="33" Name="FirstVisibleLine"/>
+      <int Value="48" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\lexars\base.h" Name="FileName"/>
-      <int Value="53" Name="FirstVisibleLine"/>
-      <int Value="79" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\main.cpp" Name="FileName"/>
-      <int Value="9" Name="FirstVisibleLine"/>
-      <int Value="23" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\vxTextCtrl.cpp" Name="FileName"/>
+      <int Value="105" Name="FirstVisibleLine"/>
+      <int Value="94" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

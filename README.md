@@ -1,6 +1,6 @@
 # vx.io
 a small cross platform notepad program.
-![alt text][scrnsht] 
+![alt text for screenshot][scrnsht] 
 
 # Status
 | Platform | Build Status                |

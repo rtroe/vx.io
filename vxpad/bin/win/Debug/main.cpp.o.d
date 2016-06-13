@@ -160,7 +160,10 @@ bin/win/Debug/main.cpp.o: main.cpp C:/wxWidgets/include/wx/app.h \
  C:/wxWidgets/include/wx/xrc/xmlres.h C:/wxWidgets/include/wx/animate.h \
  C:/wxWidgets/include/wx/animdecod.h C:/wxWidgets/include/wx/timer.h \
  C:/wxWidgets/include/wx/generic/animate.h \
- C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/aui/aui.h \
+ C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/dir.h \
+ C:/wxWidgets/include/wx/busyinfo.h \
+ C:/wxWidgets/include/wx/generic/busyinfo.h \
+ C:/wxWidgets/include/wx/aui/aui.h \
  C:/wxWidgets/include/wx/aui/framemanager.h \
  C:/wxWidgets/include/wx/sizer.h C:/wxWidgets/include/wx/aui/dockart.h \
  C:/wxWidgets/include/wx/aui/floatpane.h \
@@ -174,7 +177,7 @@ bin/win/Debug/main.cpp.o: main.cpp C:/wxWidgets/include/wx/app.h \
  C:/wxWidgets/include/wx/msw/ole/dropsrc.h \
  C:/wxWidgets/include/wx/msw/ole/droptgt.h \
  C:/wxWidgets/include/wx/textfile.h C:/wxWidgets/include/wx/textbuf.h \
- C:/wxWidgets/include/wx/convauto.h gui/Icon.h
+ C:/wxWidgets/include/wx/convauto.h include/gui/Icon.h
 
 C:/wxWidgets/include/wx/app.h:
 
@@ -702,6 +705,12 @@ C:/wxWidgets/include/wx/generic/animate.h:
 
 C:/wxWidgets/include/wx/xml/xml.h:
 
+C:/wxWidgets/include/wx/dir.h:
+
+C:/wxWidgets/include/wx/busyinfo.h:
+
+C:/wxWidgets/include/wx/generic/busyinfo.h:
+
 C:/wxWidgets/include/wx/aui/aui.h:
 
 C:/wxWidgets/include/wx/aui/framemanager.h:
@@ -740,4 +749,4 @@ C:/wxWidgets/include/wx/textbuf.h:
 
 C:/wxWidgets/include/wx/convauto.h:
 
-gui/Icon.h:
+include/gui/Icon.h:

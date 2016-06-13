@@ -9,22 +9,6 @@
 // Licence:     wxWindows Library Licence, Version 3.1
 ///////////////////////////////////////////////////////////////////////////////
 
-/*
-bool MyApp::OnInit()
-{
-    if ( !wxApp::OnInit() )
-        return false;
-
-    wxFrame* frame = new MainFrame(NULL,
-                                 wxID_ANY,
-                                 wxT("wxAUI Sample Application"),
-                                 wxDefaultPosition,
-                                 wxSize(800, 600));
-    frame->Show();
-
-    return true;
-}
- * */
  #include "MainFrame.h"
  #include "include/gui/vxAUIToolbarArt.h"
  #include "include/gui/vxAUITabArt.h"
@@ -186,7 +170,7 @@ MainFrame::MainFrame(wxWindow* parent,
     // set frame icon
     LoadAllImages();
 
-
+    VXIO_VERSION = "v 0.3.1.1";
     
     
     // set up default notebook style
@@ -438,8 +422,9 @@ MainFrame::MainFrame(wxWindow* parent,
         m_mgr.GetPane(panes.Item(i).name).PaneBorder(false);
     }
 
+    this->DragAcceptFiles(true);
 
-
+    this->Connect(wxEVT_DROP_FILES, wxDropFilesEventHandler(MainFrame::OnDropFiles), NULL, this);
 
     // "commit" all changes made to wxAuiManager
     m_mgr.Update();
@@ -452,7 +437,34 @@ MainFrame::~MainFrame()
     m_mgr.UnInit();
 }
 
+    void MainFrame::OnDropFiles(wxDropFilesEvent& event)    
+    {
+        if (event.GetNumberOfFiles() > 0) {
 
+            wxString* dropped = event.GetFiles();
+            wxASSERT(dropped);
+
+            wxBusyCursor busyCursor;
+            wxWindowDisabler disabler;      
+            wxBusyInfo busyInfo(_("Opening files, Please wait..."));
+
+            wxString name;
+            wxArrayString files;
+
+            for (int i = 0; i < event.GetNumberOfFiles(); i++) {
+                name = dropped[i];
+                if (wxFileExists(name))
+                    files.push_back(name);
+                else if (wxDirExists(name))
+                    wxDir::GetAllFiles(name, &files);                                    
+            }
+
+            for (size_t i = 0; i < files.size(); i++) {
+               m_ntbk->AddPage(CreateStyleTextCtrl(files[i]), files[i], true,vxAppImgs->FileTypeScript);
+                std::cout<<files[i]<<std::endl;
+            }
+        }
+    }
 
 void MainFrame::OnChangeContentPane(wxCommandEvent& evt)
 {
@@ -810,6 +822,8 @@ void MainFrame::SetToolbarStatus()
 
         m_ntbk->SetPageText(m_ntbk->GetSelection(), title);
     }
+    
+        SetTitle(_("vx.io - ")+VXIO_VERSION+_(" - [") + GetActiveDocument()->FileName+_("]"));
 }
 
 void MainFrame::OnCreateTree(wxCommandEvent& WXUNUSED(event))

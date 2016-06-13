@@ -160,7 +160,10 @@ bin/win/Debug/MainFrame.cpp.o: MainFrame.cpp MainFrame.h \
  C:/wxWidgets/include/wx/xrc/xmlres.h C:/wxWidgets/include/wx/animate.h \
  C:/wxWidgets/include/wx/animdecod.h C:/wxWidgets/include/wx/timer.h \
  C:/wxWidgets/include/wx/generic/animate.h \
- C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/aui/aui.h \
+ C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/dir.h \
+ C:/wxWidgets/include/wx/busyinfo.h \
+ C:/wxWidgets/include/wx/generic/busyinfo.h \
+ C:/wxWidgets/include/wx/aui/aui.h \
  C:/wxWidgets/include/wx/aui/framemanager.h \
  C:/wxWidgets/include/wx/sizer.h C:/wxWidgets/include/wx/aui/dockart.h \
  C:/wxWidgets/include/wx/aui/floatpane.h \
@@ -729,6 +732,12 @@ C:/wxWidgets/include/wx/timer.h:
 C:/wxWidgets/include/wx/generic/animate.h:
 
 C:/wxWidgets/include/wx/xml/xml.h:
+
+C:/wxWidgets/include/wx/dir.h:
+
+C:/wxWidgets/include/wx/busyinfo.h:
+
+C:/wxWidgets/include/wx/generic/busyinfo.h:
 
 C:/wxWidgets/include/wx/aui/aui.h:
 

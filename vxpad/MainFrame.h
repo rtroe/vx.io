@@ -27,6 +27,9 @@
 #include "wx/textdlg.h"
 #include <wx/filedlg.h>
 #include <wx/xrc/xh_bmp.h>
+#include <wx/arrstr.h>
+#include <wx/dir.h>
+#include <wx/busyinfo.h>
 
 #include "wx/aui/aui.h"
 //#include "../sample.xpm"
@@ -151,7 +154,8 @@ public:
     void DoUpdate();
     vxIcons* vxAppImgs;
     
-
+    wxString VXIO_VERSION;
+    void OnDropFiles(wxDropFilesEvent& event);
     //global variables
     int INT_NewFileList;
     

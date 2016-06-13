@@ -28,7 +28,7 @@ public:
 
         MainFrame *mainFrame = new MainFrame(NULL,
                                  wxID_ANY,
-                                 wxT("wxAUI Sample Application"),
+                                 wxT("vx.io"),
                                  wxDefaultPosition,
                                  wxSize(800, 600));
                                  

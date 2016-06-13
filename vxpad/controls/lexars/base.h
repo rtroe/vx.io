@@ -1,9 +1,9 @@
-void TextCtrl::SetLexarBase(wxStyledTextCtrl* text)
+void vxTextCtrl::SetLexarBase(wxStyledTextCtrl* text)
 {
 StyleClearAll();
     //wxFont m_codeFont(9, wxFONTFAMILY_ROMAN  , wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     wxFont m_codeFont(8, wxFONTFAMILY_DEFAULT,
-         wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, "Tahoma");
+         wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, "Calibri");
     {
         int Nr;
         for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++)

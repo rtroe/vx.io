@@ -32,11 +32,11 @@
       <File Name="controls/lexars/cpp.h"/>
       <File Name="controls/lexars/hlsl.h"/>
       <File Name="controls/lexars/html.h"/>
-      <File Name="controls/lexars/nastran.h"/>
       <File Name="controls/lexars/python.h"/>
+      <File Name="controls/lexars/web.h"/>
     </VirtualDirectory>
-    <File Name="controls/textctrl.cpp"/>
-    <File Name="controls/textctrl.h"/>
+    <File Name="controls/vxTextCtrl.cpp"/>
+    <File Name="controls/vxTextCtrl.h"/>
   </VirtualDirectory>
   <Description/>
   <Dependencies/>

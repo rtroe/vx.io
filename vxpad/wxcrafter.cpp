@@ -26,105 +26,158 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     wxBoxSizer* boxSizer1 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(boxSizer1);
     
-    wxStaticBoxSizer* staticBoxSizer49 = new wxStaticBoxSizer( new wxStaticBox(this, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    m_notebook81 = new wxNotebook(this, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxBK_DEFAULT);
+    m_notebook81->SetName(wxT("m_notebook81"));
     
-    boxSizer1->Add(staticBoxSizer49, 1, wxALL|wxEXPAND, 5);
+    boxSizer1->Add(m_notebook81, 0, wxALL, 5);
     
-    m_staticBitmap51 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_ext_script")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_panel83 = new wxPanel(m_notebook81, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_notebook81->AddPage(m_panel83, _("Main"), false);
+    
+    wxBoxSizer* boxSizer89 = new wxBoxSizer(wxVERTICAL);
+    m_panel83->SetSizer(boxSizer89);
+    
+    wxStaticBoxSizer* staticBoxSizer49 = new wxStaticBoxSizer( new wxStaticBox(m_panel83, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    
+    boxSizer89->Add(staticBoxSizer49, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticBitmap51 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_ext_script")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer49->Add(m_staticBitmap51, 0, wxALL, 5);
     
-    m_staticBitmap53 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_c (copy)")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap53 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer49->Add(m_staticBitmap53, 0, wxALL, 5);
     
-    m_staticBitmap55 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_code (copy)")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap55 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_c")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer49->Add(m_staticBitmap55, 0, wxALL, 5);
     
-    m_staticBitmap57 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_cplusplus (copy)")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap57 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_code")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer49->Add(m_staticBitmap57, 0, wxALL, 5);
     
-    m_staticBitmap59 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_csharp (copy)")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap59 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_cplusplus")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer49->Add(m_staticBitmap59, 0, wxALL, 5);
     
-    m_staticBitmap61 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_h (copy)")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap61 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_csharp")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer49->Add(m_staticBitmap61, 0, wxALL, 5);
     
-    wxStaticBoxSizer* staticBoxSizer11 = new wxStaticBoxSizer( new wxStaticBox(this, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    m_staticBitmap63 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_database")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
-    boxSizer1->Add(staticBoxSizer11, 1, wxALL|wxEXPAND, 5);
+    staticBoxSizer49->Add(m_staticBitmap63, 0, wxALL, 5);
     
-    m_staticBitmap13 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_new_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap65 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_h")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer49->Add(m_staticBitmap65, 0, wxALL, 5);
+    
+    m_staticBitmap67 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_php")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer49->Add(m_staticBitmap67, 0, wxALL, 5);
+    
+    m_staticBitmap69 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_ruby")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer49->Add(m_staticBitmap69, 0, wxALL, 5);
+    
+    m_staticBitmap71 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_white_visualstudio")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer49->Add(m_staticBitmap71, 0, wxALL, 5);
+    
+    wxStaticBoxSizer* staticBoxSizer11 = new wxStaticBoxSizer( new wxStaticBox(m_panel83, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    
+    boxSizer89->Add(staticBoxSizer11, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticBitmap13 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_new_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap13, 0, wxALL, 5);
     
-    m_staticBitmap15 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_open_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap15 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_open_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap15, 0, wxALL, 5);
     
-    m_staticBitmap17 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_save_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap17 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_save_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap17, 0, wxALL, 5);
     
-    m_staticBitmap19 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_saveas_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap19 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_saveas_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap19, 0, wxALL, 5);
     
-    m_staticBitmap21 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_saveall_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap21 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("file_saveall_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap21, 0, wxALL, 5);
     
-    m_staticBitmap23 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("undo_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap23 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("undo_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap23, 0, wxALL, 5);
     
-    m_staticBitmap25 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("redo_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap25 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("redo_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap25, 0, wxALL, 5);
     
-    m_staticBitmap27 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("cut16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap27 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("cut16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap27, 0, wxALL, 5);
     
-    m_staticBitmap29 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("copy_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap29 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("copy_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap29, 0, wxALL, 5);
     
-    m_staticBitmap31 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("paste_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap31 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("paste_16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer11->Add(m_staticBitmap31, 0, wxALL, 5);
     
-    wxStaticBoxSizer* staticBoxSizer35 = new wxStaticBoxSizer( new wxStaticBox(this, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    wxStaticBoxSizer* staticBoxSizer35 = new wxStaticBoxSizer( new wxStaticBox(m_panel83, wxID_ANY, _("My Label")), wxHORIZONTAL);
     
-    boxSizer1->Add(staticBoxSizer35, 1, wxALL|wxEXPAND, 5);
+    boxSizer89->Add(staticBoxSizer35, 1, wxALL|wxEXPAND, 5);
     
-    m_staticBitmap37 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("AppSettings16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap37 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("AppSettings16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer35->Add(m_staticBitmap37, 0, wxALL, 5);
     
-    m_staticBitmap39 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("Addin16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap39 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("Addin16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer35->Add(m_staticBitmap39, 0, wxALL, 5);
     
-    m_staticBitmap41 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("projectTree16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap41 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("projectTree16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer35->Add(m_staticBitmap41, 0, wxALL, 5);
     
-    m_staticBitmap43 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("prop16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap43 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("prop16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer35->Add(m_staticBitmap43, 0, wxALL, 5);
     
-    m_staticBitmap45 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("SysHrdwr16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap45 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("SysHrdwr16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer35->Add(m_staticBitmap45, 0, wxALL, 5);
     
-    m_staticBitmap47 = new wxStaticBitmap(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("console16")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    m_staticBitmap47 = new wxStaticBitmap(m_panel83, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("console16")), wxDefaultPosition, wxSize(-1,-1), 0 );
     
     staticBoxSizer35->Add(m_staticBitmap47, 0, wxALL, 5);
+    
+    m_panel85 = new wxPanel(m_notebook81, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_notebook81->AddPage(m_panel85, _("Modify Text"), false);
+    
+    wxBoxSizer* boxSizer91 = new wxBoxSizer(wxVERTICAL);
+    m_panel85->SetSizer(boxSizer91);
+    
+    wxStaticBoxSizer* staticBoxSizer73 = new wxStaticBoxSizer( new wxStaticBox(m_panel85, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    
+    boxSizer91->Add(staticBoxSizer73, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticBitmap75 = new wxStaticBitmap(m_panel85, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("text_allcaps")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer73->Add(m_staticBitmap75, 0, wxALL, 5);
+    
+    m_staticBitmap77 = new wxStaticBitmap(m_panel85, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("text_smallcaps")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer73->Add(m_staticBitmap77, 0, wxALL, 5);
+    
+    m_staticBitmap79 = new wxStaticBitmap(m_panel85, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("tgle_endln")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer73->Add(m_staticBitmap79, 0, wxALL, 5);
     
     m_menuBar = new wxMenuBar(0);
     this->SetMenuBar(m_menuBar);
@@ -144,8 +197,17 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_mainToolbar = this->CreateToolBar(wxTB_FLAT, wxID_ANY);
     m_mainToolbar->SetToolBitmapSize(wxSize(16,16));
     
+    
+    #if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(m_notebook81)){
+        wxPersistenceManager::Get().RegisterAndRestore(m_notebook81);
+    } else {
+        wxPersistenceManager::Get().Restore(m_notebook81);
+    }
+    #endif
+    
     SetName(wxT("MainFrameBaseClass"));
-    SetSizeHints(500,300);
+    SetSizeHints(500,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }

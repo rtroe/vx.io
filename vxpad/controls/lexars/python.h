@@ -1,4 +1,4 @@
-void TextCtrl::SetLexarAsPython(wxStyledTextCtrl* text)
+void vxTextCtrl::SetLexarAsPython(wxStyledTextCtrl* text)
 {
 
     SetLexarBase(text);

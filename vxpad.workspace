@@ -2,10 +2,10 @@
 <CodeLite_Workspace Name="xpad" Database="">
   <Project Name="vxpad" Path="vxpad/vxpad.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug" Selected="no">
       <Project Name="vxpad" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="no">
+    <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="vxpad" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>

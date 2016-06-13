@@ -160,7 +160,10 @@ bin/win/Release/main.cpp.o: main.cpp C:/wxWidgets/include/wx/app.h \
  C:/wxWidgets/include/wx/xrc/xmlres.h C:/wxWidgets/include/wx/animate.h \
  C:/wxWidgets/include/wx/animdecod.h C:/wxWidgets/include/wx/timer.h \
  C:/wxWidgets/include/wx/generic/animate.h \
- C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/aui/aui.h \
+ C:/wxWidgets/include/wx/xml/xml.h C:/wxWidgets/include/wx/dir.h \
+ C:/wxWidgets/include/wx/busyinfo.h \
+ C:/wxWidgets/include/wx/generic/busyinfo.h \
+ C:/wxWidgets/include/wx/aboutdlg.h C:/wxWidgets/include/wx/aui/aui.h \
  C:/wxWidgets/include/wx/aui/framemanager.h \
  C:/wxWidgets/include/wx/sizer.h C:/wxWidgets/include/wx/aui/dockart.h \
  C:/wxWidgets/include/wx/aui/floatpane.h \
@@ -169,7 +172,7 @@ bin/win/Release/main.cpp.o: main.cpp C:/wxWidgets/include/wx/app.h \
  C:/wxWidgets/include/wx/aui/auibar.h \
  C:/wxWidgets/include/wx/aui/auibook.h \
  C:/wxWidgets/include/wx/aui/tabart.h \
- C:/wxWidgets/include/wx/aui/tabmdi.h controls/textctrl.h \
+ C:/wxWidgets/include/wx/aui/tabmdi.h controls/vxTextCtrl.h \
  C:/wxWidgets/include/wx/stc/stc.h C:/wxWidgets/include/wx/dnd.h \
  C:/wxWidgets/include/wx/msw/ole/dropsrc.h \
  C:/wxWidgets/include/wx/msw/ole/droptgt.h \
@@ -702,6 +705,14 @@ C:/wxWidgets/include/wx/generic/animate.h:
 
 C:/wxWidgets/include/wx/xml/xml.h:
 
+C:/wxWidgets/include/wx/dir.h:
+
+C:/wxWidgets/include/wx/busyinfo.h:
+
+C:/wxWidgets/include/wx/generic/busyinfo.h:
+
+C:/wxWidgets/include/wx/aboutdlg.h:
+
 C:/wxWidgets/include/wx/aui/aui.h:
 
 C:/wxWidgets/include/wx/aui/framemanager.h:
@@ -724,7 +735,7 @@ C:/wxWidgets/include/wx/aui/tabart.h:
 
 C:/wxWidgets/include/wx/aui/tabmdi.h:
 
-controls/textctrl.h:
+controls/vxTextCtrl.h:
 
 C:/wxWidgets/include/wx/stc/stc.h:
 

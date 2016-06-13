@@ -14,6 +14,9 @@
 #include <wx/iconbndl.h>
 #include <wx/artprov.h>
 #include <wx/sizer.h>
+#include <wx/notebook.h>
+#include <wx/panel.h>
+#include <wx/imaglist.h>
 #include <wx/statbox.h>
 #include <wx/statbmp.h>
 #include <wx/menu.h>
@@ -28,12 +31,19 @@
 class MainFrameBaseClass : public wxFrame
 {
 protected:
+    wxNotebook* m_notebook81;
+    wxPanel* m_panel83;
     wxStaticBitmap* m_staticBitmap51;
     wxStaticBitmap* m_staticBitmap53;
     wxStaticBitmap* m_staticBitmap55;
     wxStaticBitmap* m_staticBitmap57;
     wxStaticBitmap* m_staticBitmap59;
     wxStaticBitmap* m_staticBitmap61;
+    wxStaticBitmap* m_staticBitmap63;
+    wxStaticBitmap* m_staticBitmap65;
+    wxStaticBitmap* m_staticBitmap67;
+    wxStaticBitmap* m_staticBitmap69;
+    wxStaticBitmap* m_staticBitmap71;
     wxStaticBitmap* m_staticBitmap13;
     wxStaticBitmap* m_staticBitmap15;
     wxStaticBitmap* m_staticBitmap17;
@@ -50,6 +60,10 @@ protected:
     wxStaticBitmap* m_staticBitmap43;
     wxStaticBitmap* m_staticBitmap45;
     wxStaticBitmap* m_staticBitmap47;
+    wxPanel* m_panel85;
+    wxStaticBitmap* m_staticBitmap75;
+    wxStaticBitmap* m_staticBitmap77;
+    wxStaticBitmap* m_staticBitmap79;
     wxMenuBar* m_menuBar;
     wxMenu* m_name6;
     wxMenuItem* m_menuItem7;
@@ -68,6 +82,11 @@ public:
     wxStaticBitmap* GetStaticBitmap57() { return m_staticBitmap57; }
     wxStaticBitmap* GetStaticBitmap59() { return m_staticBitmap59; }
     wxStaticBitmap* GetStaticBitmap61() { return m_staticBitmap61; }
+    wxStaticBitmap* GetStaticBitmap63() { return m_staticBitmap63; }
+    wxStaticBitmap* GetStaticBitmap65() { return m_staticBitmap65; }
+    wxStaticBitmap* GetStaticBitmap67() { return m_staticBitmap67; }
+    wxStaticBitmap* GetStaticBitmap69() { return m_staticBitmap69; }
+    wxStaticBitmap* GetStaticBitmap71() { return m_staticBitmap71; }
     wxStaticBitmap* GetStaticBitmap13() { return m_staticBitmap13; }
     wxStaticBitmap* GetStaticBitmap15() { return m_staticBitmap15; }
     wxStaticBitmap* GetStaticBitmap17() { return m_staticBitmap17; }
@@ -84,9 +103,15 @@ public:
     wxStaticBitmap* GetStaticBitmap43() { return m_staticBitmap43; }
     wxStaticBitmap* GetStaticBitmap45() { return m_staticBitmap45; }
     wxStaticBitmap* GetStaticBitmap47() { return m_staticBitmap47; }
+    wxPanel* GetPanel83() { return m_panel83; }
+    wxStaticBitmap* GetStaticBitmap75() { return m_staticBitmap75; }
+    wxStaticBitmap* GetStaticBitmap77() { return m_staticBitmap77; }
+    wxStaticBitmap* GetStaticBitmap79() { return m_staticBitmap79; }
+    wxPanel* GetPanel85() { return m_panel85; }
+    wxNotebook* GetNotebook81() { return m_notebook81; }
     wxMenuBar* GetMenuBar() { return m_menuBar; }
     wxToolBar* GetMainToolbar() { return m_mainToolbar; }
-    MainFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("My Frame"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(500,300), long style = wxCAPTION|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCLOSE_BOX);
+    MainFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("My Frame"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(500,400), long style = wxCAPTION|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCLOSE_BOX);
     virtual ~MainFrameBaseClass();
 };
 

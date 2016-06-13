@@ -13,7 +13,7 @@ public:
     virtual bool OnInit() {
         
         
-    bool SHOW_DEBUG_CONSOLE = true;
+    bool SHOW_DEBUG_CONSOLE = false;
     if(SHOW_DEBUG_CONSOLE)
     {
         AllocConsole() ;

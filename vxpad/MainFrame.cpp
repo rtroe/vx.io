@@ -33,9 +33,15 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 
 
     // -- lexars --
+    EVT_MENU(MainFrame::ID_C, MainFrame::OnLexarUpdate)
     EVT_MENU(MainFrame::ID_CPP, MainFrame::OnLexarUpdate)
+    EVT_MENU(MainFrame::ID_CS, MainFrame::OnLexarUpdate)
+    EVT_MENU(MainFrame::ID_CSS, MainFrame::OnLexarUpdate)
     EVT_MENU(MainFrame::ID_HTML, MainFrame::OnLexarUpdate)
+    EVT_MENU(MainFrame::ID_HLSL, MainFrame::OnLexarUpdate)
+    EVT_MENU(MainFrame::ID_JS, MainFrame::OnLexarUpdate)
     EVT_MENU(MainFrame::ID_PY, MainFrame::OnLexarUpdate)
+    EVT_MENU(MainFrame::ID_PHP, MainFrame::OnLexarUpdate)
     EVT_MENU(MainFrame::ID_TXT, MainFrame::OnLexarUpdate)
 
     // -- view --
@@ -170,7 +176,7 @@ MainFrame::MainFrame(wxWindow* parent,
     // set frame icon
     LoadAllImages();
 
-    VXIO_VERSION = "v 0.3.1.1";
+    VXIO_VERSION = "v 0.3.1.3";
     
     
     // set up default notebook style
@@ -214,11 +220,16 @@ MainFrame::MainFrame(wxWindow* parent,
 
     // -- lexars --
     wxMenu* menu_lexar = new wxMenu;
-    menu_lexar->AppendRadioItem(ID_TXT, _("Text(*.txt)"));
+    menu_lexar->AppendRadioItem(ID_C, _("C Source File(*.c)"));
     menu_lexar->AppendRadioItem(ID_CPP, _("C++ Source File(*.cpp, *.h)"));
+    menu_lexar->AppendRadioItem(ID_CS, _("C# Source File(*.cs)"));
+    menu_lexar->AppendRadioItem(ID_CSS, _("CSS Source File(*.css)"));
     menu_lexar->AppendRadioItem(ID_HLSL, _("HLSL - High Level Shader Language(*.fx)"));
     menu_lexar->AppendRadioItem(ID_HTML, _("HTML(*.html,*.htm)"));
+    menu_lexar->AppendRadioItem(ID_JS, _("Java Script File(*.js)"));
+    menu_lexar->AppendRadioItem(ID_PHP, _("PHP Script(*.php)"));
     menu_lexar->AppendRadioItem(ID_PY, _("Python Script(*.py, *.pyw)"));
+    menu_lexar->AppendRadioItem(ID_TXT, _("Text(*.txt)"));
 
     // convert EOL submenu
     wxMenu *menuConvertEOL = new wxMenu;
@@ -233,9 +244,10 @@ MainFrame::MainFrame(wxWindow* parent,
 
     // -- view --
     wxMenu* view_menu = new wxMenu;
-
+/*
     view_menu->Append(wxID_ANY,_("&Hilight language .."), menu_lexar);
     view_menu->AppendSeparator();
+    */
     view_menu->Append(ID_DISPLAYEOL,_("&Toggle EOL"));
     view_menu->Append(wxID_ANY,_("Convert line &endings to .."), menuConvertEOL);
     view_menu->AppendSeparator();
@@ -313,6 +325,7 @@ MainFrame::MainFrame(wxWindow* parent,
     mb->Append(file_menu, _("&File"));
     mb->Append(menu_edit, _("&Edit"));
     mb->Append(view_menu, _("&View"));
+    mb->Append(menu_lexar, _("&Language"));
     mb->Append(menu_setting, _("&Settings"));
     mb->Append(help_menu, _("&Help"));
 
@@ -363,6 +376,27 @@ MainFrame::MainFrame(wxWindow* parent,
     
     //tb_mainmenu->EnableTool(ID_SampleItem+6, false);
     tb_mainmenu->Realize();
+    
+    
+    
+    
+    
+    
+   wxAuiToolBar* tb_textmodify = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize,
+                                         wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+    tb_textmodify->SetArtProvider(new vxAuiToolbarArt());
+    tb_textmodify->SetToolBitmapSize(wxSize(16,16));
+
+    tb_textmodify->AddTool(myID_CHANGEUPPER, wxT("Change to Upper"), vxAppImgs->ToUpperCase);
+    tb_textmodify->AddTool(myID_CHANGELOWER, wxT("Change to Lower"),  vxAppImgs->ToLowerCase);
+    tb_textmodify->AddSeparator();
+    tb_textmodify->AddTool(ID_DISPLAYEOL, wxT("Toggle Endline View"),  vxAppImgs->ToggleEndline);
+    
+    tb_textmodify->SetCustomOverflowItems(prepend_items, append_items);
+    
+    //tb_mainmenu->EnableTool(ID_SampleItem+6, false);
+    tb_textmodify->Realize();
+
 
 
 
@@ -372,6 +406,10 @@ MainFrame::MainFrame(wxWindow* parent,
 
     m_mgr.AddPane(tb_mainmenu, wxAuiPaneInfo().
                   Name(wxT("tb_mainmenu")).Caption(wxT("Main Menu")).
+                  ToolbarPane().Top().Row(1));
+                  
+    m_mgr.AddPane(tb_textmodify, wxAuiPaneInfo().
+                  Name(wxT("tb_textmodify")).Caption(wxT("Text Modify")).
                   ToolbarPane().Top().Row(1));
 
     // make some default perspectives
@@ -430,6 +468,19 @@ MainFrame::MainFrame(wxWindow* parent,
     m_mgr.Update();
 
     SetToolbarStatus();
+    
+    
+    fileFilter = _("Any File (*.*)|*.*");
+
+    fileFilter += _("|C File (*.c)|*.c");
+    fileFilter += _("|C++ File (*.cpp;*.h)|*.cpp;*.h");
+    fileFilter += _("|C# File (*.cs)|*.cs");
+    fileFilter += _("|HLSL File (*.fx)|*.fx");
+    fileFilter += _("|HTML File (*.html;*.htm)|*.html;*.htm");
+    fileFilter += _("|Python Script (*.py;*.pyw)|*.py;*.pyw");
+    fileFilter += _("|Text File (*.txt)|*.txt");
+    fileFilter += _("");
+    fileFilter += _("");
 }
 
 MainFrame::~MainFrame()
@@ -468,20 +519,14 @@ MainFrame::~MainFrame()
 
 void MainFrame::OnChangeContentPane(wxCommandEvent& evt)
 {
-    /*
-    m_mgr.GetPane(wxT("grid_content")).Show(evt.GetId() == ID_GridContent);
-    m_mgr.GetPane(wxT("text_content")).Show(evt.GetId() == ID_TextContent);
-    m_mgr.GetPane(wxT("tree_content")).Show(evt.GetId() == ID_TreeContent);
-    m_mgr.GetPane(wxT("sizereport_content")).Show(evt.GetId() == ID_SizeReportContent);
-    m_mgr.GetPane(wxT("html_content")).Show(evt.GetId() == ID_HTMLContent);*/
     m_mgr.GetPane(wxT("notebook_content")).Show(evt.GetId() == ID_NotebookContent);
     SetToolbarStatus();
     m_mgr.Update();
 }
 
-TextCtrl* MainFrame::CreateStyleTextCtrl(wxString FilePath)
+vxTextCtrl* MainFrame::CreateStyleTextCtrl(wxString FilePath)
 {
-    TextCtrl* text = new TextCtrl(this, FilePath);
+    vxTextCtrl* text = new vxTextCtrl(this, FilePath);
     return text;
 }
 
@@ -600,19 +645,9 @@ void MainFrame::New(wxCommandEvent& WXUNUSED(event))
 
 void MainFrame::Open(wxCommandEvent& WXUNUSED(event))
 {
-    wxString filter = _("Any File (*.*)|*.*");
-
-    filter += _("|C++ File (*.cpp;*.h)|*.cpp;*.h");
-    filter += _("|HLSL File (*.fx)|*.fx");
-    filter += _("|HTML File (*.html;*.htm)|*.html;*.htm");
-    filter += _("|Python Script (*.py;*.pyw)|*.py;*.pyw");
-    filter += _("|Text File (*.txt)|*.txt");
-    filter += _("");
-    filter += _("");
-
     wxFileDialog* OpenDialog = new wxFileDialog(
         this, _("Choose a file to open"), wxEmptyString, wxEmptyString,
-        filter,
+        fileFilter,
         wxFD_OPEN, wxDefaultPosition);
 
     // Creates a "open file" dialog with 4 file types
@@ -640,10 +675,9 @@ void MainFrame::SaveActiveFile()
 void MainFrame::SaveActiveFileAs()
 {
     wxFileDialog *SaveDialog = new wxFileDialog(
-		this, _("Save File As..."), wxEmptyString, wxEmptyString,
-		_("Text files (*.txt)|*.txt|C++ Source Files (*.cpp)|*.cpp|C Source files (*.c)|*.c|C header files (*.h)|*.h|XNA HLSL (*.fx)|*.fx"),
+		this, _("Save File As..."), wxEmptyString, wxEmptyString, fileFilter,
 		wxFD_SAVE | wxFD_OVERWRITE_PROMPT, wxDefaultPosition);
-
+        
 		// Creates a Save Dialog with 4 file types
 	if (SaveDialog->ShowModal() == wxID_OK) // If the user clicked "OK"
 	{
@@ -674,11 +708,19 @@ void MainFrame::SaveAs(wxCommandEvent& WXUNUSED(event))
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {
+        //wxUnusedVar(event);
+    wxAboutDialogInfo info;
+    info.SetCopyright(_("My MainFrame"));
+    info.SetLicence(_("GPL v2 or later"));
+    info.SetDescription(_("Short description goes here"));
+    ::wxAboutBox(info);
+    
+    /*
     m_mgr.AddPane(CreateHTMLCtrl(), wxAuiPaneInfo().
                   Caption(wxT("About")).
                   Right().Layer(1).Position(1).
                   CloseButton(true));
-    m_mgr.Update();
+    m_mgr.Update();*/
 }
 
 
@@ -725,13 +767,13 @@ void MainFrame::Paste(wxCommandEvent& WXUNUSED(event))
 //
 //Returns the Active Document
 //
-TextCtrl* MainFrame::GetActiveDocument()
+vxTextCtrl* MainFrame::GetActiveDocument()
 {
     if(m_ntbk->GetPageCount()>0)
     {
-        if (m_ntbk->GetPage(m_ntbk->GetSelection())->IsKindOf(CLASSINFO(TextCtrl)))
+        if (m_ntbk->GetPage(m_ntbk->GetSelection())->IsKindOf(CLASSINFO(vxTextCtrl)))
         {
-            return  (TextCtrl*)(m_ntbk->GetPage(m_ntbk->GetSelection()));
+            return  (vxTextCtrl*)(m_ntbk->GetPage(m_ntbk->GetSelection()));
         }
         else
             wxMessageBox(wxT("Error Finding Active Document"));
@@ -1103,20 +1145,32 @@ void MainFrame::OnLexarUpdate(wxCommandEvent& event)
 
     switch (event.GetId())
     {
+    case ID_C:
+            GetActiveDocument()->SetLexarAsC(GetActiveDocument());
+        break;
     case ID_CPP:
             GetActiveDocument()->SetLexarAsCPP(GetActiveDocument());
         break;
+    case ID_CS:
+            GetActiveDocument()->SetLexarAsCS(GetActiveDocument());
+        break;
+    case ID_CSS:
+            GetActiveDocument()->SetLexarAsCSS(GetActiveDocument());
+        break;        
     case ID_HLSL:
             GetActiveDocument()->SetLexarAsHLSL(GetActiveDocument());
         break;
     case ID_HTML:
             GetActiveDocument()->SetLexarAsHTML(GetActiveDocument());
         break;
-    case ID_FEM_NASTRAN:
-            GetActiveDocument()->SetLexarAsNASTRAN(GetActiveDocument());
-        break;
+    case ID_JS:
+            GetActiveDocument()->SetLexarAsJS(GetActiveDocument());
+        break;        
     case ID_PY:
             GetActiveDocument()->SetLexarAsPython(GetActiveDocument());
+        break;
+    case ID_PHP:
+            GetActiveDocument()->SetLexarAsPHP(GetActiveDocument());
         break;
     }
 }

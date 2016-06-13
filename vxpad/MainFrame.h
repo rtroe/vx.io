@@ -30,11 +30,12 @@
 #include <wx/arrstr.h>
 #include <wx/dir.h>
 #include <wx/busyinfo.h>
+#include <wx/aboutdlg.h>
 
 #include "wx/aui/aui.h"
 //#include "../sample.xpm"
 
-#include "controls/textctrl.h"
+#include "controls/vxTextCtrl.h"
 #include "include/gui/Icon.h"
 
 
@@ -72,11 +73,15 @@ class MainFrame : public wxFrame
         ID_Redo,
 
         // -- lexars --
+        ID_C,
         ID_CPP,
+        ID_CS,
+        ID_CSS,
         ID_HLSL,
         ID_HTML,
-        ID_FEM_NASTRAN,
+        ID_JS,
         ID_PY,
+        ID_PHP,
         ID_TXT,
 
         // -- View --
@@ -160,10 +165,10 @@ public:
     int INT_NewFileList;
     
 private:
-    TextCtrl* CreateTextCtrl(const wxString& text = wxEmptyString);
+    vxTextCtrl* CreateTextCtrl(const wxString& text = wxEmptyString);
     wxGrid* CreateGrid();
     wxTreeCtrl* CreateTreeCtrl();
-    TextCtrl* CreateStyleTextCtrl(wxString FileName);
+    vxTextCtrl* CreateStyleTextCtrl(wxString FileName);
     wxPoint GetStartPosition();
     wxHtmlWindow* CreateHTMLCtrl(wxWindow* parent = NULL);
     wxAuiNotebook* CreateNotebook();
@@ -241,15 +246,18 @@ private:
     void OnPaneClose(wxAuiManagerEvent& evt);
 
     //lexars
+    /*
+    void SetLexarAsC(wxStyledTextCtrl* text);
     void SetLexarAsCPP(wxStyledTextCtrl* text);
+    void SetLexarAsCS(wxStyledTextCtrl* text);
     void SetLexarAsHLSL(wxStyledTextCtrl* text);
     void SetLexarAsHTML(wxStyledTextCtrl* text);
     void SetLexarAsNASTRAN(wxStyledTextCtrl* text);
     void SetLexarAsPython(wxStyledTextCtrl* text);
-
+*/
 
     //get pane
-    TextCtrl* GetActiveDocument();
+    vxTextCtrl* GetActiveDocument();
 
 private:
 
@@ -259,7 +267,9 @@ private:
     wxMenu* m_perspectives_menu;
     long m_notebook_style;
     long m_notebook_theme;
-
+    
+    wxString fileFilter;
+    
     // -- toolbars --
     wxAuiToolBar* tb_mainmenu;
 

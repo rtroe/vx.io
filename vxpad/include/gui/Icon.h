@@ -33,6 +33,9 @@ public:
     wxBitmap Console16;
     wxBitmap ManageAddins16;
     
+    wxBitmap ToUpperCase, ToLowerCase;
+    wxBitmap ToggleEndline;
+    
     
     vxIcons();
     virtual ~vxIcons();

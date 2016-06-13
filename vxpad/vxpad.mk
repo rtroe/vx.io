@@ -2,12 +2,12 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Release
 ProjectName            :=vxpad
-ConfigurationName      :=Debug
+ConfigurationName      :=Release
 WorkspacePath          := "C:\Users\Robert\Documents\GitHub\vx.io"
 ProjectPath            := "C:\Users\Robert\Documents\GitHub\vx.io\vxpad"
-IntermediateDirectory  :=./bin/win/Debug
+IntermediateDirectory  :=./bin/win/Release
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
@@ -28,7 +28,7 @@ LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 OutputFile             :=$(IntermediateDirectory)/$(ProjectName)
-Preprocessors          :=
+Preprocessors          :=$(PreprocessorSwitch)NDEBUG 
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
@@ -37,7 +37,7 @@ PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := $(shell wx-config --rcflags)
 RcCompilerName         :=C:/GNU/MinGW/bin/windres.exe
-LinkOptions            :=  $(shell wx-config --libs --debug) -mwindows
+LinkOptions            :=  $(shell wx-config --libs) -mwindows
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
@@ -52,8 +52,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := C:/GNU/MinGW/bin/ar.exe rcu
 CXX      := C:/GNU/MinGW/bin/g++.exe
 CC       := C:/GNU/MinGW/bin/gcc.exe
-CXXFLAGS :=  -g -O0 -Wall $(shell wx-config --cflags --debug) $(Preprocessors)
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS :=  -O2 -Wall $(shell wx-config --cflags) $(Preprocessors)
+CFLAGS   :=  -O2 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := C:/GNU/MinGW/bin/as.exe
 
@@ -65,7 +65,7 @@ CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXWIN:=C:/wxWidgets
 WXCFG:=gcc_dll/mswud
-Objects0=$(IntermediateDirectory)/controls_textctrl.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/win_resources.rc$(ObjectSuffix) $(IntermediateDirectory)/gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/gui_vxAuiTabArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/gui_Icon.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/win_resources.rc$(ObjectSuffix) $(IntermediateDirectory)/gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/gui_vxAuiTabArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/gui_Icon.cpp$(ObjectSuffix) 
 
 
 
@@ -84,11 +84,11 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
 MakeIntermediateDirs:
-	@$(MakeDirCommand) "./bin/win/Debug"
+	@$(MakeDirCommand) "./bin/win/Release"
 
 
 $(IntermediateDirectory)/.d:
-	@$(MakeDirCommand) "./bin/win/Debug"
+	@$(MakeDirCommand) "./bin/win/Release"
 
 PreBuild:
 
@@ -96,13 +96,13 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/controls_textctrl.cpp$(ObjectSuffix): controls/textctrl.cpp $(IntermediateDirectory)/controls_textctrl.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Robert/Documents/GitHub/vx.io/vxpad/controls/textctrl.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controls_textctrl.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/controls_textctrl.cpp$(DependSuffix): controls/textctrl.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/controls_textctrl.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/controls_textctrl.cpp$(DependSuffix) -MM "controls/textctrl.cpp"
+$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix): controls/vxTextCtrl.cpp $(IntermediateDirectory)/controls_vxTextCtrl.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Robert/Documents/GitHub/vx.io/vxpad/controls/vxTextCtrl.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(DependSuffix): controls/vxTextCtrl.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(DependSuffix) -MM "controls/vxTextCtrl.cpp"
 
-$(IntermediateDirectory)/controls_textctrl.cpp$(PreprocessSuffix): controls/textctrl.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/controls_textctrl.cpp$(PreprocessSuffix) "controls/textctrl.cpp"
+$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(PreprocessSuffix): controls/vxTextCtrl.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/controls_vxTextCtrl.cpp$(PreprocessSuffix) "controls/vxTextCtrl.cpp"
 
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Robert/Documents/GitHub/vx.io/vxpad/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
@@ -168,6 +168,6 @@ $(IntermediateDirectory)/gui_Icon.cpp$(PreprocessSuffix): src/gui/Icon.cpp
 ## Clean
 ##
 clean:
-	$(RM) -r ./bin/win/Debug/
+	$(RM) -r ./bin/win/Release/
 
 

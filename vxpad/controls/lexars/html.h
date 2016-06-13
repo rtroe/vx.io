@@ -1,4 +1,4 @@
-void TextCtrl::SetLexarAsHTML(wxStyledTextCtrl* text)
+void vxTextCtrl::SetLexarAsHTML(wxStyledTextCtrl* text)
 {
 
     SetLexarBase(text);

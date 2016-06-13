@@ -2,14 +2,14 @@
 
 // -- lexars --
 #include "lexars/base.h"
-#include "lexars/cpp.h"
+#include "lexars/clike.h"
 #include "lexars/python.h"
 #include "lexars/html.h"
 #include "lexars/hlsl.h"
 #include "lexars/web.h"
 
 BEGIN_EVENT_TABLE(vxTextCtrl, wxStyledTextCtrl)
-    //EVT_STC_MARGINCLICK (wxID_ANY,     vxTextCtrl::OnMarginClick)
+    EVT_STC_MARGINCLICK (wxID_ANY,     vxTextCtrl::OnMarginClick)
     EVT_STC_CHARADDED (wxID_ANY,       vxTextCtrl::OnCharAdded)
     EVT_STC_KEY( wxID_ANY , vxTextCtrl::OnKey )
 END_EVENT_TABLE()
@@ -93,7 +93,7 @@ void vxTextCtrl::Save()
 
 void vxTextCtrl::OnMarginClick (wxStyledTextEvent &event)
 {
-    if (event.GetMargin() == 2)
+    if (event.GetMargin() == 1)
         {
         int lineClick = LineFromPosition (event.GetPosition());
         int levelClick = GetFoldLevel (lineClick);

@@ -1,42 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="C:\Users\Robert\Documents\GitHub\vx.io\vxpad.workspace">
-  <int Value="1" Name="m_selectedTab"/>
-  <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad.workspace" Name="m_workspaceName"/>
+<Session Name="/home/tuxbox/Documents/code/vx.io/vxpad.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\MainFrame.h" Name="FileName"/>
-      <int Value="69" Name="FirstVisibleLine"/>
-      <int Value="83" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\MainFrame.cpp" Name="FileName"/>
-      <int Value="215" Name="FirstVisibleLine"/>
-      <int Value="228" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks">
-        <wxString Value="1331:3"/>
-      </wxArrayString>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\lexars\web.h" Name="FileName"/>
-      <int Value="62" Name="FirstVisibleLine"/>
-      <int Value="66" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\vxTextCtrl.h" Name="FileName"/>
-      <int Value="33" Name="FirstVisibleLine"/>
-      <int Value="48" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad\controls\vxTextCtrl.cpp" Name="FileName"/>
-      <int Value="105" Name="FirstVisibleLine"/>
-      <int Value="94" Name="CurrentLine"/>
+      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad/MainFrame.cpp" Name="FileName"/>
+      <int Value="170" Name="FirstVisibleLine"/>
+      <int Value="178" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

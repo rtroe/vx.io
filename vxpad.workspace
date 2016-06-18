@@ -2,11 +2,21 @@
 <CodeLite_Workspace Name="xpad" Database="">
   <Project Name="vxpad" Path="vxpad/vxpad.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="no">
-      <Project Name="vxpad" ConfigName="Debug"/>
+    <WorkspaceConfiguration Name="Win.Debug" Selected="no">
+      <Environment/>
+      <Project Name="vxpad" ConfigName="Win.Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="vxpad" ConfigName="Release"/>
+    <WorkspaceConfiguration Name="Win.Release" Selected="no">
+      <Environment/>
+      <Project Name="vxpad" ConfigName="Win.Release"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Tux.Release" Selected="no">
+      <Environment/>
+      <Project Name="vxpad" ConfigName="Tux.Release"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Tux.Debug" Selected="yes">
+      <Environment/>
+      <Project Name="vxpad" ConfigName="Tux.Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

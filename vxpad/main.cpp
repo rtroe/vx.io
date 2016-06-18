@@ -12,7 +12,7 @@ public:
 
     virtual bool OnInit() {
         
-        
+        /*
     bool SHOW_DEBUG_CONSOLE = false;
     if(SHOW_DEBUG_CONSOLE)
     {
@@ -20,7 +20,7 @@ public:
         AttachConsole( GetCurrentProcessId() ) ;
         freopen( "CON", "w", stdout ) ;
     }
-
+*/
         
         // Add the common image handlers
         wxImage::AddHandler( new wxPNGHandler );

@@ -11,7 +11,7 @@
 
  #include "MainFrame.h"
  #include "include/gui/vxAUIToolbarArt.h"
- #include "include/gui/vxAUITabArt.h"
+ #include "include/gui/vxAuiTabArt.h"
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     
@@ -176,7 +176,21 @@ MainFrame::MainFrame(wxWindow* parent,
     // set frame icon
     LoadAllImages();
 
-    VXIO_VERSION = "v 0.3.1.3";
+    VXIO_VERSION = "v 0.3.1.4";
+    
+    #if defined(__WXMSW__)
+    std::cout << "Starting Under Windows" << std::endl;
+#elif defined(__WXMAC__)
+// Mac Specific Initilazations here
+#elif defined(__UNIX__)
+    //'nix Specific Initilazations here
+    std::cout << "Starting Under Linux" << std::endl;
+#endif
+    
+        wxIcon icon;
+    icon.CopyFromBitmap(vxAppImgs->AppIcon16);
+    
+    SetIcon(icon);
     
     
     // set up default notebook style

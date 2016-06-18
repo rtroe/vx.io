@@ -420,11 +420,11 @@ MainFrame::MainFrame(wxWindow* parent,
 
     m_mgr.AddPane(tb_mainmenu, wxAuiPaneInfo().
                   Name(wxT("tb_mainmenu")).Caption(wxT("Main Menu")).
-                  ToolbarPane().Top().Row(1));
+                  ToolbarPane().Top().Row(1).Position(1));
                   
     m_mgr.AddPane(tb_textmodify, wxAuiPaneInfo().
                   Name(wxT("tb_textmodify")).Caption(wxT("Text Modify")).
-                  ToolbarPane().Top().Row(1));
+                  ToolbarPane().Top().Row(1).Position(3));
 
     // make some default perspectives
 

@@ -7,7 +7,7 @@ ProjectName            :=vxpad
 ConfigurationName      :=Tux.Debug
 WorkspacePath          :=/home/tuxbox/Documents/code/vx.io
 ProjectPath            :=/home/tuxbox/Documents/code/vx.io/vxpad
-IntermediateDirectory  :=./bin/win/Debug
+IntermediateDirectory  :=./bin/tux/Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
@@ -80,11 +80,11 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
 MakeIntermediateDirs:
-	@test -d ./bin/win/Debug || $(MakeDirCommand) ./bin/win/Debug
+	@test -d ./bin/tux/Debug || $(MakeDirCommand) ./bin/tux/Debug
 
 
 $(IntermediateDirectory)/.d:
-	@test -d ./bin/win/Debug || $(MakeDirCommand) ./bin/win/Debug
+	@test -d ./bin/tux/Debug || $(MakeDirCommand) ./bin/tux/Debug
 
 PreBuild:
 
@@ -162,6 +162,6 @@ $(IntermediateDirectory)/src_gui_Icon.cpp$(PreprocessSuffix): src/gui/Icon.cpp
 ## Clean
 ##
 clean:
-	$(RM) -r ./bin/win/Debug/
+	$(RM) -r ./bin/tux/Debug/
 
 

@@ -5,8 +5,8 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad/MainFrame.cpp" Name="FileName"/>
-      <int Value="170" Name="FirstVisibleLine"/>
-      <int Value="178" Name="CurrentLine"/>
+      <int Value="406" Name="FirstVisibleLine"/>
+      <int Value="422" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

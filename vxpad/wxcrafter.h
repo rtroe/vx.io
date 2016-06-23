@@ -64,6 +64,9 @@ protected:
     wxStaticBitmap* m_staticBitmap75;
     wxStaticBitmap* m_staticBitmap77;
     wxStaticBitmap* m_staticBitmap79;
+    wxStaticBitmap* m_staticBitmap95;
+    wxStaticBitmap* m_staticBitmap97;
+    wxStaticBitmap* m_staticBitmap99;
     wxMenuBar* m_menuBar;
     wxMenu* m_name6;
     wxMenuItem* m_menuItem7;
@@ -107,6 +110,9 @@ public:
     wxStaticBitmap* GetStaticBitmap75() { return m_staticBitmap75; }
     wxStaticBitmap* GetStaticBitmap77() { return m_staticBitmap77; }
     wxStaticBitmap* GetStaticBitmap79() { return m_staticBitmap79; }
+    wxStaticBitmap* GetStaticBitmap95() { return m_staticBitmap95; }
+    wxStaticBitmap* GetStaticBitmap97() { return m_staticBitmap97; }
+    wxStaticBitmap* GetStaticBitmap99() { return m_staticBitmap99; }
     wxPanel* GetPanel85() { return m_panel85; }
     wxNotebook* GetNotebook81() { return m_notebook81; }
     wxMenuBar* GetMenuBar() { return m_menuBar; }

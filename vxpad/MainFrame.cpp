@@ -30,6 +30,13 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(wxID_CUT, MainFrame::Cut)
     EVT_MENU(wxID_COPY, MainFrame::Copy)
     EVT_MENU(wxID_PASTE, MainFrame::Paste)
+    
+    // -- search --
+    EVT_MENU(ID_FIND, MainFrame::OnFind)
+    EVT_MENU(ID_FIND_NEXT, MainFrame::OnFindNext)
+    EVT_MENU(ID_FIND_PREV, MainFrame::OnFindPrev)
+    EVT_MENU(ID_REPLACE, MainFrame::OnReplace)
+    EVT_MENU(ID_REPLACE_NEXT, MainFrame::OnReplaceNext)
 
 
     // -- lexars --
@@ -46,12 +53,12 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 
     // -- view --
     EVT_MENU(MainFrame::ID_DISPLAYEOL, MainFrame::OnEOLToggle)
-    EVT_MENU (myID_CHANGELOWER,        MainFrame::OnChangeCase)
-    EVT_MENU (myID_CHANGEUPPER,        MainFrame::OnChangeCase)
-    EVT_MENU (myID_CONVERTCR,          MainFrame::OnConvertEOL)
-    EVT_MENU (myID_CONVERTCRLF,        MainFrame::OnConvertEOL)
-    EVT_MENU (myID_CONVERTLF,          MainFrame::OnConvertEOL)
-    EVT_MENU (myID_FOLDTOGGLE,         MainFrame::OnFoldToggle)
+    EVT_MENU (ID_CHANGELOWER,        MainFrame::OnChangeCase)
+    EVT_MENU (ID_CHANGEUPPER,        MainFrame::OnChangeCase)
+    EVT_MENU (ID_CONVERTCR,          MainFrame::OnConvertEOL)
+    EVT_MENU (ID_CONVERTCRLF,        MainFrame::OnConvertEOL)
+    EVT_MENU (ID_CONVERTLF,          MainFrame::OnConvertEOL)
+    EVT_MENU (ID_FOLDTOGGLE,         MainFrame::OnFoldToggle)
 
     //Updates the toolbars everytime a key is pressed
     EVT_CHAR_HOOK(MainFrame::SetToolbarStatusEvent)
@@ -135,7 +142,12 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_AUINOTEBOOK_PAGE_CLOSE(wxID_ANY, MainFrame::OnNotebookPageClose)
     EVT_AUINOTEBOOK_PAGE_CLOSED(wxID_ANY, MainFrame::OnNotebookPageClosed)
     EVT_AUINOTEBOOK_PAGE_CHANGED(wxID_ANY, MainFrame::OnNotebookPageChanged)
+    EVT_TEXT(ID_TEXTCHANGE, MainFrame::OnFind)
 END_EVENT_TABLE()
+
+
+//BEGIN_EVENT_TABLE(txtCntrl_Find, wxTextCtrl)
+//END_EVENT_TABLE()
 
 
 
@@ -172,11 +184,12 @@ MainFrame::MainFrame(wxWindow* parent,
 
     // tell wxAuiManager to manage this frame
     m_mgr.SetManagedWindow(this);
+    
 
     // set frame icon
     LoadAllImages();
 
-    VXIO_VERSION = "v 0.3.1.4";
+    VXIO_VERSION = "v 0.3.2.1";
     
     #if defined(__WXMSW__)
     std::cout << "Starting Under Windows" << std::endl;
@@ -197,6 +210,7 @@ MainFrame::MainFrame(wxWindow* parent,
     m_notebook_style = wxAUI_NB_DEFAULT_STYLE | wxAUI_NB_TAB_EXTERNAL_MOVE | wxNO_BORDER;
     m_notebook_theme = 0;
     INT_NewFileList = 0;
+    FindResultIndex = 0;
 
     // create menu
     wxMenuBar* mb = new wxMenuBar;
@@ -208,7 +222,7 @@ MainFrame::MainFrame(wxWindow* parent,
     //
     // -- main menu --
     file_menu = new wxMenu;
-    file_menu->Append(ID_New, _("New"));
+    file_menu->Append(ID_New, _("New\tCTRL+N"), "Creates a new document");
     file_menu->Append(wxID_OPEN);
     file_menu->AppendSeparator();
     file_menu->Append(wxID_SAVE);
@@ -227,6 +241,16 @@ MainFrame::MainFrame(wxWindow* parent,
     menu_edit->Append(wxID_CUT);
     menu_edit->Append(wxID_COPY);
     menu_edit->Append(wxID_PASTE);
+    
+    
+    // -- edit --
+    wxMenu* menu_search = new wxMenu;
+    menu_search->Append(ID_FIND, "&Find...\tCTRL+F", "Creates a new XYZ document");
+    menu_search->Append(ID_FIND_NEXT, "&Find Next\tF3", "Creates a new XYZ document");
+    menu_search->Append(ID_FIND_PREV, "&Find Prev\tSHIFT+F3", "Creates a new XYZ document");
+    menu_search->AppendSeparator();
+    menu_search->Append(ID_REPLACE, "&Replace...\tCTRL+H", "Creates a new XYZ document");
+    menu_search->Append(ID_REPLACE_NEXT, "& Replace Next\tSHIFT+CTRL+H", "Creates a new XYZ document");
 
 /********************************************************************************************/
                     /*          view            */
@@ -247,14 +271,14 @@ MainFrame::MainFrame(wxWindow* parent,
 
     // convert EOL submenu
     wxMenu *menuConvertEOL = new wxMenu;
-    menuConvertEOL->Append (myID_CONVERTCR, _("CR (&Linux)"));
-    menuConvertEOL->Append (myID_CONVERTCRLF, _("CR+LF (&Windows)"));
-    menuConvertEOL->Append (myID_CONVERTLF, _("LF (&Macintosh)"));
+    menuConvertEOL->Append (ID_CONVERTCR, _("CR (&Linux)"));
+    menuConvertEOL->Append (ID_CONVERTCRLF, _("CR+LF (&Windows)"));
+    menuConvertEOL->Append (ID_CONVERTLF, _("LF (&Macintosh)"));
 
         // change case submenu
     wxMenu *menuChangeCase = new wxMenu;
-    menuChangeCase->Append (myID_CHANGEUPPER, _("&Upper case"));
-    menuChangeCase->Append (myID_CHANGELOWER, _("&Lower case"));
+    menuChangeCase->Append (ID_CHANGEUPPER, _("&Upper case"));
+    menuChangeCase->Append (ID_CHANGELOWER, _("&Lower case"));
 
     // -- view --
     wxMenu* view_menu = new wxMenu;
@@ -267,7 +291,7 @@ MainFrame::MainFrame(wxWindow* parent,
     view_menu->AppendSeparator();
     view_menu->Append(wxID_ANY,_("Change &case to .."), menuChangeCase);
     view_menu->AppendSeparator();
-    view_menu->Append(myID_FOLDTOGGLE,_("&Toggle Fold"));
+    view_menu->Append(ID_FOLDTOGGLE,_("&Toggle Fold"));
 
 
 /********************************************************************************************/
@@ -298,9 +322,6 @@ MainFrame::MainFrame(wxWindow* parent,
 
     //toolbar settings
     wxMenu* notebook_menu = new wxMenu;
-    notebook_menu->AppendRadioItem(ID_NotebookArtGloss, _("Glossy Theme (Default)"));
-    notebook_menu->AppendRadioItem(ID_NotebookArtSimple, _("Simple Theme"));
-    notebook_menu->AppendSeparator();
     notebook_menu->AppendRadioItem(ID_NotebookNoCloseButton, _("No Close Button"));
     notebook_menu->AppendRadioItem(ID_NotebookCloseButton, _("Close Button at Right"));
     notebook_menu->AppendRadioItem(ID_NotebookCloseButtonAll, _("Close Button on All Tabs"));
@@ -339,6 +360,7 @@ MainFrame::MainFrame(wxWindow* parent,
     mb->Append(file_menu, _("&File"));
     mb->Append(menu_edit, _("&Edit"));
     mb->Append(view_menu, _("&View"));
+    mb->Append(menu_search, _("&Search"));
     mb->Append(menu_lexar, _("&Language"));
     mb->Append(menu_setting, _("&Settings"));
     mb->Append(help_menu, _("&Help"));
@@ -401,8 +423,8 @@ MainFrame::MainFrame(wxWindow* parent,
     tb_textmodify->SetArtProvider(new vxAuiToolbarArt());
     tb_textmodify->SetToolBitmapSize(wxSize(16,16));
 
-    tb_textmodify->AddTool(myID_CHANGEUPPER, wxT("Change to Upper"), vxAppImgs->ToUpperCase);
-    tb_textmodify->AddTool(myID_CHANGELOWER, wxT("Change to Lower"),  vxAppImgs->ToLowerCase);
+    tb_textmodify->AddTool(ID_CHANGEUPPER, wxT("Change to Upper"), vxAppImgs->ToUpperCase);
+    tb_textmodify->AddTool(ID_CHANGELOWER, wxT("Change to Lower"),  vxAppImgs->ToLowerCase);
     tb_textmodify->AddSeparator();
     tb_textmodify->AddTool(ID_DISPLAYEOL, wxT("Toggle Endline View"),  vxAppImgs->ToggleEndline);
     
@@ -411,6 +433,30 @@ MainFrame::MainFrame(wxWindow* parent,
     //tb_mainmenu->EnableTool(ID_SampleItem+6, false);
     tb_textmodify->Realize();
 
+
+
+tb_find = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize,
+                                         wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+    tb_find->SetArtProvider(new vxAuiToolbarArt());
+    tb_find->SetToolBitmapSize(wxSize(16,16));
+    
+    txtCntrl_Find = new wxTextCtrl( tb_find,  ID_TEXTCHANGE, wxT(""), wxDefaultPosition, wxSize(250,-1));
+    
+    wxStaticText* textFind = new wxStaticText(tb_find,  -1, wxT("Find: "));
+    int clr = 150;
+    textFind->SetForegroundColour(wxColor(clr,clr,clr));
+    tb_find->AddControl(textFind);
+    tb_find->AddControl(txtCntrl_Find);
+
+    tb_find->AddTool(ID_FIND, wxT("Find"), vxAppImgs->FindWord);
+    tb_find->AddSeparator();
+    tb_find->AddTool(ID_FIND_PREV, wxT("Find Previous"),  vxAppImgs->FindPrev);
+    tb_find->AddTool(ID_FIND_NEXT, wxT("Find Next"),  vxAppImgs->FindNext);
+    
+    tb_find->SetCustomOverflowItems(prepend_items, append_items);
+    
+    //tb_mainmenu->EnableTool(ID_SampleItem+6, false);
+    tb_find->Realize();
 
 
 
@@ -425,6 +471,10 @@ MainFrame::MainFrame(wxWindow* parent,
     m_mgr.AddPane(tb_textmodify, wxAuiPaneInfo().
                   Name(wxT("tb_textmodify")).Caption(wxT("Text Modify")).
                   ToolbarPane().Top().Row(1).Position(3));
+                  
+    m_mgr.AddPane(tb_find, wxAuiPaneInfo().
+                  Name(wxT("tb_find")).Caption(wxT("Find")).
+                  ToolbarPane().Bottom().Row(1).Position(1).Hide());
 
     // make some default perspectives
 
@@ -803,11 +853,11 @@ void MainFrame::OnEOLToggle(wxCommandEvent& WXUNUSED(event))
 
 void MainFrame::OnChangeCase (wxCommandEvent &event) {
     switch (event.GetId()) {
-        case myID_CHANGELOWER: {
+        case ID_CHANGELOWER: {
             GetActiveDocument()->CmdKeyExecute (wxSTC_CMD_LOWERCASE);
             break;
         }
-        case myID_CHANGEUPPER: {
+        case ID_CHANGEUPPER: {
             GetActiveDocument()->CmdKeyExecute (wxSTC_CMD_UPPERCASE);
             break;
         }
@@ -817,9 +867,9 @@ void MainFrame::OnChangeCase (wxCommandEvent &event) {
 void MainFrame::OnConvertEOL (wxCommandEvent &event) {
     int eolMode = GetActiveDocument()->GetEOLMode();
     switch (event.GetId()) {
-        case myID_CONVERTCR: { eolMode = wxSTC_EOL_CR; break;}
-        case myID_CONVERTCRLF: { eolMode = wxSTC_EOL_CRLF; break;}
-        case myID_CONVERTLF: { eolMode = wxSTC_EOL_LF; break;}
+        case ID_CONVERTCR: { eolMode = wxSTC_EOL_CR; break;}
+        case ID_CONVERTCRLF: { eolMode = wxSTC_EOL_CRLF; break;}
+        case ID_CONVERTLF: { eolMode = wxSTC_EOL_LF; break;}
     }
     GetActiveDocument()->ConvertEOLs (eolMode);
     GetActiveDocument()->SetEOLMode (eolMode);
@@ -1152,6 +1202,8 @@ void MainFrame::OnNotebookFlag(wxCommandEvent& event)
 
 
 }
+
+
 
 void MainFrame::OnLexarUpdate(wxCommandEvent& event)
 {

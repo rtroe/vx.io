@@ -7,6 +7,8 @@
     #pragma hdrstop
 #endif
 
+#include <vector>
+
 #include "wx/app.h"
 #include "wx/grid.h"
 #include "wx/treectrl.h"
@@ -45,6 +47,13 @@
 
 // -- controls --
 //#include "controls/notebook.h"
+
+struct FindResult {
+    int lineNumber;
+    int linePosition;
+    int Start;
+    int End;
+};
 
 
 // -- frame --
@@ -86,13 +95,21 @@ class MainFrame : public wxFrame
 
         // -- View --
         ID_DISPLAYEOL,
-        myID_CONVERTCR,
-        myID_CONVERTCRLF,
-        myID_CONVERTLF,
-        myID_CHANGELOWER,
-        myID_CHANGEUPPER,
-        myID_FOLDTOGGLE,
-
+        ID_CONVERTCR,
+        ID_CONVERTCRLF,
+        ID_CONVERTLF,
+        ID_CHANGELOWER,
+        ID_CHANGEUPPER,
+        ID_FOLDTOGGLE,
+        
+        // -- Search --
+        ID_FIND,
+        ID_FIND_NEXT,
+        ID_FIND_PREV,
+        ID_REPLACE,
+        ID_REPLACE_NEXT,
+        ID_TEXTCHANGE,
+        
         ID_CreateTree = wxID_HIGHEST+1,
         ID_CreateGrid,
         ID_CreateText,
@@ -164,6 +181,10 @@ public:
     //global variables
     int INT_NewFileList;
     
+    
+    std::vector<FindResult> FindResults;
+    int FindResultIndex;
+    
 private:
     vxTextCtrl* CreateTextCtrl(const wxString& text = wxEmptyString);
     wxGrid* CreateGrid();
@@ -208,6 +229,14 @@ private:
     void SetToolbarStatusEvent(wxKeyEvent& event);
     void OnEraseBackground(wxEraseEvent& evt);
     void OnSize(wxSizeEvent& evt);
+    
+    // -- search --
+    void OnFind(wxCommandEvent& evt);
+    void OnFindNext(wxCommandEvent& evt);
+    void OnFindPrev(wxCommandEvent& evt);
+    
+    void OnReplace(wxCommandEvent& evt);
+    void OnReplaceNext(wxCommandEvent& evt);
 
     // -- view --
     void OnLexarUpdate(wxCommandEvent& evt);
@@ -272,6 +301,9 @@ private:
     
     // -- toolbars --
     wxAuiToolBar* tb_mainmenu;
+    
+    wxAuiToolBar* tb_find;
+    wxTextCtrl* txtCntrl_Find;
 
     //Menus
     wxMenu* file_menu;

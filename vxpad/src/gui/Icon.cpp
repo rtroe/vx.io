@@ -34,7 +34,9 @@ vxIcons::vxIcons()
     ToLowerCase = wxXmlResource::Get()->LoadBitmap(wxT("text_smallcaps"));
     ToggleEndline = wxXmlResource::Get()->LoadBitmap(wxT("tgle_endln"));
     
-    
+    FindWord = wxXmlResource::Get()->LoadBitmap(wxT("table_tab_search"));
+    FindNext = wxXmlResource::Get()->LoadBitmap(wxT("search_plus"));
+    FindPrev  = wxXmlResource::Get()->LoadBitmap(wxT("search_minus"));    
 }
 
 vxIcons::~vxIcons()

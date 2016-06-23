@@ -179,6 +179,22 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     
     staticBoxSizer73->Add(m_staticBitmap79, 0, wxALL, 5);
     
+    wxStaticBoxSizer* staticBoxSizer93 = new wxStaticBoxSizer( new wxStaticBox(m_panel85, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    
+    boxSizer91->Add(staticBoxSizer93, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticBitmap95 = new wxStaticBitmap(m_panel85, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("table_tab_search")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer93->Add(m_staticBitmap95, 0, wxALL, 5);
+    
+    m_staticBitmap97 = new wxStaticBitmap(m_panel85, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("search_plus")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer93->Add(m_staticBitmap97, 0, wxALL, 5);
+    
+    m_staticBitmap99 = new wxStaticBitmap(m_panel85, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("search_minus")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    staticBoxSizer93->Add(m_staticBitmap99, 0, wxALL, 5);
+    
     m_menuBar = new wxMenuBar(0);
     this->SetMenuBar(m_menuBar);
     
@@ -207,7 +223,7 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     #endif
     
     SetName(wxT("MainFrameBaseClass"));
-    SetSizeHints(500,400);
+    SetSize(500,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }

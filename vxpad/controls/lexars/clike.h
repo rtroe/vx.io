@@ -19,8 +19,6 @@ void vxTextCtrl::SetLexarAsCPP(wxStyledTextCtrl* text)
     text->StyleSetBold(wxSTC_C_WORD, true);
     text->StyleSetBold(wxSTC_C_WORD2, true);
     text->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, true);
-    text->SetCaretForeground(wxColour(225,225,225));
-    text->SetSelBackground(true,wxColour(100,100,100));
 
     wxString CppWordlist1 = wxT("int float asm auto bool break case catch char class const const_cast continue default delete do double dynamic_cast else enum explicit mutable namespace new operator private protected public register reinterpret_cast return short signed sizeof static static_cast struct switch template this throw true try typedef typeid typename union unsigned using virtual void volatile wchar_t DECLARE_EVENT_TABLE EVT_MENU BEGIN_EVENT_TABLE while");
 

@@ -10,6 +10,9 @@ StyleClearAll();
             StyleSetFont (Nr, m_codeFont);
     }
 
+    text->SetCaretForeground(wxColour(225,225,225));
+    text->SetSelBackground(true,wxColour(75,75,75));
+
     SetMarginWidth (MARGIN_LINE_NUMBERS, 50);
     StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (150, 150, 150) );
     StyleSetBackground (wxSTC_STYLE_LINENUMBER, wxColour (75, 75, 75));

@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=tuxbox
-Date                   :=18/06/16
+Date                   :=23/06/16
 CodeLitePath           :=/home/tuxbox/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -61,7 +61,7 @@ AS       := /usr/bin/as
 ##
 CodeLiteDir:=/usr/share/codelite
 LD_LIBRARY_PATH:=/home/tuxbox/Documents/code/iris-cad/lib/vxGUI/bin/linux/Debug:/home/tuxbox/Documents/code/iris-cad/lib/vxPad/bin/linux/Debug:/home/tuxbox/Documents/code/iris-cad/lib/vxOCC/bin/linux/Debug:/home/tuxbox/Documents/code/iris-cad/lib/vxICO/bin/linux/Debug
-Objects0=$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAuiTabArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_Icon.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Find.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAuiTabArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_Icon.cpp$(ObjectSuffix) 
 
 
 
@@ -131,6 +131,14 @@ $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(DependSuffix): wxcrafter_bitmaps
 
 $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix): wxcrafter_bitmaps.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix) "wxcrafter_bitmaps.cpp"
+
+$(IntermediateDirectory)/src_Find.cpp$(ObjectSuffix): src/Find.cpp $(IntermediateDirectory)/src_Find.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxpad/src/Find.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_Find.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_Find.cpp$(DependSuffix): src/Find.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_Find.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_Find.cpp$(DependSuffix) -MM "src/Find.cpp"
+
+$(IntermediateDirectory)/src_Find.cpp$(PreprocessSuffix): src/Find.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_Find.cpp$(PreprocessSuffix) "src/Find.cpp"
 
 $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix): src/gui/vxAUIToolbarArt.cpp $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxpad/src/gui/vxAUIToolbarArt.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IncludePath)

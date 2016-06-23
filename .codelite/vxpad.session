@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="/home/tuxbox/Documents/code/vx.io/vxpad.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="2" Name="m_selectedTab"/>
   <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad/MainFrame.cpp" Name="FileName"/>
-      <int Value="406" Name="FirstVisibleLine"/>
-      <int Value="422" Name="CurrentLine"/>
+      <int Value="430" Name="FirstVisibleLine"/>
+      <int Value="442" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad/MainFrame.h" Name="FileName"/>
+      <int Value="97" Name="FirstVisibleLine"/>
+      <int Value="110" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad/src/Find.cpp" Name="FileName"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="20" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

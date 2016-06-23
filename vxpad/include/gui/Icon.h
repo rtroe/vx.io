@@ -36,6 +36,10 @@ public:
     wxBitmap ToUpperCase, ToLowerCase;
     wxBitmap ToggleEndline;
     
+    wxBitmap FindWord;
+    wxBitmap FindNext;
+    wxBitmap FindPrev;
+    
     
     vxIcons();
     virtual ~vxIcons();

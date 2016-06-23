@@ -19,6 +19,7 @@ vxTextCtrl::vxTextCtrl(wxWindow* parent, wxString filePath) : wxStyledTextCtrl(p
 
     //Set the File Path
     FilePath = filePath;
+    
 
     //Read In File
     if(FilePath != _(""))

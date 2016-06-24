@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="xpad" Database="">
-  <Project Name="vxpad" Path="vxpad/vxpad.project" Active="Yes"/>
+  <Project Name="vxio" Path="vxpad/vxpad.project" Active="Yes"/>
   <Project Name="AUIDemo" Path="AUIDemo/AUIDemo.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Win.Debug" Selected="no">
-      <Environment/>
-      <Project Name="vxpad" ConfigName="Win.Debug"/>
+      <Project Name="vxio" ConfigName="Win.Debug"/>
       <Project Name="AUIDemo" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Win.Release" Selected="no">
-      <Environment/>
-      <Project Name="vxpad" ConfigName="Win.Release"/>
+    <WorkspaceConfiguration Name="Win.Release" Selected="yes">
+      <Project Name="vxio" ConfigName="Win.Release"/>
       <Project Name="AUIDemo" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Tux.Release" Selected="no">
-      <Environment/>
-      <Project Name="vxpad" ConfigName="Tux.Release"/>
+      <Project Name="vxio" ConfigName="Tux.Release"/>
       <Project Name="AUIDemo" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Tux.Debug" Selected="yes">
-      <Environment/>
-      <Project Name="vxpad" ConfigName="Tux.Debug"/>
+    <WorkspaceConfiguration Name="Tux.Debug" Selected="no">
+      <Project Name="vxio" ConfigName="Tux.Debug"/>
       <Project Name="AUIDemo" ConfigName="Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>

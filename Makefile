@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ vxpad - Tux.Debug ]----------"
-	@cd "vxpad" && "$(MAKE)" -f  "vxpad.mk"
+	@echo "----------Building project:[ vxio - Win.Release ]----------"
+	@cd "vxpad" && "$(MAKE)" -f  "vxio.mk"
 clean:
-	@echo "----------Cleaning project:[ vxpad - Tux.Debug ]----------"
-	@cd "vxpad" && "$(MAKE)" -f  "vxpad.mk" clean
+	@echo "----------Cleaning project:[ vxio - Win.Release ]----------"
+	@cd "vxpad" && "$(MAKE)" -f  "vxio.mk" clean

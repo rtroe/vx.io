@@ -4,7 +4,13 @@
 wxGenericDirCtrl* MainFrame::CreateDirViewCtrl()
 {
     wxGenericDirCtrl* dirCtrl = new wxGenericDirCtrl(
-        this, ID_CNTRL_DIRTREE, wxDirDialogDefaultFolderStr, wxPoint(0, 0), wxSize(250, 250), wxDIRCTRL_SHOW_FILTERS);
+        this, ID_CNTRL_DIRTREE, wxDirDialogDefaultFolderStr, wxPoint(0, 0), wxSize(250, 450), wxDIRCTRL_SHOW_FILTERS);
+        
+        dirCtrl->SetBackgroundColour(wxColor(50,50,50));
+        dirCtrl->SetForegroundColour(wxColor(200,200,200));
+        
+        dirCtrl->GetTreeCtrl()->SetBackgroundColour(wxColor(25,25,25));
+        dirCtrl->GetTreeCtrl()->SetForegroundColour(wxColor(200,200,200));
 
     return dirCtrl;
 }

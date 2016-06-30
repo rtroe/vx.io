@@ -54,13 +54,14 @@ public:
     // stc
     void OnMarginClick (wxStyledTextEvent &event);
     void OnCharAdded  (wxStyledTextEvent &event);
-    void OnKey  (wxStyledTextEvent &event);
+    void OnKey  (wxKeyEvent &event);
 
 //Public Variables
 public:
     wxString FilePath;
     wxString FileName;
     
+    wxArrayString words;
     
     //A flag to trigger the "Save As" the first time the file is saved.
     bool IsNewFile = true;

@@ -11,12 +11,13 @@
 BEGIN_EVENT_TABLE(vxTextCtrl, wxStyledTextCtrl)
     EVT_STC_MARGINCLICK (wxID_ANY,     vxTextCtrl::OnMarginClick)
     EVT_STC_CHARADDED (wxID_ANY,       vxTextCtrl::OnCharAdded)
-    EVT_STC_KEY( wxID_ANY , vxTextCtrl::OnKey )
+    EVT_CHAR( vxTextCtrl::OnKey )
 END_EVENT_TABLE()
 
-vxTextCtrl::vxTextCtrl(wxWindow* parent, wxString filePath) : wxStyledTextCtrl(parent, wxID_ANY)
+vxTextCtrl::vxTextCtrl(wxWindow* parent, wxString filePath) : wxStyledTextCtrl(parent, wxID_ANY, wxDefaultPosition, wxSize(650,175))
 {
 
+        //this->AutoCompShow()
     //Set the File Path
     FilePath = filePath;
     
@@ -39,8 +40,14 @@ vxTextCtrl::vxTextCtrl(wxWindow* parent, wxString filePath) : wxStyledTextCtrl(p
             wxMessageBox(_("Could Not Open File '")+FilePath+_("'"));
 
    ParseLexar();
+   
+      words.push_back("private");
+      words.push_back("public");
+      words.push_back("float");
+      words.push_back("protected");
+      this->AutoComplete(words);
 
-
+    
     FileName = filePath;
     SetFileName();
 }
@@ -118,7 +125,9 @@ void vxTextCtrl::OnMarginClick (wxStyledTextEvent &event)
 
 void vxTextCtrl::OnCharAdded (wxStyledTextEvent &event)
 {
+    //this->AutoCompShow(4, wxT("private  protected  public float"));
     event.Skip();
+      
 /*
     char chr = (char)event.GetKey();
     int currentLine = GetCurrentLine();
@@ -137,9 +146,20 @@ void vxTextCtrl::OnCharAdded (wxStyledTextEvent &event)
     }*/
 }
 
-void vxTextCtrl::OnKey (wxStyledTextEvent &WXUNUSED(event))
+void vxTextCtrl::OnKey (wxKeyEvent &event)
 {
-    wxMessageBox(wxT("OnKey"));
+        //std::cout<<event.GetKeyCode()<<std::endl;
+        //event.GetKeyCode()
+    //this->AutoCompSetSeparator(63);
+    if (event.GetKeyCode() == 32 && event.ControlDown() && !this->AutoCompActive()) {
+        //std::cout<<"Show"<<std::endl;
+        this->AutoCompSetIgnoreCase(false);
+        this->AutoCompShow(3, wxT("private float protected public int char string "));
+    }
+    else {
+    event.Skip();
+    }
+    //wxMessageBox(wxT("OnKey"));
 }
 
 void vxTextCtrl::ParseLexar()

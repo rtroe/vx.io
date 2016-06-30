@@ -3,7 +3,7 @@
 *.lo
 *.o
 *.obj
-vxpad/bin/*
+vxio/bin/*
 
 # Precompiled Headers
 *.gch

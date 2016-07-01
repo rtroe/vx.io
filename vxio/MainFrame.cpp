@@ -173,7 +173,7 @@ void MainFrame::LoadAllImages()
     wxIcon icon;
     icon.CopyFromBitmap(vxAppImgs->AppIcon16);
 }
-
+//Main Frame for Application
 MainFrame::MainFrame(wxWindow* parent,
                      wxWindowID id,
                      const wxString& title,

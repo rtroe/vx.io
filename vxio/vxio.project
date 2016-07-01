@@ -2,7 +2,7 @@
 <CodeLite_Project Name="vxio" InternalType="GUI">
   <Plugins>
     <Plugin Name="qmake">
-      <![CDATA[00050001N0005Debug0000000000000001N0011Debug.Linux0000000000000001N0007Release0000000000000001N0013Release.Linux0000000000000001N0009Tux.Debug000000000000]]>
+      <![CDATA[00060001N0005Debug0000000000000001N0011Debug.Linux0000000000000001N0007Release0000000000000001N0013Release.Linux0000000000000001N0009Tux.Debug0000000000000001N0011Win.Release000000000000]]>
     </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
@@ -213,7 +213,9 @@
         <StartupCommands/>
       </Debugger>
       <PreBuild/>
-      <PostBuild/>
+      <PostBuild>
+        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)$(OutDir)</Command>
+      </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
         <CleanCommand/>
@@ -251,7 +253,9 @@
         <StartupCommands/>
       </Debugger>
       <PreBuild/>
-      <PostBuild/>
+      <PostBuild>
+        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)$(OutDir)</Command>
+      </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
         <CleanCommand/>
@@ -290,7 +294,9 @@
         <StartupCommands/>
       </Debugger>
       <PreBuild/>
-      <PostBuild/>
+      <PostBuild>
+        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)$(OutDir)</Command>
+      </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
         <CleanCommand/>

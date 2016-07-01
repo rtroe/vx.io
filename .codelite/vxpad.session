@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="/home/tuxbox/Documents/code/vx.io/vxpad.workspace">
-  <int Value="2" Name="m_selectedTab"/>
-  <wxString Value="/home/tuxbox/Documents/code/vx.io/vxpad.workspace" Name="m_workspaceName"/>
+<Session Name="C:\Users\Robert\Documents\GitHub\vx.io\vxpad.workspace">
+  <int Value="3" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxpad.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxio/MainFrame.h" Name="FileName"/>
-      <int Value="236" Name="FirstVisibleLine"/>
-      <int Value="244" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxio\main.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxio/controls/vxTextCtrl.h" Name="FileName"/>
-      <int Value="39" Name="FirstVisibleLine"/>
-      <int Value="63" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxio\MainFrame.cpp" Name="FileName"/>
+      <int Value="136" Name="FirstVisibleLine"/>
+      <int Value="153" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxio/controls/vxTextCtrl.cpp" Name="FileName"/>
-      <int Value="146" Name="FirstVisibleLine"/>
-      <int Value="127" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxio\src\console\console.cpp" Name="FileName"/>
+      <int Value="78" Name="FirstVisibleLine"/>
+      <int Value="93" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/tuxbox/Documents/code/vx.io/vxio/controls/lexars/clike.h" Name="FileName"/>
-      <int Value="12" Name="FirstVisibleLine"/>
-      <int Value="22" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Robert\Documents\GitHub\vx.io\vxio\src\ntbk\OnCntrlCreate.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="21" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

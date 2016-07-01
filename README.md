@@ -1,7 +1,7 @@
 # vx.io - Cross Platform Notepad
 A small cross platform notepad program. It's currently in a Alpha state while it prepares for a Beta release.
 
-![alt text for screenshot][scrnsht] 
+![alt text for screenshot][cover] 
 
 ## Features
 vx.io comes with multiple features and is having more added weekly.
@@ -18,6 +18,9 @@ vx.io comes with multiple features and is having more added weekly.
 * Python
 
 ## Cross platform Support
+vx.io is supported on Windows and Linux (debian) systems. OSX support is coming soon.
+![alt text for screenshot][scrnsht] 
+
 ### Status
 Build Status for each platform
 
@@ -45,6 +48,9 @@ Build Status for each platform
 [buildstatusMAC]: https://img.shields.io/badge/build-tbd-blue.svg
 
 [buildstatusTUX]: https://img.shields.io/badge/build-passing-brightgreen.svg
+
+
+[cover]: https://raw.githubusercontent.com/virte-c/vx.io/master/ref/scrnsht/cover.png
 
 [scrnsht]: https://raw.githubusercontent.com/virte-c/vx.io/master/ref/scrnsht/scrnsht.png
 

@@ -3,19 +3,15 @@
   <Project Name="vxio" Path="vxio/vxio.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Win.Debug" Selected="no">
-      <Environment/>
       <Project Name="vxio" ConfigName="Win.Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Win.Release" Selected="no">
-      <Environment/>
+    <WorkspaceConfiguration Name="Win.Release" Selected="yes">
       <Project Name="vxio" ConfigName="Win.Release"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Tux.Release" Selected="no">
-      <Environment/>
       <Project Name="vxio" ConfigName="Tux.Release"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Tux.Debug" Selected="yes">
-      <Environment/>
+    <WorkspaceConfiguration Name="Tux.Debug" Selected="no">
       <Project Name="vxio" ConfigName="Tux.Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>

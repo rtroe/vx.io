@@ -149,7 +149,9 @@ EVT_AUINOTEBOOK_PAGE_CHANGED(wxID_ANY, MainFrame::OnNotebookPageChanged)
 EVT_TEXT(ID_TEXTCHANGE, MainFrame::OnFind)
 
 // Directory Control Events
+
 EVT_DIRCTRL_FILEACTIVATED(ID_CNTRL_DIRTREE, MainFrame::OnFileActivated)
+
 END_EVENT_TABLE()
 
 // Declare the bitmap loading function
@@ -474,9 +476,9 @@ MainFrame::MainFrame(wxWindow* parent,
     tb_system->Realize();
     
     
-
-    wxAuiToolBar* tb_textmodify =
-        new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+	//Setup the 'Modify Text' Toolbar
+	wxAuiToolBar* tb_textmodify =
+		new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
     tb_textmodify->SetArtProvider(new vxAuiToolbarArt());
     tb_textmodify->SetToolBitmapSize(wxSize(16, 16));
 

@@ -2,6 +2,8 @@
 #define MAINFRAME_H
 // For compilers that support precompilation, includes "wx/wx.h".
 #include "wx/wxprec.h"
+#include "src/Settings.h"
+#include "src/colorscheme/ColourScheme.h"
 
 #ifdef __BORLANDC__
     #pragma hdrstop
@@ -38,8 +40,11 @@
 #include "wx/aui/aui.h"
 //#include "../sample.xpm"
 
+
+#include "wxcrafter.h"
 #include "controls/vxTextCtrl.h"
 #include "include/gui/Icon.h"
+#include "src/Settings.h"
 
 
 // -- menu methods --
@@ -56,10 +61,14 @@ struct FindResult {
     int End;
 };
 
+// Declare the bitmap loading function
+//extern void wxC9ED9InitBitmapResources();
+
+//static bool bBitmapLoaded = false;
 
 // -- frame --
 
-class MainFrame : public wxFrame
+class MainFrame : public MainFrameBase
 {
     enum
     {
@@ -196,6 +205,14 @@ public:
     //global variables
     int INT_NewFileList;
     
+    //Get's the current Active Document.
+    vxTextCtrl* GetActiveDocument();
+    
+    //Settings Object
+     Settings* MainSettings;
+     
+     //Applies Settings across vx.io
+     void ApplySettings();
     
     std::vector<FindResult> FindResults;
     int FindResultIndex;
@@ -313,8 +330,6 @@ private:
     void SetLexarAsPython(wxStyledTextCtrl* text);
 */
 
-    //get pane
-    vxTextCtrl* GetActiveDocument();
     
 void ConsoleWriteLine(wxString input);
 

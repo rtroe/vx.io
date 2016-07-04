@@ -21,6 +21,10 @@
 #include <wx/statbmp.h>
 #include <wx/menu.h>
 #include <wx/toolbar.h>
+#include <wx/stattext.h>
+#include <wx/choice.h>
+#include <wx/arrstr.h>
+#include <wx/button.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
 #include <wx/persist/toplevel.h>
@@ -28,7 +32,7 @@
 #include <wx/persist/treebook.h>
 #endif
 
-class MainFrameBaseClass : public wxFrame
+class ImageFrameBaseClass : public wxFrame
 {
 protected:
     wxNotebook* m_notebook81;
@@ -119,8 +123,61 @@ public:
     wxNotebook* GetNotebook81() { return m_notebook81; }
     wxMenuBar* GetMenuBar() { return m_menuBar; }
     wxToolBar* GetMainToolbar() { return m_mainToolbar; }
-    MainFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("My Frame"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(500,400), long style = wxCAPTION|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCLOSE_BOX);
-    virtual ~MainFrameBaseClass();
+    ImageFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("My Frame"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(500,400), long style = wxCAPTION|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCLOSE_BOX);
+    virtual ~ImageFrameBaseClass();
+};
+
+
+class MainFrameBase : public wxFrame
+{
+protected:
+
+protected:
+
+public:
+    MainFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT(""), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(500,300), long style = wxDEFAULT_FRAME_STYLE);
+    virtual ~MainFrameBase();
+};
+
+
+class SettingsDialogBase : public wxFrame
+{
+public:
+    enum {
+        ID_CHOICE_FONT = 1001,
+    };
+protected:
+    wxNotebook* m_notebook113;
+    wxPanel* m_panel115;
+    wxStaticText* m_staticText138;
+    wxChoice* cmbbx_fonts;
+    wxStaticText* m_staticText154;
+    wxChoice* cmbbx_font_size;
+    wxPanel* m_panel117;
+    wxButton* btn_OK;
+    wxButton* btn_apply;
+    wxButton* btn_cancel;
+
+protected:
+    virtual void OnCmbbx_fontsChoiceSelected(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnCmbbx_font_sizeChoiceSelected(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_okButtonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_applyButtonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_cancelButtonClicked(wxCommandEvent& event) { event.Skip(); }
+
+public:
+    wxStaticText* GetStaticText138() { return m_staticText138; }
+    wxChoice* GetCmbbx_fonts() { return cmbbx_fonts; }
+    wxStaticText* GetStaticText154() { return m_staticText154; }
+    wxChoice* GetCmbbx_font_size() { return cmbbx_font_size; }
+    wxPanel* GetPanel115() { return m_panel115; }
+    wxPanel* GetPanel117() { return m_panel117; }
+    wxNotebook* GetNotebook113() { return m_notebook113; }
+    wxButton* GetBtn_OK() { return btn_OK; }
+    wxButton* GetBtn_apply() { return btn_apply; }
+    wxButton* GetBtn_cancel() { return btn_cancel; }
+    SettingsDialogBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(600,300), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxSTAY_ON_TOP);
+    virtual ~SettingsDialogBase();
 };
 
 #endif

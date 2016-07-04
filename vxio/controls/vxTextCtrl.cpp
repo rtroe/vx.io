@@ -14,13 +14,15 @@ BEGIN_EVENT_TABLE(vxTextCtrl, wxStyledTextCtrl)
     EVT_CHAR( vxTextCtrl::OnKey )
 END_EVENT_TABLE()
 
-vxTextCtrl::vxTextCtrl(wxWindow* parent, wxString filePath) : wxStyledTextCtrl(parent, wxID_ANY, wxDefaultPosition, wxSize(650,175))
+vxTextCtrl::vxTextCtrl(wxWindow* parent, wxString filePath, Settings* sttngs) : wxStyledTextCtrl(parent, wxID_ANY, wxDefaultPosition, wxSize(650,175))
 {
 
         //this->AutoCompShow()
     //Set the File Path
     FilePath = filePath;
     
+    //Set Settings
+    m_settings = sttngs;
 
     //Read In File
     if(FilePath != _(""))

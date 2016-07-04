@@ -1,14 +1,22 @@
-void vxTextCtrl::SetLexarBase(wxStyledTextCtrl* text)
+
+
+void vxTextCtrl::SetMainFont(wxString fontName, int fontSize)
 {
-StyleClearAll();
-    //wxFont m_codeFont(9, wxFONTFAMILY_ROMAN  , wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
-    wxFont m_codeFont(9, wxFONTFAMILY_DEFAULT,
-         wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, "Calibri");
+        wxFont m_codeFont(fontSize, wxFONTFAMILY_DEFAULT,
+         wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, fontName);
     {
         int Nr;
         for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++)
             StyleSetFont (Nr, m_codeFont);
     }
+}
+
+void vxTextCtrl::SetLexarBase(wxStyledTextCtrl* text)
+{
+StyleClearAll();
+
+    //wxFont m_codeFont(9, wxFONTFAMILY_ROMAN  , wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+    SetMainFont(m_settings->FontName.value(), m_settings->FontSize.value());
 
     text->SetCaretForeground(wxColour(225,225,225));
     text->SetSelBackground(true,wxColour(75,75,75));

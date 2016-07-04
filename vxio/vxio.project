@@ -2,7 +2,7 @@
 <CodeLite_Project Name="vxio" InternalType="GUI">
   <Plugins>
     <Plugin Name="qmake">
-      <![CDATA[00060001N0005Debug0000000000000001N0011Debug.Linux0000000000000001N0007Release0000000000000001N0013Release.Linux0000000000000001N0009Tux.Debug0000000000000001N0011Win.Release000000000000]]>
+      <![CDATA[00070001N0005Debug0000000000000001N0011Debug.Linux0000000000000001N0007Release0000000000000001N0013Release.Linux0000000000000001N0009Tux.Debug0000000000000001N0011Tux.Release0000000000000001N0011Win.Release000000000000]]>
     </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
@@ -80,6 +80,14 @@
  }]]]>
     </Plugin>
   </Plugins>
+  <VirtualDirectory Name="lib">
+    <VirtualDirectory Name="xmls">
+      <File Name="lib/xmls/tinyxml2.h"/>
+      <File Name="lib/xmls/XMLSerialization.cpp"/>
+      <File Name="lib/xmls/XMLSerialization.h"/>
+      <File Name="lib/xmls/tinyxml2.cpp"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
   <VirtualDirectory Name="controls">
     <VirtualDirectory Name="lexars">
       <File Name="controls/lexars/base.h"/>
@@ -124,6 +132,17 @@
       <File Name="src/ntbk/methods_fileIO.cpp"/>
       <File Name="src/ntbk/methods_system.cpp"/>
       <File Name="src/ntbk/methods_Help.cpp"/>
+      <File Name="src/ntbk/methods_settings.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="settings">
+      <File Name="SettingsDialog.h"/>
+      <File Name="SettingsDialog.cpp"/>
+      <File Name="src/Settings.h"/>
+      <File Name="src/Settings.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="colorscheme">
+      <File Name="src/colorscheme/ColourScheme.cpp"/>
+      <File Name="src/colorscheme/ColourScheme.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
@@ -162,7 +181,7 @@
       </Compiler>
       <Linker Options="$(shell wx-config --libs --debug);`wx-config --libs --gl-libs` -lGL -lGLU -lglut -lstdc++;`wx-config --libs propgrid,core,base`;`wx-config --cxxflags`;`wx-config --libs`;`wx-config --libs aui`;`wx-config --libs std stc`" Required="yes"/>
       <ResourceCompiler Options="$(shell wx-config --rcflags)" Required="no"/>
-      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./bin/tux/Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="no" IsGUIProgram="no" IsEnabled="yes"/>
+      <General OutputFile="./bin/tux/Debug/$(ProjectName)" IntermediateDirectory="./obj/tux/Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./bin/tux/Debug" PauseExecWhenProcTerminates="no" IsGUIProgram="no" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>
@@ -173,7 +192,7 @@
       </Debugger>
       <PreBuild/>
       <PostBuild>
-        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)$(OutDir)</Command>
+        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)./bin/tux/Debug</Command>
       </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
@@ -203,7 +222,7 @@
       </Compiler>
       <Linker Options="$(shell wx-config --libs);`wx-config --libs --gl-libs` -lGL -lGLU -lglut -lstdc++;`wx-config --libs propgrid,core,base`;`wx-config --cxxflags`;`wx-config --libs`;`wx-config --libs aui`;`wx-config --libs std stc`;" Required="yes"/>
       <ResourceCompiler Options="$(shell wx-config --rcflags)" Required="no"/>
-      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./bin/tux/Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="no" IsGUIProgram="yes" IsEnabled="yes"/>
+      <General OutputFile="./bin/tux/Release/$(ProjectName)" IntermediateDirectory="./obj/tux/Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./bin/tux/Release" PauseExecWhenProcTerminates="no" IsGUIProgram="yes" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>
@@ -214,7 +233,7 @@
       </Debugger>
       <PreBuild/>
       <PostBuild>
-        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)$(OutDir)</Command>
+        <Command Enabled="yes">cp -R $(ProjectDir)doc $(ProjectDir)./bin/tux/Release</Command>
       </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>

@@ -9,6 +9,7 @@
 
 #include "MainFrame.h"
 #include "include/gui/vxAUIToolbarArt.h"
+#include <wx/fontenum.h>
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 
@@ -154,19 +155,15 @@ EVT_DIRCTRL_FILEACTIVATED(ID_CNTRL_DIRTREE, MainFrame::OnFileActivated)
 
 END_EVENT_TABLE()
 
-// Declare the bitmap loading function
-extern void wxC9ED9InitBitmapResources();
-
-static bool bBitmapLoaded = false;
 
 void MainFrame::LoadAllImages()
 {
-    if(!bBitmapLoaded) {
-        // We need to initialise the default bitmap handler
-        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
-        wxC9ED9InitBitmapResources();
-        bBitmapLoaded = true;
-    }
+//    if(!bBitmapLoaded) {
+//        // We need to initialise the default bitmap handler
+//        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+//        wxC9ED9InitBitmapResources();
+//        bBitmapLoaded = true;
+//    }
 
     vxAppImgs = new vxIcons();
 
@@ -180,13 +177,40 @@ MainFrame::MainFrame(wxWindow* parent,
                      const wxPoint& pos,
                      const wxSize& size,
                      long style)
-    : wxFrame(parent, id, title, pos, size, style)
+    : MainFrameBase(parent, id, title, pos, size, style)
 {
     // tell wxAuiManager to manage this frame
     m_mgr.SetManagedWindow(this);
 
     // set frame icon
-    LoadAllImages();
+
+    vxAppImgs = new vxIcons();
+    
+
+    	ColourScheme *settings=new ColourScheme;
+        settings->Name = "Visual Studio";
+        settings->ColStringSingle.SetColour(220,0, 220,255);
+        settings->ColStringDouble.SetColour(50,0, 220,255);
+        settings->ColPreprocessor.SetColour(0,150,225,255);
+        settings->ColNumber.SetColour(220,0,220,255);
+        settings->ColChar.SetColour(150,0,0,255);
+        settings->ColComment.SetColour(0,225,0,255);
+        settings->ColCommentLine.SetColour(0,225,0,255);
+        settings->ColCommentDoc.SetColour(0,150,0,255);
+        settings->ColCommentDocKeyword.SetColour(0,0,200,255);
+        settings->ColCommentDocKeywordError.SetColour(0,0,200,255);
+        settings->ColWord.SetColour(255,128,0,255);
+        settings->ColWord2.SetColour(0,190,190,255);
+    
+    	// Serialize the Settings object
+//	cout << "Serializing object... " << endl;
+//	string xmlData = settings->toXML();
+//	cout << "OK" << endl << endl;
+//	cout << "Result:" << endl;
+//	cout << xmlData << endl << endl;
+    
+    MainSettings = new Settings();
+    MainSettings->Load();
 
     VXIO_APPLICATIONNAME = wxT("vx.io");
     VXIO_VERSION = wxT("v 0.2.0.0");
@@ -453,7 +477,7 @@ MainFrame::MainFrame(wxWindow* parent,
     tb_system->SetToolBitmapSize(wxSize(16, 16));
 
     tb_system->AddTool(
-        ID_ShowGlobalSettings, wxT("Application Settings"),  vxAppImgs->AppSettings16, wxT("Application Settings"));
+        ID_Settings, wxT("Application Settings"),  vxAppImgs->AppSettings16, wxT("Application Settings"));
     tb_system->AddSeparator();
     tb_system->AddTool(ID_ToggleTree, wxT("Toggle Tree"), vxAppImgs->Treeview16, wxT("Hide/Show Tree"), wxITEM_CHECK);
     tb_system->AddTool(ID_ToggleConsole, wxT("Toggle Console"), vxAppImgs->Console16, wxT("Hide/Show Console"), wxITEM_CHECK);

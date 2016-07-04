@@ -4,6 +4,7 @@
 *.o
 *.obj
 vxio/bin/*
+vxio/obj/*
 
 # Precompiled Headers
 *.gch

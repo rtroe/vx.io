@@ -86,8 +86,14 @@ for (std::string line; std::getline(iss, line); )
     result += ">>" + line;
 }
 
+if(GetActiveDocument() != NULL)
+{
     std::cout<<GetActiveDocument()->FileName<<" : "<<result<<std::endl;
-
+}
+else
+{
+    std::cout<<"SYS: "<<" : "<<result<<std::endl;    
+}
     if(ctrl_console!=NULL)
     {
         ctrl_console->AppendText(result + "\n");

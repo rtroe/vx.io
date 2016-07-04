@@ -26,7 +26,7 @@ wxAuiNotebook* MainFrame::CreateNotebook()
 
 vxTextCtrl* MainFrame::CreateStyleTextCtrl(wxString FilePath)
 {
-    vxTextCtrl* text = new vxTextCtrl(this, FilePath);
+    vxTextCtrl* text = new vxTextCtrl(this, FilePath, this->MainSettings);
     return text;
 }
 

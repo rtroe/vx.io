@@ -5,10 +5,24 @@ void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {
     // wxUnusedVar(event);
     wxAboutDialogInfo info;
-    info.SetCopyright(_("My MainFrame"));
-    info.SetLicence(_("GPL v2 or later"));
-    info.SetDescription(_("Short description goes here"));
+    info.SetCopyright(_("(C) Virtex Edge Design"));
+    info.SetLicence(_("MIT Licence"));
+    info.SetDescription(_("vx.io is a cross platform \nfeature-rich text editor."));
+    info.SetName(VXIO_APPLICATIONNAME);
+    info.SetVersion(VXIO_VERSION);
+    
+    wxIcon icon;
+    icon.CopyFromBitmap(vxAppImgs->AppIcon16);
+    info.SetIcon(icon);
+    
+    info.SetWebSite(_("http://virte-c.github.io/vx.io/"));
+    
+    wxArrayString devlopers;
+    devlopers.Add(_("R.T.Roe (@virte-c)"));
+    info.SetDevelopers(devlopers);
+    
     ::wxAboutBox(info);
+    
 
     /*
     m_mgr.AddPane(CreateHTMLCtrl(), wxAuiPaneInfo().

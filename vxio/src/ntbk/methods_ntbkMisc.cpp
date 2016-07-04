@@ -85,16 +85,7 @@ void MainFrame::OnSize(wxSizeEvent& event)
     event.Skip();
 }
 
-void MainFrame::OnSettings(wxCommandEvent& WXUNUSED(evt))
-{
-    // show the settings pane, and float it
-    wxAuiPaneInfo& floating_pane = m_mgr.GetPane(wxT("settings")).Float().Show();
 
-    if(floating_pane.floating_pos == wxDefaultPosition)
-        floating_pane.FloatingPosition(GetStartPosition());
-
-    m_mgr.Update();
-}
 
 void MainFrame::OnCustomizeToolbar(wxCommandEvent& WXUNUSED(evt))
 {

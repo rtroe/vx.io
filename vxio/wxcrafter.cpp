@@ -13,7 +13,7 @@ extern void wxC9ED9InitBitmapResources();
 static bool bBitmapLoaded = false;
 
 
-MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+ImageFrameBaseClass::ImageFrameBaseClass(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
     : wxFrame(parent, id, title, pos, size, style)
 {
     if ( !bBitmapLoaded ) {
@@ -226,7 +226,7 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     }
     #endif
     
-    SetName(wxT("MainFrameBaseClass"));
+    SetName(wxT("ImageFrameBaseClass"));
     SetSize(500,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
@@ -244,14 +244,165 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     }
 #endif
     // Connect events
-    this->Connect(m_menuItem7->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnExit), NULL, this);
-    this->Connect(m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnAbout), NULL, this);
+    this->Connect(m_menuItem7->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImageFrameBaseClass::OnExit), NULL, this);
+    this->Connect(m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImageFrameBaseClass::OnAbout), NULL, this);
     
 }
 
-MainFrameBaseClass::~MainFrameBaseClass()
+ImageFrameBaseClass::~ImageFrameBaseClass()
 {
-    this->Disconnect(m_menuItem7->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnExit), NULL, this);
-    this->Disconnect(m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnAbout), NULL, this);
+    this->Disconnect(m_menuItem7->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImageFrameBaseClass::OnExit), NULL, this);
+    this->Disconnect(m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImageFrameBaseClass::OnAbout), NULL, this);
+    
+}
+
+MainFrameBase::MainFrameBase(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+    : wxFrame(parent, id, title, pos, size, style)
+{
+    if ( !bBitmapLoaded ) {
+        // We need to initialise the default bitmap handler
+        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+        wxC9ED9InitBitmapResources();
+        bBitmapLoaded = true;
+    }
+    
+    SetName(wxT("MainFrameBase"));
+    SetSize(500,300);
+    if (GetSizer()) {
+         GetSizer()->Fit(this);
+    }
+    if(GetParent()) {
+        CentreOnParent(wxBOTH);
+    } else {
+        CentreOnScreen(wxBOTH);
+    }
+#if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(this)) {
+        wxPersistenceManager::Get().RegisterAndRestore(this);
+    } else {
+        wxPersistenceManager::Get().Restore(this);
+    }
+#endif
+}
+
+MainFrameBase::~MainFrameBase()
+{
+}
+
+SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+    : wxFrame(parent, id, title, pos, size, style)
+{
+    if ( !bBitmapLoaded ) {
+        // We need to initialise the default bitmap handler
+        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+        wxC9ED9InitBitmapResources();
+        bBitmapLoaded = true;
+    }
+    
+    wxFlexGridSizer* flexGridSizer111 = new wxFlexGridSizer(2, 1, 0, 0);
+    flexGridSizer111->SetFlexibleDirection( wxBOTH );
+    flexGridSizer111->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    flexGridSizer111->SetMinSize(100,100);
+    this->SetSizer(flexGridSizer111);
+    
+    m_notebook113 = new wxNotebook(this, wxID_ANY, wxDefaultPosition, wxSize(800, 400), wxBK_DEFAULT);
+    m_notebook113->SetName(wxT("m_notebook113"));
+    
+    flexGridSizer111->Add(m_notebook113, 0, wxALL, 5);
+    
+    m_panel115 = new wxPanel(m_notebook113, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_notebook113->AddPage(m_panel115, _("General"), false);
+    
+    wxStaticBoxSizer* staticBoxSizer119 = new wxStaticBoxSizer( new wxStaticBox(m_panel115, wxID_ANY, _("General Editor Settings")), wxHORIZONTAL);
+    staticBoxSizer119->SetMinSize(350,550);
+    m_panel115->SetSizer(staticBoxSizer119);
+    
+    m_staticText138 = new wxStaticText(m_panel115, wxID_ANY, _("Editor Font:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    staticBoxSizer119->Add(m_staticText138, 0, wxALL, 5);
+    
+    wxArrayString cmbbx_fontsArr;
+    cmbbx_fonts = new wxChoice(m_panel115, ID_CHOICE_FONT, wxDefaultPosition, wxSize(300,-1), cmbbx_fontsArr, 0);
+    
+    staticBoxSizer119->Add(cmbbx_fonts, 0, wxALL, 5);
+    
+    m_staticText154 = new wxStaticText(m_panel115, wxID_ANY, _("Size:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    staticBoxSizer119->Add(m_staticText154, 0, wxALL, 5);
+    
+    wxArrayString cmbbx_font_sizeArr;
+    cmbbx_font_size = new wxChoice(m_panel115, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), cmbbx_font_sizeArr, 0);
+    
+    staticBoxSizer119->Add(cmbbx_font_size, 0, wxALL, 5);
+    
+    m_panel117 = new wxPanel(m_notebook113, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_notebook113->AddPage(m_panel117, _("Colour Scheme"), false);
+    
+    wxGridSizer* gridSizer132 = new wxGridSizer(0, 2, 0, 0);
+    
+    flexGridSizer111->Add(gridSizer132, 1, wxALL|wxEXPAND, 5);
+    
+    wxBoxSizer* boxSizer134 = new wxBoxSizer(wxVERTICAL);
+    
+    gridSizer132->Add(boxSizer134, 1, wxALL|wxEXPAND, 5);
+    
+    wxBoxSizer* boxSizer128 = new wxBoxSizer(wxHORIZONTAL);
+    
+    gridSizer132->Add(boxSizer128, 1, wxALL|wxEXPAND, 5);
+    
+    btn_OK = new wxButton(this, wxID_ANY, _("OK"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    boxSizer128->Add(btn_OK, 0, wxALL, 5);
+    
+    btn_apply = new wxButton(this, wxID_ANY, _("Apply"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    boxSizer128->Add(btn_apply, 0, wxALL, 5);
+    
+    btn_cancel = new wxButton(this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    boxSizer128->Add(btn_cancel, 0, wxALL, 5);
+    
+    
+    #if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(m_notebook113)){
+        wxPersistenceManager::Get().RegisterAndRestore(m_notebook113);
+    } else {
+        wxPersistenceManager::Get().Restore(m_notebook113);
+    }
+    #endif
+    
+    SetName(wxT("SettingsDialogBase"));
+    SetSize(600,300);
+    if (GetSizer()) {
+         GetSizer()->Fit(this);
+    }
+    if(GetParent()) {
+        CentreOnParent(wxBOTH);
+    } else {
+        CentreOnScreen(wxBOTH);
+    }
+#if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(this)) {
+        wxPersistenceManager::Get().RegisterAndRestore(this);
+    } else {
+        wxPersistenceManager::Get().Restore(this);
+    }
+#endif
+    // Connect events
+    cmbbx_fonts->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_fontsChoiceSelected), NULL, this);
+    cmbbx_font_size->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_font_sizeChoiceSelected), NULL, this);
+    btn_OK->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_okButtonClicked), NULL, this);
+    btn_apply->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
+    btn_cancel->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);
+    
+}
+
+SettingsDialogBase::~SettingsDialogBase()
+{
+    cmbbx_fonts->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_fontsChoiceSelected), NULL, this);
+    cmbbx_font_size->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_font_sizeChoiceSelected), NULL, this);
+    btn_OK->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_okButtonClicked), NULL, this);
+    btn_apply->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
+    btn_cancel->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);
     
 }

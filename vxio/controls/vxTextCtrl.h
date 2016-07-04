@@ -5,6 +5,7 @@
 #include <wx/textfile.h>
 #include <wx/filename.h>
 #include <wx/msgdlg.h>
+#include "src/Settings.h"
 
 
 //The Main Text Control for the program
@@ -25,12 +26,14 @@ class vxTextCtrl : public wxStyledTextCtrl
 //Methods
 public:
 
-    vxTextCtrl(wxWindow* parent, wxString filePath);
+    vxTextCtrl(wxWindow* parent, wxString filePath, Settings* sttngs);
     ~vxTextCtrl();
 
     void SetFileName();
 
     void Save();
+    
+    Settings* m_settings;
 /*
     void Undo();
     void Redo();
@@ -39,6 +42,7 @@ public:
     void Paste();
 */
     void ParseLexar();
+    void SetMainFont(wxString fontName, int fontSize);
 
     void SetLexarBase(wxStyledTextCtrl* text);
     void SetLexarAsC(wxStyledTextCtrl* text);

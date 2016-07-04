@@ -7,13 +7,13 @@ ProjectName            :=vxio
 ConfigurationName      :=Tux.Debug
 WorkspacePath          :=/home/tuxbox/Documents/code/vx.io
 ProjectPath            :=/home/tuxbox/Documents/code/vx.io/vxio
-IntermediateDirectory  :=./bin/tux/Debug
+IntermediateDirectory  :=./obj/tux/Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=tuxbox
-Date                   :=02/07/16
+Date                   :=04/07/16
 CodeLitePath           :=/home/tuxbox/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -27,7 +27,7 @@ OutputSwitch           :=-o
 LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
-OutputFile             :=$(IntermediateDirectory)/$(ProjectName)
+OutputFile             :=./bin/tux/Debug/$(ProjectName)
 Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
@@ -61,8 +61,9 @@ AS       := /usr/bin/as
 ##
 CodeLiteDir:=/usr/share/codelite
 LD_LIBRARY_PATH:=/home/tuxbox/Documents/code/iris-cad/lib/vxGUI/bin/linux/Debug:/home/tuxbox/Documents/code/iris-cad/lib/vxPad/bin/linux/Debug:/home/tuxbox/Documents/code/iris-cad/lib/vxOCC/bin/linux/Debug:/home/tuxbox/Documents/code/iris-cad/lib/vxICO/bin/linux/Debug
-Objects0=$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAuiTabArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_Icon.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_console_console.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_dirtree_dirtree.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/src_find_find.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_OnCntrlCreate.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_modifyText.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_ntbkMisc.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_fileIO.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_system.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_Help.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/controls_vxTextCtrl.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(ObjectSuffix) $(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_vxAuiTabArt.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_gui_Icon.cpp$(ObjectSuffix) \
+	$(IntermediateDirectory)/src_console_console.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_dirtree_dirtree.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_find_find.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_OnCntrlCreate.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_modifyText.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_ntbkMisc.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_fileIO.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_system.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_Help.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(ObjectSuffix) \
+	$(IntermediateDirectory)/SettingsDialog.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_Settings.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(ObjectSuffix) 
 
 
 
@@ -86,11 +87,11 @@ PostBuild:
 	@echo Done
 
 MakeIntermediateDirs:
-	@test -d ./bin/tux/Debug || $(MakeDirCommand) ./bin/tux/Debug
+	@test -d ./obj/tux/Debug || $(MakeDirCommand) ./obj/tux/Debug
 
 
 $(IntermediateDirectory)/.d:
-	@test -d ./bin/tux/Debug || $(MakeDirCommand) ./bin/tux/Debug
+	@test -d ./obj/tux/Debug || $(MakeDirCommand) ./obj/tux/Debug
 
 PreBuild:
 
@@ -137,6 +138,22 @@ $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(DependSuffix): wxcrafter_bitmaps
 
 $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix): wxcrafter_bitmaps.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix) "wxcrafter_bitmaps.cpp"
+
+$(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(ObjectSuffix): lib/xmls/XMLSerialization.cpp $(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/lib/xmls/XMLSerialization.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(DependSuffix): lib/xmls/XMLSerialization.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(DependSuffix) -MM "lib/xmls/XMLSerialization.cpp"
+
+$(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(PreprocessSuffix): lib/xmls/XMLSerialization.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/lib_xmls_XMLSerialization.cpp$(PreprocessSuffix) "lib/xmls/XMLSerialization.cpp"
+
+$(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(ObjectSuffix): lib/xmls/tinyxml2.cpp $(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/lib/xmls/tinyxml2.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(DependSuffix): lib/xmls/tinyxml2.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(DependSuffix) -MM "lib/xmls/tinyxml2.cpp"
+
+$(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(PreprocessSuffix): lib/xmls/tinyxml2.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/lib_xmls_tinyxml2.cpp$(PreprocessSuffix) "lib/xmls/tinyxml2.cpp"
 
 $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix): src/gui/vxAUIToolbarArt.cpp $(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/src/gui/vxAUIToolbarArt.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_gui_vxAUIToolbarArt.cpp$(ObjectSuffix) $(IncludePath)
@@ -234,12 +251,44 @@ $(IntermediateDirectory)/src_ntbk_methods_Help.cpp$(DependSuffix): src/ntbk/meth
 $(IntermediateDirectory)/src_ntbk_methods_Help.cpp$(PreprocessSuffix): src/ntbk/methods_Help.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_ntbk_methods_Help.cpp$(PreprocessSuffix) "src/ntbk/methods_Help.cpp"
 
+$(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(ObjectSuffix): src/ntbk/methods_settings.cpp $(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/src/ntbk/methods_settings.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(DependSuffix): src/ntbk/methods_settings.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(DependSuffix) -MM "src/ntbk/methods_settings.cpp"
+
+$(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(PreprocessSuffix): src/ntbk/methods_settings.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_ntbk_methods_settings.cpp$(PreprocessSuffix) "src/ntbk/methods_settings.cpp"
+
+$(IntermediateDirectory)/SettingsDialog.cpp$(ObjectSuffix): SettingsDialog.cpp $(IntermediateDirectory)/SettingsDialog.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/SettingsDialog.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/SettingsDialog.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/SettingsDialog.cpp$(DependSuffix): SettingsDialog.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/SettingsDialog.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/SettingsDialog.cpp$(DependSuffix) -MM "SettingsDialog.cpp"
+
+$(IntermediateDirectory)/SettingsDialog.cpp$(PreprocessSuffix): SettingsDialog.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SettingsDialog.cpp$(PreprocessSuffix) "SettingsDialog.cpp"
+
+$(IntermediateDirectory)/src_Settings.cpp$(ObjectSuffix): src/Settings.cpp $(IntermediateDirectory)/src_Settings.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/src/Settings.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_Settings.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_Settings.cpp$(DependSuffix): src/Settings.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_Settings.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_Settings.cpp$(DependSuffix) -MM "src/Settings.cpp"
+
+$(IntermediateDirectory)/src_Settings.cpp$(PreprocessSuffix): src/Settings.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_Settings.cpp$(PreprocessSuffix) "src/Settings.cpp"
+
+$(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(ObjectSuffix): src/colorscheme/ColourScheme.cpp $(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/tuxbox/Documents/code/vx.io/vxio/src/colorscheme/ColourScheme.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(DependSuffix): src/colorscheme/ColourScheme.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(DependSuffix) -MM "src/colorscheme/ColourScheme.cpp"
+
+$(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(PreprocessSuffix): src/colorscheme/ColourScheme.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_colorscheme_ColourScheme.cpp$(PreprocessSuffix) "src/colorscheme/ColourScheme.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
 ## Clean
 ##
 clean:
-	$(RM) -r ./bin/tux/Debug/
+	$(RM) -r ./obj/tux/Debug/
 
 

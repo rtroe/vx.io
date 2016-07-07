@@ -96,6 +96,7 @@
       <File Name="controls/lexars/python.h"/>
       <File Name="controls/lexars/web.h"/>
       <File Name="controls/lexars/clike.h"/>
+      <File Name="controls/lexars/xml.h"/>
     </VirtualDirectory>
     <File Name="controls/vxTextCtrl.cpp"/>
     <File Name="controls/vxTextCtrl.h"/>

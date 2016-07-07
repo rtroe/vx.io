@@ -4,23 +4,20 @@ void vxTextCtrl::SetLexarAsHLSL(wxStyledTextCtrl* text)
     SetLexarBase(text);
     text->SetLexer(wxSTC_LEX_CPP);
 
-    text->StyleSetForeground (wxSTC_C_STRING,            wxColour(220,0, 220));
-    text->StyleSetForeground (wxSTC_C_PREPROCESSOR,      wxColour(0,150,225));
-    //text->StyleSetForeground (wxSTC_C_IDENTIFIER,        wxColour(40,0,60));
-    text->StyleSetForeground (wxSTC_C_NUMBER,            wxColour(220,0,220));
-    text->StyleSetForeground (wxSTC_C_CHARACTER,         wxColour(150,0,0));
-    text->StyleSetForeground (wxSTC_C_WORD,              wxColour(255,128,0));
-    text->StyleSetForeground (wxSTC_C_WORD2,             wxColour(0,190,190));
-    text->StyleSetForeground (wxSTC_C_COMMENT,           wxColour(0,225,0));
-    text->StyleSetForeground (wxSTC_C_COMMENTLINE,       wxColour(0,225,0));
-    text->StyleSetForeground (wxSTC_C_COMMENTDOC,        wxColour(0,150,0));
-    text->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORD, wxColour(0,0,200));
-    text->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORDERROR, wxColour(0,0,200));
+    text->StyleSetForeground (wxSTC_C_STRING,                       m_settings->CurColSchm.Col_C_StringDouble.TowxColour());
+    text->StyleSetForeground (wxSTC_C_PREPROCESSOR,      m_settings->CurColSchm.Col_C_Preprocessor.TowxColour());
+    text->StyleSetForeground (wxSTC_C_NUMBER,                     m_settings->CurColSchm.Col_C_Number.TowxColour());
+    text->StyleSetForeground (wxSTC_C_CHARACTER,              m_settings->CurColSchm.Col_C_StringSingle.TowxColour());
+    text->StyleSetForeground (wxSTC_C_WORD,                         m_settings->CurColSchm.Col_Main_Word.TowxColour());
+    text->StyleSetForeground (wxSTC_C_WORD2,                       m_settings->CurColSchm.Col_Main_Word2.TowxColour());
+    text->StyleSetForeground (wxSTC_C_COMMENT,                  m_settings->CurColSchm.Col_C_Comment.TowxColour());
+    text->StyleSetForeground (wxSTC_C_COMMENTLINE,         m_settings->CurColSchm.Col_C_CommentLine.TowxColour());
+    text->StyleSetForeground (wxSTC_C_COMMENTDOC,        m_settings->CurColSchm.Col_C_CommentDoc.TowxColour());
+    text->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORD, m_settings->CurColSchm.Col_C_CommentDocKeyword.TowxColour());
+    text->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORDERROR, m_settings->CurColSchm.Col_C_CommentDocKeywordError.TowxColour());
     text->StyleSetBold(wxSTC_C_WORD, true);
     text->StyleSetBold(wxSTC_C_WORD2, true);
     text->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, true);
-    text->SetCaretForeground(wxColour(225,225,225));
-    text->SetSelBackground(true,wxColour(100,100,100));
 
     wxString CppWordlist1 = wxT("VertexShader PixelShader  vs_2_0 ps_2_0 vs_3_0 ps_3_0  vs_4_0 ps_4_0 float float2 float3 float4 float4x4 Texture MinFilter MagFilter MipFilter AddressV AddressU Linear Wrap POSITION0 NORMAL0 COLOR0 TEXCOORD0 TEXCOORD1 TEXCOORD2");
 

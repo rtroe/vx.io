@@ -6,6 +6,7 @@
 #include <wx/filename.h>
 #include <wx/msgdlg.h>
 #include "src/Settings.h"
+#include "src/colorscheme/ColourScheme.h"
 
 
 //The Main Text Control for the program
@@ -43,7 +44,9 @@ public:
 */
     void ParseLexar();
     void SetMainFont(wxString fontName, int fontSize);
-
+    
+    //ColourScheme GetColScm();
+    
     void SetLexarBase(wxStyledTextCtrl* text);
     void SetLexarAsC(wxStyledTextCtrl* text);
     void SetLexarAsCPP(wxStyledTextCtrl* text);
@@ -54,8 +57,11 @@ public:
     void SetLexarAsJS(wxStyledTextCtrl* text);
     void SetLexarAsPHP(wxStyledTextCtrl* text);
     void SetLexarAsPython(wxStyledTextCtrl* text);
+    void SetLexarAsXML(wxStyledTextCtrl* text);
 
     // stc
+    bool SetBraceHighlighting(char, char);
+    void OnUIUpdate(wxStyledTextEvent &event);
     void OnMarginClick (wxStyledTextEvent &event);
     void OnCharAdded  (wxStyledTextEvent &event);
     void OnKey  (wxKeyEvent &event);

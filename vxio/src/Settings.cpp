@@ -9,7 +9,8 @@ Settings::Settings()
    	setClassName("Settings");
 	Register("FontName", &FontName);
 	Register("FontSize", &FontSize);
-	Register("Setting3", &Setting3);
+	Register("CurColSchm", &CurColSchm);
+    
 	Register("Setting4", &Setting4);
 	Register("Setting5", &Setting5);
 	Register("Setting6", &Setting6);

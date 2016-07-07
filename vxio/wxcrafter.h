@@ -154,6 +154,9 @@ protected:
     wxStaticText* m_staticText154;
     wxChoice* cmbbx_font_size;
     wxPanel* m_panel117;
+    wxPanel* m_panel160;
+    wxStaticText* m_staticText166;
+    wxChoice* cmbbx_theme;
     wxButton* btn_OK;
     wxButton* btn_apply;
     wxButton* btn_cancel;
@@ -161,6 +164,7 @@ protected:
 protected:
     virtual void OnCmbbx_fontsChoiceSelected(wxCommandEvent& event) { event.Skip(); }
     virtual void OnCmbbx_font_sizeChoiceSelected(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnCmbbx_themeChoiceSelected(wxCommandEvent& event) { event.Skip(); }
     virtual void OnBtn_okButtonClicked(wxCommandEvent& event) { event.Skip(); }
     virtual void OnBtn_applyButtonClicked(wxCommandEvent& event) { event.Skip(); }
     virtual void OnBtn_cancelButtonClicked(wxCommandEvent& event) { event.Skip(); }
@@ -171,6 +175,9 @@ public:
     wxStaticText* GetStaticText154() { return m_staticText154; }
     wxChoice* GetCmbbx_font_size() { return cmbbx_font_size; }
     wxPanel* GetPanel115() { return m_panel115; }
+    wxPanel* GetPanel160() { return m_panel160; }
+    wxStaticText* GetStaticText166() { return m_staticText166; }
+    wxChoice* GetCmbbx_theme() { return cmbbx_theme; }
     wxPanel* GetPanel117() { return m_panel117; }
     wxNotebook* GetNotebook113() { return m_notebook113; }
     wxButton* GetBtn_OK() { return btn_OK; }

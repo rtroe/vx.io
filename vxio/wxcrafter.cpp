@@ -338,6 +338,29 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     m_panel117 = new wxPanel(m_notebook113, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
     m_notebook113->AddPage(m_panel117, _("Colour Scheme"), false);
     
+    wxBoxSizer* boxSizer158 = new wxBoxSizer(wxHORIZONTAL);
+    m_panel117->SetSizer(boxSizer158);
+    
+    m_panel160 = new wxPanel(m_panel117, wxID_ANY, wxDefaultPosition, wxSize(350,350), wxTAB_TRAVERSAL);
+    m_panel160->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNSHADOW));
+    
+    boxSizer158->Add(m_panel160, 0, wxALL, 5);
+    
+    wxFlexGridSizer* flexGridSizer164 = new wxFlexGridSizer(0, 2, 0, 0);
+    flexGridSizer164->SetFlexibleDirection( wxBOTH );
+    flexGridSizer164->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    boxSizer158->Add(flexGridSizer164, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticText166 = new wxStaticText(m_panel117, wxID_ANY, _("Theme:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer164->Add(m_staticText166, 0, wxALL, 5);
+    
+    wxArrayString cmbbx_themeArr;
+    cmbbx_theme = new wxChoice(m_panel117, wxID_ANY, wxDefaultPosition, wxSize(300,-1), cmbbx_themeArr, 0);
+    
+    flexGridSizer164->Add(cmbbx_theme, 0, wxALL, 5);
+    
     wxGridSizer* gridSizer132 = new wxGridSizer(0, 2, 0, 0);
     
     flexGridSizer111->Add(gridSizer132, 1, wxALL|wxEXPAND, 5);
@@ -391,6 +414,7 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     // Connect events
     cmbbx_fonts->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_fontsChoiceSelected), NULL, this);
     cmbbx_font_size->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_font_sizeChoiceSelected), NULL, this);
+    cmbbx_theme->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_themeChoiceSelected), NULL, this);
     btn_OK->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_okButtonClicked), NULL, this);
     btn_apply->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
     btn_cancel->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);
@@ -401,6 +425,7 @@ SettingsDialogBase::~SettingsDialogBase()
 {
     cmbbx_fonts->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_fontsChoiceSelected), NULL, this);
     cmbbx_font_size->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_font_sizeChoiceSelected), NULL, this);
+    cmbbx_theme->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_themeChoiceSelected), NULL, this);
     btn_OK->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_okButtonClicked), NULL, this);
     btn_apply->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
     btn_cancel->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);

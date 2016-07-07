@@ -102,6 +102,7 @@ class MainFrame : public MainFrameBase
         ID_PY,
         ID_PHP,
         ID_TXT,
+        ID_XML,
         
         ID_ShowGlobalSettings,
         ID_ToggleTree,
@@ -207,6 +208,7 @@ public:
     
     //Get's the current Active Document.
     vxTextCtrl* GetActiveDocument();
+    vxTextCtrl* GetDocumentAt(int);
     
     //Settings Object
      Settings* MainSettings;

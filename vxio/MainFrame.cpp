@@ -10,6 +10,7 @@
 #include "MainFrame.h"
 #include "include/gui/vxAUIToolbarArt.h"
 #include <wx/fontenum.h>
+#include <wx/dir.h>
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 
@@ -47,6 +48,9 @@ EVT_MENU(MainFrame::ID_JS, MainFrame::OnLexarUpdate)
 EVT_MENU(MainFrame::ID_PY, MainFrame::OnLexarUpdate)
 EVT_MENU(MainFrame::ID_PHP, MainFrame::OnLexarUpdate)
 EVT_MENU(MainFrame::ID_TXT, MainFrame::OnLexarUpdate)
+EVT_MENU(MainFrame::ID_XML, MainFrame::OnLexarUpdate)
+
+
 
 // -- view --
 EVT_MENU(MainFrame::ID_DISPLAYEOL, MainFrame::OnEOLToggle)
@@ -187,30 +191,131 @@ MainFrame::MainFrame(wxWindow* parent,
     vxAppImgs = new vxIcons();
     
 
-    	ColourScheme *settings=new ColourScheme;
-        settings->Name = "Visual Studio";
-        settings->ColStringSingle.SetColour(220,0, 220,255);
-        settings->ColStringDouble.SetColour(50,0, 220,255);
-        settings->ColPreprocessor.SetColour(0,150,225,255);
-        settings->ColNumber.SetColour(220,0,220,255);
-        settings->ColChar.SetColour(150,0,0,255);
-        settings->ColComment.SetColour(0,225,0,255);
-        settings->ColCommentLine.SetColour(0,225,0,255);
-        settings->ColCommentDoc.SetColour(0,150,0,255);
-        settings->ColCommentDocKeyword.SetColour(0,0,200,255);
-        settings->ColCommentDocKeywordError.SetColour(0,0,200,255);
-        settings->ColWord.SetColour(255,128,0,255);
-        settings->ColWord2.SetColour(0,190,190,255);
-    
+    	ColourScheme *settings=new ColourScheme();
+         settings->Name = "Monokai";
+        settings->Col_Main_Foreground.SetColour(225,255,255, 255);
+        settings->Col_Main_Background.SetColour(39,40,34, 255);
+        settings->Col_Main_CaretForeground.SetColour(225,255,255, 255);
+        
+        settings->Col_Margin_LineNum_Foreground.SetColour(150, 150, 150, 255);
+        settings->Col_Margin_LineNum_Background.SetColour(25,25,15, 255);
+        
+        settings->Col_Main_BracketsGood.SetColour(0,204,255, 255);
+        settings->Col_Main_BracketsBad.SetColour(255, 0, 0, 255);
+        
+        settings->Col_Margin_Fold_Background.SetColour(75, 75, 75, 255);
+        settings->Col_Margin_FoldArrow_Foreground.SetColour(70, 70, 70, 255);
+        settings->Col_Margin_FoldArrow_Background.SetColour(120, 120, 120, 255);
+             
+
+        settings->Col_Sel_Foreground.SetColour(45,45,45, 255);
+        settings->Col_Sel_Background.SetColour(225,151,31, 255);
+        
+        settings->Col_C_StringSingle.SetColour(230,219,116,255);
+        settings->Col_C_StringDouble.SetColour(230,219,116,255);
+        settings->Col_C_Preprocessor.SetColour(166,226,46,255);
+        settings->Col_C_Number.SetColour(200,0,255,255);
+        settings->Col_C_Char.SetColour(253,151,31,255);
+        
+        int cmnt = 115;
+        settings->Col_C_Comment.SetColour(cmnt,cmnt,cmnt,255);
+        settings->Col_C_CommentLine.SetColour(cmnt,cmnt,cmnt,255);
+        settings->Col_C_CommentDoc.SetColour(cmnt,cmnt,cmnt,255);
+        settings->Col_C_CommentDocKeyword.SetColour(cmnt,255,cmnt,255);
+        settings->Col_C_CommentDocKeywordError.SetColour(100,0,0,255);
+        settings->Col_Main_Word.SetColour(249,38,114,255);
+        settings->Col_Main_Word2.SetColour(102,217,239,255);
+        //settings->Save();
+        
+        
+        /*
+         settings->Name = "Monokai";
+        settings->Col_Main_Foreground.SetColour(225,255,255, 255);
+        settings->Col_Main_Background.SetColour(39,40,34, 255);
+        settings->Col_Main_CaretForeground.SetColour(225,255,255, 255);
+        
+        settings->Col_Margin_LineNum_Foreground.SetColour(150, 150, 150, 255);
+        settings->Col_Margin_LineNum_Background.SetColour(25,25,15, 255);
+        
+        settings->Col_Main_BracketsGood.SetColour(0,204,255, 255);
+        settings->Col_Main_BracketsBad.SetColour(255, 0, 0, 255);
+        
+        settings->Col_Margin_Fold_Background.SetColour(75, 75, 75, 255);
+        settings->Col_Margin_FoldArrow_Foreground.SetColour(70, 70, 70, 255);
+        settings->Col_Margin_FoldArrow_Background.SetColour(120, 120, 120, 255);
+             
+
+        settings->Col_Sel_Foreground.SetColour(45,45,45, 255);
+        settings->Col_Sel_Background.SetColour(225,151,31, 255);
+        
+        settings->Col_C_StringSingle.SetColour(230,219,116,255);
+        settings->Col_C_StringDouble.SetColour(230,219,116,255);
+        settings->Col_C_Preprocessor.SetColour(166,226,46,255);
+        settings->Col_C_Number.SetColour(200,0,255,255);
+        settings->Col_C_Char.SetColour(253,151,31,255);
+        
+        int cmnt = 115;
+        settings->Col_C_Comment.SetColour(cmnt,cmnt,cmnt,255);
+        settings->Col_C_CommentLine.SetColour(cmnt,cmnt,cmnt,255);
+        settings->Col_C_CommentDoc.SetColour(cmnt,cmnt,cmnt,255);
+        settings->Col_C_CommentDocKeyword.SetColour(cmnt,255,cmnt,255);
+        settings->Col_C_CommentDocKeywordError.SetColour(100,0,0,255);
+        settings->Col_Main_Word.SetColour(249,38,114,255);
+        settings->Col_Main_Word2.SetColour(102,217,239,255);
+        settings->Save();
+         */
+        
+        /*
+         settings->Name = "Visual Studio";
+        settings->Col_Main_Foreground.SetColour(0,0,0, 255);
+        settings->Col_Main_Background.SetColour(255,255,255, 255);
+        settings->Col_Main_CaretForeground.SetColour(0,0,0, 255);
+        
+        settings->Col_Main_BracketsGood.SetColour(255,204,0, 255);
+        settings->Col_Main_BracketsBad.SetColour(255, 0, 0, 255);
+        
+        settings->Col_Margin_LineNum_Foreground.SetColour(25, 25, 25, 255);
+        settings->Col_Margin_LineNum_Background.SetColour(220, 220, 220, 255);
+        
+        settings->Col_Margin_Fold_Background.SetColour(235, 235, 235, 255);
+        settings->Col_Margin_FoldArrow_Foreground.SetColour(235, 235, 235, 255);
+        settings->Col_Margin_FoldArrow_Background.SetColour(25, 25, 25, 255);
+        
+        
+        settings->Col_Sel_Foreground.SetColour(235,235,235, 255);
+        settings->Col_Sel_Background.SetColour(0,75,255, 255);
+        
+        settings->Col_C_StringSingle.SetColour(163,21, 21,255);
+        settings->Col_C_StringDouble.SetColour(163,21, 21,255);
+        settings->Col_C_Preprocessor.SetColour(0,0,225,255);
+        settings->Col_C_Number.SetColour(220,0,220,255);
+        settings->Col_C_Char.SetColour(150,0,0,255);
+        settings->Col_C_Comment.SetColour(0,128,0,255);
+        settings->Col_C_CommentLine.SetColour(0,128,0,255);
+        settings->Col_C_CommentDoc.SetColour(0,100,0,255);
+        settings->Col_C_CommentDocKeyword.SetColour(0,0,200,255);
+        settings->Col_C_CommentDocKeywordError.SetColour(0,0,200,255);
+        settings->Col_Main_Word.SetColour(0,0,255,255);
+        settings->Col_Main_Word2.SetColour(43,145,175,255);
+        settings->Save();
+         */
     	// Serialize the Settings object
 //	cout << "Serializing object... " << endl;
 //	string xmlData = settings->toXML();
 //	cout << "OK" << endl << endl;
 //	cout << "Result:" << endl;
 //	cout << xmlData << endl << endl;
+
+    //Check  Directories
+    if(wxDir::Exists("config") == false)
+        wxDir::Make("config");
+    if(wxDir::Exists("schemes") == false)
+        wxDir::Make("schemes");
     
     MainSettings = new Settings();
     MainSettings->Load();
+    //MainSettings->CurColSchm.Copy(settings);
+    
 
     VXIO_APPLICATIONNAME = wxT("vx.io");
     VXIO_VERSION = wxT("v 0.2.0.0");
@@ -322,6 +427,9 @@ MainFrame::MainFrame(wxWindow* parent,
     menu_lexar->AppendRadioItem(ID_PHP, _("PHP Script(*.php)"));
     menu_lexar->AppendRadioItem(ID_PY, _("Python Script(*.py, *.pyw)"));
     menu_lexar->AppendRadioItem(ID_TXT, _("Text(*.txt)"));
+    menu_lexar->AppendRadioItem(ID_XML, _("XML(*.xml)"));
+    
+    
 
     // convert EOL submenu
     wxMenu* menuConvertEOL = new wxMenu;
@@ -547,7 +655,7 @@ MainFrame::MainFrame(wxWindow* parent,
 
     m_mgr.AddPane(
         tb_textmodify,
-        wxAuiPaneInfo().Name(wxT("tb_textmodify")).Caption(wxT("Text Modify")).ToolbarPane().Top().Row(2).Position(1));
+        wxAuiPaneInfo().Name(wxT("tb_textmodify")).Caption(wxT("Text Modify")).ToolbarPane().Bottom().Row(1).Position(1));
 
     m_mgr.AddPane(
         tb_find,
@@ -732,6 +840,21 @@ vxTextCtrl* MainFrame::GetActiveDocument()
     return NULL;
 }
 
+//Returns a Document Given an 'Index'
+vxTextCtrl* MainFrame::GetDocumentAt(int i)
+{
+    if(m_ntbk->GetPageCount() > 0) {
+        if(m_ntbk->GetPage(i)->IsKindOf(CLASSINFO(vxTextCtrl))) {
+            return (vxTextCtrl*)(m_ntbk->GetPage(i));
+        } else
+        {
+            //wxMessageBox(wxT("Error Finding Active Document"));
+            return (vxTextCtrl*)(m_ntbk->GetPage(0));
+        }
+    }
+    return NULL;
+}
+
 
 // Set Toolbar Status
 void MainFrame::SetToolbarStatusEvent(wxKeyEvent& event)
@@ -818,6 +941,9 @@ void MainFrame::OnLexarUpdate(wxCommandEvent& event)
         break;
     case ID_PHP:
         GetActiveDocument()->SetLexarAsPHP(GetActiveDocument());
+        break;
+    case ID_XML:
+        GetActiveDocument()->SetLexarAsXML(GetActiveDocument());
         break;
     }
 }

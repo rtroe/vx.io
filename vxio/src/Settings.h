@@ -3,6 +3,7 @@
 #include <wx/textfile.h>
 
 #include "../lib/xmls/XMLSerialization.h"
+#include "src/colorscheme/ColourScheme.h"
 
 using namespace xmls;
 
@@ -16,14 +17,15 @@ public:
     
     xString FontName;
 	xInt FontSize;
+    ColourScheme CurColSchm;
 	xString Setting3;
 	xInt Setting4;
 	xInt Setting5;
 	xBool Setting6;
 	xBool Setting7;
     
-    void Load();
     void Save();
+    void Load();
 
 protected:
     wxString FILENAME;

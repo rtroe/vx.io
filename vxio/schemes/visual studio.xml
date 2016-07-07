@@ -1,0 +1,148 @@
+<SerializableClass Type="ColourScheme" Version="1.0">
+    <Member Name="Name">Visual Studio</Member>
+    <Class Name="Col_Main_Foreground" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Main_Background" Type="vxColour" Version="1.0">
+        <Member Name="R">255</Member>
+        <Member Name="G">255</Member>
+        <Member Name="B">255</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Main_CaretForeground" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Main_BracketsGood" Type="vxColour" Version="1.0">
+        <Member Name="R">255</Member>
+        <Member Name="G">204</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Main_BracketsBad" Type="vxColour" Version="1.0">
+        <Member Name="R">255</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Margin_LineNum_Foreground" Type="vxColour" Version="1.0">
+        <Member Name="R">25</Member>
+        <Member Name="G">25</Member>
+        <Member Name="B">25</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Margin_LineNum_Background" Type="vxColour" Version="1.0">
+        <Member Name="R">220</Member>
+        <Member Name="G">220</Member>
+        <Member Name="B">220</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Margin_Fold_Background" Type="vxColour" Version="1.0">
+        <Member Name="R">235</Member>
+        <Member Name="G">235</Member>
+        <Member Name="B">235</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Margin_FoldArrow_Foreground" Type="vxColour" Version="1.0">
+        <Member Name="R">235</Member>
+        <Member Name="G">235</Member>
+        <Member Name="B">235</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Margin_FoldArrow_Background" Type="vxColour" Version="1.0">
+        <Member Name="R">25</Member>
+        <Member Name="G">25</Member>
+        <Member Name="B">25</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Sel_Foreground" Type="vxColour" Version="1.0">
+        <Member Name="R">235</Member>
+        <Member Name="G">235</Member>
+        <Member Name="B">235</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Sel_Background" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">75</Member>
+        <Member Name="B">255</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_StringSingle" Type="vxColour" Version="1.0">
+        <Member Name="R">163</Member>
+        <Member Name="G">21</Member>
+        <Member Name="B">21</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_StringDouble" Type="vxColour" Version="1.0">
+        <Member Name="R">163</Member>
+        <Member Name="G">21</Member>
+        <Member Name="B">21</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_Preprocessor" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">225</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_Number" Type="vxColour" Version="1.0">
+        <Member Name="R">220</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">220</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_Char" Type="vxColour" Version="1.0">
+        <Member Name="R">150</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_Comment" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">128</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_CommentLine" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">128</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_CommentDoc" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">100</Member>
+        <Member Name="B">0</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_CommentDocKeyword" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">200</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_C_CommentDocKeywordError" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">200</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Main_Word" Type="vxColour" Version="1.0">
+        <Member Name="R">0</Member>
+        <Member Name="G">0</Member>
+        <Member Name="B">255</Member>
+        <Member Name="A">255</Member>
+    </Class>
+    <Class Name="Col_Main_Word2" Type="vxColour" Version="1.0">
+        <Member Name="R">43</Member>
+        <Member Name="G">145</Member>
+        <Member Name="B">175</Member>
+        <Member Name="A">255</Member>
+    </Class>
+</SerializableClass>
+

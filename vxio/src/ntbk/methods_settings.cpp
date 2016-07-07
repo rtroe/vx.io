@@ -9,5 +9,9 @@ void MainFrame::OnSettings(wxCommandEvent& WXUNUSED(evt))
 
 void MainFrame::ApplySettings()
 {   
-    this->GetActiveDocument()->SetMainFont(this->MainSettings->FontName.value(), this->MainSettings->FontSize.value());
+    for(unsigned int i = 0; i < m_ntbk->GetPageCount(); i++)
+    {
+        GetActiveDocument()->SetMainFont(this->MainSettings->FontName.value(), this->MainSettings->FontSize.value());
+        GetDocumentAt(i)->ParseLexar();
+    }
 }

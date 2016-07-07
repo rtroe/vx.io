@@ -209,7 +209,6 @@ namespace xmls
 	{
 		friend class CollectionBase;
 	private:
-		Serializable(Serializable const &s) { }
 		Serializable operator=(Serializable const &s) {return *this;};
 		static string strReplaceAll(string source, const string from, const string to);
 	protected:
@@ -228,6 +227,7 @@ namespace xmls
 		void Serialize(tinyxml2::XMLDocument *classDoc, tinyxml2::XMLElement *rootNode);
 		static void Deserialize(Serializable *classItem, tinyxml2::XMLDocument *classDoc, tinyxml2::XMLElement *rootNode);
 	public:
+		Serializable(Serializable const &s) { }
 		static bool fromXML(string XMLSource, Serializable *classObject);
 		static string IdentifyClass(string XMLSource);
 		static string IdentifyClassVersion(string XMLSource);

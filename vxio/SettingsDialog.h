@@ -17,6 +17,7 @@ public:
     Settings tempSettings;
     
 protected:
+    virtual void OnCmbbx_themeChoiceSelected(wxCommandEvent& event);
     virtual void OnCmbbx_font_sizeChoiceSelected(wxCommandEvent& event);
     virtual void OnBtn_applyButtonClicked(wxCommandEvent& event);
     virtual void OnBtn_cancelButtonClicked(wxCommandEvent& event);

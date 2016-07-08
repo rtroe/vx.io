@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc">
+  <object class="wxFrame" name="ImageFrameBaseClass">
+    <title>My Frame</title>
+    <centered>1</centered>
+    <style>wxCAPTION|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCLOSE_BOX</style>
+    <size>500,400</size>
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <flag>wxALL</flag>
+        <border>5</border>
+        <object class="wxNotebook" name="m_notebook81">
+          <style>wxBK_DEFAULT</style>
+          <object class="notebookpage">
+            <label>Main</label>
+            <selected>0</selected>
+            <object class="wxPanel" name="m_panel83">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem" name="staticBoxSizer49">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer49">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>My Label</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap51">
+                        <bitmap>img/fileicons/file_ext_script.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap53">
+                        <bitmap>img/fileicons/page_white.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap55">
+                        <bitmap>img/fileicons/page_white_c.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap57">
+                        <bitmap>img/fileicons/page_white_code.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap59">
+                        <bitmap>img/fileicons/page_white_cplusplus.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap61">
+                        <bitmap>img/fileicons/page_white_csharp.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap63">
+                        <bitmap>img/fileicons/page_white_database.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap65">
+                        <bitmap>img/fileicons/page_white_h.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap67">
+                        <bitmap>img/fileicons/page_white_php.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap69">
+                        <bitmap>img/fileicons/page_white_ruby.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap71">
+                        <bitmap>img/fileicons/page_white_visualstudio.png</bitmap>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+                <object class="sizeritem" name="staticBoxSizer11">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer11">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>My Label</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap13">
+                        <bitmap>img/mainmenu/file_new_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap15">
+                        <bitmap>img/mainmenu/file_open_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap17">
+                        <bitmap>img/mainmenu/file_save_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap19">
+                        <bitmap>img/mainmenu/file_saveas_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap21">
+                        <bitmap>img/mainmenu/file_saveall_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap23">
+                        <bitmap>img/mainmenu/undo_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap25">
+                        <bitmap>img/mainmenu/redo_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap27">
+                        <bitmap>img/mainmenu/cut16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap29">
+                        <bitmap>img/mainmenu/copy_16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap31">
+                        <bitmap>img/mainmenu/paste_16.png</bitmap>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+                <object class="sizeritem" name="staticBoxSizer35">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer35">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>My Label</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap37">
+                        <bitmap>img/system/AppSettings16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap39">
+                        <bitmap>img/system/Addin16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap41">
+                        <bitmap>img/system/projectTree16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap43">
+                        <bitmap>img/system/prop16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap45">
+                        <bitmap>img/system/SysHrdwr16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap47">
+                        <bitmap>img/system/console16.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap101">
+                        <bitmap>img/system/reportBug16.png</bitmap>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="notebookpage">
+            <label>Modify Text</label>
+            <selected>0</selected>
+            <object class="wxPanel" name="m_panel85">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem" name="staticBoxSizer73">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer73">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>My Label</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap75">
+                        <bitmap>img/modifytext/text_allcaps.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap77">
+                        <bitmap>img/modifytext/text_smallcaps.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap79">
+                        <bitmap>img/modifytext/tgle_endln.png</bitmap>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+                <object class="sizeritem" name="staticBoxSizer93">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer93">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>My Label</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap95">
+                        <bitmap>img/find/table_tab_search.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap97">
+                        <bitmap>img/find/search_plus.png</bitmap>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticBitmap" name="m_staticBitmap99">
+                        <bitmap>img/find/search_minus.png</bitmap>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+        </object>
+      </object>
+    </object>
+    <object class="wxMenuBar" name="m_menuBar">
+      <style/>
+      <object class="wxMenu" name="m_name6">
+        <label>File</label>
+        <style/>
+        <object class="wxMenuItem" name="m_menuItem7">
+          <label>Exit</label>
+          <accel>
+            <![CDATA[Alt-X]]>
+          </accel>
+        </object>
+      </object>
+      <object class="wxMenu" name="m_name8">
+        <label>Help</label>
+        <style/>
+        <object class="wxMenuItem" name="m_menuItem9">
+          <label>About...</label>
+          <accel>
+            <![CDATA[]]>
+          </accel>
+        </object>
+      </object>
+    </object>
+    <object class="wxToolBar" name="m_mainToolbar">
+      <style>wxTB_FLAT</style>
+      <bitmapsize>16,16</bitmapsize>
+    </object>
+  </object>
+  <object class="wxFrame" name="MainFrameBase">
+    <title/>
+    <centered>1</centered>
+    <style>wxDEFAULT_FRAME_STYLE</style>
+    <size>500,300</size>
+  </object>
+  <object class="wxFrame" name="SettingsDialogBase">
+    <title>Settings</title>
+    <centered>1</centered>
+    <style>wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP</style>
+    <size>700,400</size>
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <flag>wxALL</flag>
+        <border>5</border>
+        <object class="wxTreebook" name="m_treebook249">
+          <size>800, 400</size>
+          <style>wxBK_DEFAULT</style>
+          <object class="treebookpage">
+            <label>General</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel115">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxStaticBoxSizer" name="staticBoxSizer267">
+                <sizeritem>
+                  <object class="spacer"/>
+                </sizeritem>
+                <orient>wxVERTICAL</orient>
+                <label>vx.io Editor</label>
+                <object class="sizeritem" name="boxSizer277">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxBoxSizer">
+                    <orient>wxVERTICAL</orient>
+                    <object class="sizeritem" name="boxSizer312">
+                      <flag>wxALL|wxEXPAND</flag>
+                      <border>5</border>
+                      <option>1</option>
+                      <object class="wxBoxSizer">
+                        <orient>wxHORIZONTAL</orient>
+                        <object class="sizeritem" name="flexGridSizer291">
+                          <flag>wxALL|wxEXPAND</flag>
+                          <border>5</border>
+                          <option>1</option>
+                          <object class="wxFlexGridSizer">
+                            <cols>2</cols>
+                            <rows>0</rows>
+                            <vgap>0</vgap>
+                            <hgap>0</hgap>
+                            <growablecols/>
+                            <growablerows/>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxStaticBitmap" name="m_staticBitmap269">
+                                <bitmap>img/system2/Addin32.png</bitmap>
+                              </object>
+                            </object>
+                            <object class="sizeritem" name="flexGridSizer287">
+                              <flag>wxALL|wxEXPAND</flag>
+                              <border>5</border>
+                              <option>1</option>
+                              <object class="wxFlexGridSizer">
+                                <cols>1</cols>
+                                <rows>2</rows>
+                                <vgap>0</vgap>
+                                <hgap>0</hgap>
+                                <growablecols/>
+                                <growablerows/>
+                                <object class="sizeritem">
+                                  <flag>wxALL</flag>
+                                  <border>5</border>
+                                  <object class="wxStaticText" name="m_staticText285">
+                                    <label>edit.io - version x.x.x.x</label>
+                                    <style/>
+                                  </object>
+                                </object>
+                                <object class="sizeritem">
+                                  <flag>wxALL</flag>
+                                  <border>5</border>
+                                  <object class="wxStaticText" name="m_staticText273">
+                                    <label>vx.io lightwieght footprint and crossplatform ability allows it to be versitile for the simplest to the
+most complex needs of modern code devlopment in any computer enviroment.</label>
+                                    <style/>
+                                    <size>300,100</size>
+                                  </object>
+                                </object>
+                              </object>
+                            </object>
+                          </object>
+                        </object>
+                        <object class="sizeritem" name="staticBoxSizer294">
+                          <flag>wxALL|wxEXPAND</flag>
+                          <border>5</border>
+                          <option>1</option>
+                          <object class="wxStaticBoxSizer" name="staticBoxSizer294">
+                            <sizeritem>
+                              <object class="spacer"/>
+                            </sizeritem>
+                            <orient>wxVERTICAL</orient>
+                            <label>Updates</label>
+                            <object class="sizeritem" name="boxSizer305">
+                              <flag>wxALL|wxEXPAND</flag>
+                              <border>5</border>
+                              <option>1</option>
+                              <object class="wxBoxSizer">
+                                <orient>wxVERTICAL</orient>
+                                <object class="sizeritem">
+                                  <flag>wxALL</flag>
+                                  <border>5</border>
+                                  <object class="wxStaticText" name="m_staticText279">
+                                    <label>Last Checked:</label>
+                                    <style/>
+                                  </object>
+                                </object>
+                                <object class="sizeritem">
+                                  <flag>wxALL</flag>
+                                  <border>5</border>
+                                  <object class="wxButton" name="m_button298">
+                                    <label>Check For Updates Now</label>
+                                    <style/>
+                                    <size>250,-1</size>
+                                    <bitmapposition>wxLEFT</bitmapposition>
+                                    <default>0</default>
+                                  </object>
+                                </object>
+                                <object class="sizeritem">
+                                  <flag>wxALL</flag>
+                                  <border>5</border>
+                                  <object class="wxCheckBox" name="m_checkBox296">
+                                    <style/>
+                                    <label>Check For Updates At Start</label>
+                                    <checked>0</checked>
+                                  </object>
+                                </object>
+                              </object>
+                            </object>
+                          </object>
+                        </object>
+                      </object>
+                    </object>
+                    <object class="sizeritem" name="staticBoxSizer307">
+                      <flag>wxALL|wxEXPAND</flag>
+                      <border>5</border>
+                      <option>1</option>
+                      <object class="wxStaticBoxSizer" name="staticBoxSizer307">
+                        <sizeritem>
+                          <object class="spacer"/>
+                        </sizeritem>
+                        <orient>wxHORIZONTAL</orient>
+                        <label>Open Source</label>
+                        <object class="sizeritem">
+                          <flag>wxALL</flag>
+                          <border>5</border>
+                          <object class="wxStaticBitmap" name="m_staticBitmap309">
+                            <bitmap>img/settings/open-source-logo.png</bitmap>
+                            <size>128,128</size>
+                          </object>
+                        </object>
+                        <object class="sizeritem" name="flexGridSizer317">
+                          <flag>wxALL|wxEXPAND</flag>
+                          <border>5</border>
+                          <option>1</option>
+                          <object class="wxFlexGridSizer">
+                            <cols>1</cols>
+                            <rows>2</rows>
+                            <vgap>0</vgap>
+                            <hgap>0</hgap>
+                            <growablecols/>
+                            <growablerows/>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxStaticText" name="m_staticText311">
+                                <label>edit.io is an open source project released under the MIT License. If you'd like to contribute, comment, or get the source code, you can do so over at the project Github page.</label>
+                                <style/>
+                                <size>350,50</size>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxButton" name="m_button319">
+                                <label>View Github Page</label>
+                                <style/>
+                                <bitmap>img/settings/GitHub-Mark-16px.png</bitmap>
+                                <bitmapposition>wxLEFT</bitmapposition>
+                                <default>0</default>
+                              </object>
+                            </object>
+                          </object>
+                        </object>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Theme</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel255">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem" name="staticBoxSizer251">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer251">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>My Label</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticText" name="m_staticText138">
+                        <label>Editor Font:</label>
+                        <style/>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxChoice" name="cmbbx_fonts">
+                        <style/>
+                        <size>300,-1</size>
+                        <content/>
+                        <selection/>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxStaticText" name="m_staticText154">
+                        <label>Size:</label>
+                        <style/>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxChoice" name="cmbbx_font_size">
+                        <style/>
+                        <content/>
+                        <selection/>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Color Scheme</label>
+            <selected>0</selected>
+            <depth>1</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel257">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem" name="staticBoxSizer263">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxStaticBoxSizer" name="staticBoxSizer263">
+                    <sizeritem>
+                      <object class="spacer"/>
+                    </sizeritem>
+                    <orient>wxHORIZONTAL</orient>
+                    <label>Editor Colour Scheme</label>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxPanel" name="m_panel160">
+                        <style>wxTAB_TRAVERSAL</style>
+                        <size>350,350</size>
+                        <bg>wxSYS_COLOUR_BTNSHADOW</bg>
+                      </object>
+                    </object>
+                    <object class="sizeritem" name="flexGridSizer345">
+                      <flag>wxALL|wxEXPAND</flag>
+                      <border>5</border>
+                      <option>1</option>
+                      <object class="wxFlexGridSizer">
+                        <cols>1</cols>
+                        <rows>2</rows>
+                        <vgap>0</vgap>
+                        <hgap>0</hgap>
+                        <growablecols/>
+                        <growablerows/>
+                        <object class="sizeritem" name="flexGridSizer164">
+                          <flag>wxALL|wxEXPAND</flag>
+                          <border>5</border>
+                          <option>1</option>
+                          <object class="wxFlexGridSizer">
+                            <cols>2</cols>
+                            <rows>5</rows>
+                            <vgap>0</vgap>
+                            <hgap>0</hgap>
+                            <growablecols/>
+                            <growablerows/>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxStaticText" name="m_staticText166">
+                                <label>Theme:</label>
+                                <style/>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxChoice" name="cmbbx_theme">
+                                <style/>
+                                <size>150,-1</size>
+                                <content/>
+                                <selection/>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL|wxEXPAND</flag>
+                              <border>5</border>
+                              <object class="wxStaticLine" name="m_staticLine353">
+                                <style>wxLI_HORIZONTAL</style>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL|wxEXPAND</flag>
+                              <border>5</border>
+                              <object class="wxStaticLine" name="m_staticLine351">
+                                <style>wxLI_HORIZONTAL</style>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxStaticText" name="m_staticText347">
+                                <label>Theme Name:</label>
+                                <style/>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxTextCtrl" name="m_textCtrl349">
+                                <style/>
+                                <size>150,-1</size>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxStaticText" name="m_staticText328">
+                                <label>Setting Colour:</label>
+                                <style/>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <flag>wxALL</flag>
+                              <border>5</border>
+                              <object class="wxColourPickerCtrl" name="m_colourPicker330">
+                                <style>wxCLRP_DEFAULT_STYLE</style>
+                                <size>150,-1</size>
+                                <value>wxSYS_COLOUR_WINDOWTEXT</value>
+                              </object>
+                            </object>
+                          </object>
+                        </object>
+                        <object class="sizeritem">
+                          <flag>wxALL</flag>
+                          <border>5</border>
+                          <object class="wxListCtrl" name="m_listCtrl336">
+                            <style>wxLC_REPORT</style>
+                            <size>275,-1</size>
+                          </object>
+                        </object>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Snippets</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel117">
+              <style>wxTAB_TRAVERSAL</style>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Scripting</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel259">
+              <style>wxTAB_TRAVERSAL</style>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Python Scripts</label>
+            <selected>0</selected>
+            <depth>1</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel261">
+              <style>wxTAB_TRAVERSAL</style>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Plugins</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel265">
+              <style>wxTAB_TRAVERSAL</style>
+            </object>
+          </object>
+        </object>
+      </object>
+      <object class="sizeritem" name="gridSizer132">
+        <flag>wxALL|wxEXPAND</flag>
+        <border>5</border>
+        <option>1</option>
+        <object class="wxGridSizer">
+          <cols>2</cols>
+          <rows>0</rows>
+          <vgap>0</vgap>
+          <hgap>0</hgap>
+          <object class="sizeritem" name="boxSizer134">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxBoxSizer">
+              <orient>wxVERTICAL</orient>
+            </object>
+          </object>
+          <object class="sizeritem" name="boxSizer128">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxBoxSizer">
+              <orient>wxHORIZONTAL</orient>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxButton" name="btn_OK">
+                  <label>OK</label>
+                  <style/>
+                  <bitmapposition>wxLEFT</bitmapposition>
+                  <default>0</default>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxButton" name="btn_apply">
+                  <label>Apply</label>
+                  <style/>
+                  <bitmapposition>wxLEFT</bitmapposition>
+                  <default>0</default>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxButton" name="btn_cancel">
+                  <label>Cancel</label>
+                  <style/>
+                  <bitmapposition>wxLEFT</bitmapposition>
+                  <default>0</default>
+                </object>
+              </object>
+            </object>
+          </object>
+        </object>
+      </object>
+    </object>
+  </object>
+  <object class="wxFrame" name="SettingsFrameBase">
+    <title/>
+    <centered>1</centered>
+    <style>wxDEFAULT_FRAME_STYLE</style>
+    <size>630,400</size>
+    <object class="wxFlexGridSizer">
+      <cols>1</cols>
+      <rows>3</rows>
+      <vgap>0</vgap>
+      <hgap>0</hgap>
+      <growablecols/>
+      <growablerows/>
+      <object class="sizeritem" name="gridSizer205">
+        <flag>wxALL|wxEXPAND</flag>
+        <border>5</border>
+        <option>1</option>
+        <object class="wxGridSizer">
+          <cols>2</cols>
+          <rows>0</rows>
+          <vgap>0</vgap>
+          <hgap>0</hgap>
+        </object>
+      </object>
+      <object class="sizeritem">
+        <flag>wxALL</flag>
+        <border>5</border>
+        <object class="wxTreebook" name="m_treebook233">
+          <style>wxBK_DEFAULT</style>
+          <object class="treebookpage">
+            <label>Page</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel235">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem" name="flexGridSizer207">
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>5</border>
+                  <option>1</option>
+                  <object class="wxFlexGridSizer">
+                    <cols>3</cols>
+                    <rows>0</rows>
+                    <vgap>0</vgap>
+                    <hgap>0</hgap>
+                    <growablecols/>
+                    <growablerows/>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxButton" name="m_button201">
+                        <label>OK</label>
+                        <style/>
+                        <bitmapposition>wxLEFT</bitmapposition>
+                        <default>0</default>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxButton" name="m_button199">
+                        <label>Apply</label>
+                        <style/>
+                        <bitmapposition>wxLEFT</bitmapposition>
+                        <default>0</default>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                      <object class="wxButton" name="m_button197">
+                        <label>Cancel</label>
+                        <style/>
+                        <bitmapposition>wxLEFT</bitmapposition>
+                        <default>0</default>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Page</label>
+            <selected>0</selected>
+            <depth>1</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel241">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                  <object class="wxTextCtrl" name="m_textCtrl245">
+                    <style/>
+                  </object>
+                </object>
+                <object class="sizeritem">
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                  <object class="wxChoice" name="m_choice247">
+                    <style/>
+                    <content/>
+                    <selection/>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="treebookpage">
+            <label>Page</label>
+            <selected>0</selected>
+            <depth>0</depth>
+            <expanded>1</expanded>
+            <object class="wxPanel" name="m_panel237">
+              <style>wxTAB_TRAVERSAL</style>
+              <object class="wxGridSizer">
+                <cols>2</cols>
+                <rows>2</rows>
+                <vgap>0</vgap>
+                <hgap>0</hgap>
+                <object class="sizeritem">
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                  <object class="wxStaticText" name="m_staticText221">
+                    <label>Static Text Label</label>
+                    <style/>
+                  </object>
+                </object>
+                <object class="sizeritem">
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                  <object class="wxTextCtrl" name="m_textCtrl223">
+                    <style/>
+                  </object>
+                </object>
+                <object class="sizeritem">
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                  <object class="wxStaticText" name="m_staticText226">
+                    <label>Static Text Label</label>
+                    <style/>
+                  </object>
+                </object>
+                <object class="sizeritem">
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                  <object class="wxComboBox" name="m_comboBox228">
+                    <style/>
+                    <selection>-1</selection>
+                    <content/>
+                  </object>
+                </object>
+              </object>
+            </object>
+          </object>
+        </object>
+      </object>
+    </object>
+  </object>
+</resource>

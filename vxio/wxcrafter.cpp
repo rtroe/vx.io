@@ -227,7 +227,7 @@ ImageFrameBaseClass::ImageFrameBaseClass(wxWindow* parent, wxWindowID id, const 
     #endif
     
     SetName(wxT("ImageFrameBaseClass"));
-    SetSize(500,400);
+    SetSizeHints(500,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
@@ -267,7 +267,7 @@ MainFrameBase::MainFrameBase(wxWindow* parent, wxWindowID id, const wxString& ti
     }
     
     SetName(wxT("MainFrameBase"));
-    SetSize(500,300);
+    SetSizeHints(500,300);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
@@ -299,71 +299,209 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
         bBitmapLoaded = true;
     }
     
-    wxFlexGridSizer* flexGridSizer111 = new wxFlexGridSizer(2, 1, 0, 0);
-    flexGridSizer111->SetFlexibleDirection( wxBOTH );
-    flexGridSizer111->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-    flexGridSizer111->SetMinSize(100,100);
-    this->SetSizer(flexGridSizer111);
+    wxBoxSizer* boxSizer168 = new wxBoxSizer(wxVERTICAL);
+    this->SetSizer(boxSizer168);
     
-    m_notebook113 = new wxNotebook(this, wxID_ANY, wxDefaultPosition, wxSize(800, 400), wxBK_DEFAULT);
-    m_notebook113->SetName(wxT("m_notebook113"));
+    m_treebook249 = new wxTreebook(this, wxID_ANY, wxDefaultPosition, wxSize(800, 400), wxBK_DEFAULT);
+    m_treebook249->SetName(wxT("m_treebook249"));
     
-    flexGridSizer111->Add(m_notebook113, 0, wxALL, 5);
+    boxSizer168->Add(m_treebook249, 0, wxALL, 5);
     
-    m_panel115 = new wxPanel(m_notebook113, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
-    m_notebook113->AddPage(m_panel115, _("General"), false);
+    m_panel115 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->AddPage(m_panel115, _("General"), false, wxNOT_FOUND);
     
-    wxStaticBoxSizer* staticBoxSizer119 = new wxStaticBoxSizer( new wxStaticBox(m_panel115, wxID_ANY, _("General Editor Settings")), wxHORIZONTAL);
-    staticBoxSizer119->SetMinSize(350,550);
-    m_panel115->SetSizer(staticBoxSizer119);
+    wxStaticBoxSizer* staticBoxSizer267 = new wxStaticBoxSizer( new wxStaticBox(m_panel115, wxID_ANY, _("vx.io Editor")), wxVERTICAL);
+    m_panel115->SetSizer(staticBoxSizer267);
     
-    m_staticText138 = new wxStaticText(m_panel115, wxID_ANY, _("Editor Font:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    wxBoxSizer* boxSizer277 = new wxBoxSizer(wxVERTICAL);
     
-    staticBoxSizer119->Add(m_staticText138, 0, wxALL, 5);
+    staticBoxSizer267->Add(boxSizer277, 1, wxALL|wxEXPAND, 5);
+    
+    wxBoxSizer* boxSizer312 = new wxBoxSizer(wxHORIZONTAL);
+    
+    boxSizer277->Add(boxSizer312, 1, wxALL|wxEXPAND, 5);
+    
+    wxFlexGridSizer* flexGridSizer291 = new wxFlexGridSizer(0, 2, 0, 0);
+    flexGridSizer291->SetFlexibleDirection( wxBOTH );
+    flexGridSizer291->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    boxSizer312->Add(flexGridSizer291, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticBitmap269 = new wxStaticBitmap(m_panel115, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("Addin32")), wxDefaultPosition, wxSize(-1,-1), 0 );
+    
+    flexGridSizer291->Add(m_staticBitmap269, 0, wxALL, 5);
+    
+    wxFlexGridSizer* flexGridSizer287 = new wxFlexGridSizer(2, 1, 0, 0);
+    flexGridSizer287->SetFlexibleDirection( wxBOTH );
+    flexGridSizer287->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    flexGridSizer291->Add(flexGridSizer287, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticText285 = new wxStaticText(m_panel115, wxID_ANY, _("edit.io - version x.x.x.x"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer287->Add(m_staticText285, 0, wxALL, 5);
+    
+    m_staticText273 = new wxStaticText(m_panel115, wxID_ANY, _("vx.io lightwieght footprint and crossplatform ability allows it to be versitile for the simplest to the\nmost complex needs of modern code devlopment in any computer enviroment."), wxDefaultPosition, wxSize(300,100), 0);
+    
+    flexGridSizer287->Add(m_staticText273, 0, wxALL, 5);
+    
+    wxStaticBoxSizer* staticBoxSizer294 = new wxStaticBoxSizer( new wxStaticBox(m_panel115, wxID_ANY, _("Updates")), wxVERTICAL);
+    
+    boxSizer312->Add(staticBoxSizer294, 1, wxALL|wxEXPAND, 5);
+    
+    wxBoxSizer* boxSizer305 = new wxBoxSizer(wxVERTICAL);
+    
+    staticBoxSizer294->Add(boxSizer305, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticText279 = new wxStaticText(m_panel115, wxID_ANY, _("Last Checked:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    boxSizer305->Add(m_staticText279, 0, wxALL, 5);
+    
+    m_button298 = new wxButton(m_panel115, wxID_ANY, _("Check For Updates Now"), wxDefaultPosition, wxSize(250,-1), 0);
+    
+    boxSizer305->Add(m_button298, 0, wxALL, 5);
+    
+    m_checkBox296 = new wxCheckBox(m_panel115, wxID_ANY, _("Check For Updates At Start"), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_checkBox296->SetValue(false);
+    
+    boxSizer305->Add(m_checkBox296, 0, wxALL, 5);
+    
+    wxStaticBoxSizer* staticBoxSizer307 = new wxStaticBoxSizer( new wxStaticBox(m_panel115, wxID_ANY, _("Open Source")), wxHORIZONTAL);
+    
+    boxSizer277->Add(staticBoxSizer307, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticBitmap309 = new wxStaticBitmap(m_panel115, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("open-source-logo")), wxDefaultPosition, wxSize(128,128), 0 );
+    
+    staticBoxSizer307->Add(m_staticBitmap309, 0, wxALL, 5);
+    
+    wxFlexGridSizer* flexGridSizer317 = new wxFlexGridSizer(2, 1, 0, 0);
+    flexGridSizer317->SetFlexibleDirection( wxBOTH );
+    flexGridSizer317->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    staticBoxSizer307->Add(flexGridSizer317, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticText311 = new wxStaticText(m_panel115, wxID_ANY, _("edit.io is an open source project released under the MIT License. If you'd like to contribute, comment, or get the source code, you can do so over at the project Github page."), wxDefaultPosition, wxSize(350,50), 0);
+    
+    flexGridSizer317->Add(m_staticText311, 0, wxALL, 5);
+    
+    m_button319 = new wxButton(m_panel115, wxID_ANY, _("View Github Page"), wxDefaultPosition, wxSize(-1,-1), 0);
+    #if wxVERSION_NUMBER >= 2904
+    m_button319->SetBitmap(wxXmlResource::Get()->LoadBitmap(wxT("GitHub-Mark-16px")), wxLEFT);
+    m_button319->SetBitmapMargins(2,2);
+    #endif
+    
+    flexGridSizer317->Add(m_button319, 0, wxALL, 5);
+    
+    m_panel255 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->AddPage(m_panel255, _("Theme"), false, wxNOT_FOUND);
+    
+    wxBoxSizer* boxSizer167 = new wxBoxSizer(wxHORIZONTAL);
+    m_panel255->SetSizer(boxSizer167);
+    
+    wxStaticBoxSizer* staticBoxSizer251 = new wxStaticBoxSizer( new wxStaticBox(m_panel255, wxID_ANY, _("My Label")), wxHORIZONTAL);
+    
+    boxSizer167->Add(staticBoxSizer251, 1, wxALL|wxEXPAND, 5);
+    
+    m_staticText138 = new wxStaticText(m_panel255, wxID_ANY, _("Editor Font:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    staticBoxSizer251->Add(m_staticText138, 0, wxALL, 5);
     
     wxArrayString cmbbx_fontsArr;
-    cmbbx_fonts = new wxChoice(m_panel115, ID_CHOICE_FONT, wxDefaultPosition, wxSize(300,-1), cmbbx_fontsArr, 0);
+    cmbbx_fonts = new wxChoice(m_panel255, ID_CHOICE_FONT, wxDefaultPosition, wxSize(300,-1), cmbbx_fontsArr, 0);
     
-    staticBoxSizer119->Add(cmbbx_fonts, 0, wxALL, 5);
+    staticBoxSizer251->Add(cmbbx_fonts, 0, wxALL, 5);
     
-    m_staticText154 = new wxStaticText(m_panel115, wxID_ANY, _("Size:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_staticText154 = new wxStaticText(m_panel255, wxID_ANY, _("Size:"), wxDefaultPosition, wxSize(-1,-1), 0);
     
-    staticBoxSizer119->Add(m_staticText154, 0, wxALL, 5);
+    staticBoxSizer251->Add(m_staticText154, 0, wxALL, 5);
     
     wxArrayString cmbbx_font_sizeArr;
-    cmbbx_font_size = new wxChoice(m_panel115, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), cmbbx_font_sizeArr, 0);
+    cmbbx_font_size = new wxChoice(m_panel255, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), cmbbx_font_sizeArr, 0);
     
-    staticBoxSizer119->Add(cmbbx_font_size, 0, wxALL, 5);
+    staticBoxSizer251->Add(cmbbx_font_size, 0, wxALL, 5);
     
-    m_panel117 = new wxPanel(m_notebook113, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
-    m_notebook113->AddPage(m_panel117, _("Colour Scheme"), false);
+    m_panel257 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->InsertSubPage(1, m_panel257, _("Color Scheme"), false, wxNOT_FOUND);
     
     wxBoxSizer* boxSizer158 = new wxBoxSizer(wxHORIZONTAL);
-    m_panel117->SetSizer(boxSizer158);
+    m_panel257->SetSizer(boxSizer158);
     
-    m_panel160 = new wxPanel(m_panel117, wxID_ANY, wxDefaultPosition, wxSize(350,350), wxTAB_TRAVERSAL);
+    wxStaticBoxSizer* staticBoxSizer263 = new wxStaticBoxSizer( new wxStaticBox(m_panel257, wxID_ANY, _("Editor Colour Scheme")), wxHORIZONTAL);
+    
+    boxSizer158->Add(staticBoxSizer263, 1, wxALL|wxEXPAND, 5);
+    
+    m_panel160 = new wxPanel(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(350,350), wxTAB_TRAVERSAL);
     m_panel160->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNSHADOW));
     
-    boxSizer158->Add(m_panel160, 0, wxALL, 5);
+    staticBoxSizer263->Add(m_panel160, 0, wxALL, 5);
     
-    wxFlexGridSizer* flexGridSizer164 = new wxFlexGridSizer(0, 2, 0, 0);
+    wxFlexGridSizer* flexGridSizer345 = new wxFlexGridSizer(2, 1, 0, 0);
+    flexGridSizer345->SetFlexibleDirection( wxBOTH );
+    flexGridSizer345->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    staticBoxSizer263->Add(flexGridSizer345, 1, wxALL|wxEXPAND, 5);
+    
+    wxFlexGridSizer* flexGridSizer164 = new wxFlexGridSizer(5, 2, 0, 0);
     flexGridSizer164->SetFlexibleDirection( wxBOTH );
     flexGridSizer164->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    boxSizer158->Add(flexGridSizer164, 1, wxALL|wxEXPAND, 5);
+    flexGridSizer345->Add(flexGridSizer164, 1, wxALL|wxEXPAND, 5);
     
-    m_staticText166 = new wxStaticText(m_panel117, wxID_ANY, _("Theme:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_staticText166 = new wxStaticText(m_panel257, wxID_ANY, _("Theme:"), wxDefaultPosition, wxSize(-1,-1), 0);
     
     flexGridSizer164->Add(m_staticText166, 0, wxALL, 5);
     
     wxArrayString cmbbx_themeArr;
-    cmbbx_theme = new wxChoice(m_panel117, wxID_ANY, wxDefaultPosition, wxSize(300,-1), cmbbx_themeArr, 0);
+    cmbbx_theme = new wxChoice(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(150,-1), cmbbx_themeArr, 0);
     
     flexGridSizer164->Add(cmbbx_theme, 0, wxALL, 5);
     
+    m_staticLine353 = new wxStaticLine(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxLI_HORIZONTAL);
+    
+    flexGridSizer164->Add(m_staticLine353, 0, wxALL|wxEXPAND, 5);
+    
+    m_staticLine351 = new wxStaticLine(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxLI_HORIZONTAL);
+    
+    flexGridSizer164->Add(m_staticLine351, 0, wxALL|wxEXPAND, 5);
+    
+    m_staticText347 = new wxStaticText(m_panel257, wxID_ANY, _("Theme Name:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer164->Add(m_staticText347, 0, wxALL, 5);
+    
+    m_textCtrl349 = new wxTextCtrl(m_panel257, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(150,-1), 0);
+    #if wxVERSION_NUMBER >= 3000
+    m_textCtrl349->SetHint(wxT(""));
+    #endif
+    
+    flexGridSizer164->Add(m_textCtrl349, 0, wxALL, 5);
+    
+    m_staticText328 = new wxStaticText(m_panel257, wxID_ANY, _("Setting Colour:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer164->Add(m_staticText328, 0, wxALL, 5);
+    
+    m_colourPicker330 = new wxColourPickerCtrl(m_panel257, wxID_ANY, wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT), wxDefaultPosition, wxSize(150,-1), wxCLRP_DEFAULT_STYLE);
+    
+    flexGridSizer164->Add(m_colourPicker330, 0, wxALL, 5);
+    
+    m_listCtrl336 = new wxListCtrl(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(275,-1), wxLC_REPORT);
+    
+    flexGridSizer345->Add(m_listCtrl336, 0, wxALL, 5);
+    
+    m_panel117 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->AddPage(m_panel117, _("Snippets"), false, wxNOT_FOUND);
+    
+    m_panel259 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->AddPage(m_panel259, _("Scripting"), false, wxNOT_FOUND);
+    
+    m_panel261 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->InsertSubPage(4, m_panel261, _("Python Scripts"), false, wxNOT_FOUND);
+    
+    m_panel265 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook249->AddPage(m_panel265, _("Plugins"), false, wxNOT_FOUND);
+    
     wxGridSizer* gridSizer132 = new wxGridSizer(0, 2, 0, 0);
     
-    flexGridSizer111->Add(gridSizer132, 1, wxALL|wxEXPAND, 5);
+    boxSizer168->Add(gridSizer132, 1, wxALL|wxEXPAND, 5);
     
     wxBoxSizer* boxSizer134 = new wxBoxSizer(wxVERTICAL);
     
@@ -387,15 +525,22 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     
     
     #if wxVERSION_NUMBER >= 2900
-    if(!wxPersistenceManager::Get().Find(m_notebook113)){
-        wxPersistenceManager::Get().RegisterAndRestore(m_notebook113);
+    if(!wxPersistenceManager::Get().Find(m_treebook249)){
+        wxPersistenceManager::Get().RegisterAndRestore(m_treebook249);
     } else {
-        wxPersistenceManager::Get().Restore(m_notebook113);
+        wxPersistenceManager::Get().Restore(m_treebook249);
     }
     #endif
+    m_treebook249->ExpandNode( 0, true );
+    m_treebook249->ExpandNode( 1, true );
+    m_treebook249->ExpandNode( 2, true );
+    m_treebook249->ExpandNode( 3, true );
+    m_treebook249->ExpandNode( 4, true );
+    m_treebook249->ExpandNode( 5, true );
+    m_treebook249->ExpandNode( 6, true );
     
     SetName(wxT("SettingsDialogBase"));
-    SetSize(600,300);
+    SetSizeHints(700,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
@@ -430,4 +575,134 @@ SettingsDialogBase::~SettingsDialogBase()
     btn_apply->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
     btn_cancel->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);
     
+}
+
+SettingsFrameBase::SettingsFrameBase(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+    : wxFrame(parent, id, title, pos, size, style)
+{
+    if ( !bBitmapLoaded ) {
+        // We need to initialise the default bitmap handler
+        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+        wxC9ED9InitBitmapResources();
+        bBitmapLoaded = true;
+    }
+    
+    wxFlexGridSizer* flexGridSizer204 = new wxFlexGridSizer(3, 1, 0, 0);
+    flexGridSizer204->SetFlexibleDirection( wxBOTH );
+    flexGridSizer204->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    this->SetSizer(flexGridSizer204);
+    
+    wxGridSizer* gridSizer205 = new wxGridSizer(0, 2, 0, 0);
+    
+    flexGridSizer204->Add(gridSizer205, 1, wxALL|wxEXPAND, 5);
+    
+    m_treebook233 = new wxTreebook(this, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxBK_DEFAULT);
+    m_treebook233->SetName(wxT("m_treebook233"));
+    
+    flexGridSizer204->Add(m_treebook233, 0, wxALL, 5);
+    
+    m_panel235 = new wxPanel(m_treebook233, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook233->AddPage(m_panel235, _("Page"), false, wxNOT_FOUND);
+    
+    wxBoxSizer* boxSizer239 = new wxBoxSizer(wxVERTICAL);
+    m_panel235->SetSizer(boxSizer239);
+    
+    wxFlexGridSizer* flexGridSizer207 = new wxFlexGridSizer(0, 3, 0, 0);
+    flexGridSizer207->SetFlexibleDirection( wxBOTH );
+    flexGridSizer207->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    boxSizer239->Add(flexGridSizer207, 1, wxALL|wxEXPAND, 5);
+    
+    m_button201 = new wxButton(m_panel235, wxID_ANY, _("OK"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer207->Add(m_button201, 0, wxALL, 5);
+    
+    m_button199 = new wxButton(m_panel235, wxID_ANY, _("Apply"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer207->Add(m_button199, 0, wxALL, 5);
+    
+    m_button197 = new wxButton(m_panel235, wxID_ANY, _("Cancel"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    flexGridSizer207->Add(m_button197, 0, wxALL, 5);
+    
+    m_panel241 = new wxPanel(m_treebook233, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook233->InsertSubPage(0, m_panel241, _("Page"), false, wxNOT_FOUND);
+    
+    wxBoxSizer* boxSizer243 = new wxBoxSizer(wxVERTICAL);
+    m_panel241->SetSizer(boxSizer243);
+    
+    m_textCtrl245 = new wxTextCtrl(m_panel241, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), 0);
+    #if wxVERSION_NUMBER >= 3000
+    m_textCtrl245->SetHint(wxT(""));
+    #endif
+    
+    boxSizer243->Add(m_textCtrl245, 0, wxALL, 5);
+    
+    wxArrayString m_choice247Arr;
+    m_choice247 = new wxChoice(m_panel241, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), m_choice247Arr, 0);
+    
+    boxSizer243->Add(m_choice247, 0, wxALL, 5);
+    
+    m_panel237 = new wxPanel(m_treebook233, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
+    m_treebook233->AddPage(m_panel237, _("Page"), false, wxNOT_FOUND);
+    
+    wxGridSizer* gridSizer231 = new wxGridSizer(2, 2, 0, 0);
+    m_panel237->SetSizer(gridSizer231);
+    
+    m_staticText221 = new wxStaticText(m_panel237, wxID_ANY, _("Static Text Label"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    gridSizer231->Add(m_staticText221, 0, wxALL, 5);
+    
+    m_textCtrl223 = new wxTextCtrl(m_panel237, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), 0);
+    #if wxVERSION_NUMBER >= 3000
+    m_textCtrl223->SetHint(wxT(""));
+    #endif
+    
+    gridSizer231->Add(m_textCtrl223, 0, wxALL, 5);
+    
+    m_staticText226 = new wxStaticText(m_panel237, wxID_ANY, _("Static Text Label"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    gridSizer231->Add(m_staticText226, 0, wxALL, 5);
+    
+    wxArrayString m_comboBox228Arr;
+    m_comboBox228 = new wxComboBox(m_panel237, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), m_comboBox228Arr, 0);
+    #if wxVERSION_NUMBER >= 3000
+    m_comboBox228->SetHint(wxT(""));
+    #endif
+    
+    gridSizer231->Add(m_comboBox228, 0, wxALL, 5);
+    
+    
+    #if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(m_treebook233)){
+        wxPersistenceManager::Get().RegisterAndRestore(m_treebook233);
+    } else {
+        wxPersistenceManager::Get().Restore(m_treebook233);
+    }
+    #endif
+    m_treebook233->ExpandNode( 0, true );
+    m_treebook233->ExpandNode( 1, true );
+    m_treebook233->ExpandNode( 2, true );
+    
+    SetName(wxT("SettingsFrameBase"));
+    SetSizeHints(630,400);
+    if (GetSizer()) {
+         GetSizer()->Fit(this);
+    }
+    if(GetParent()) {
+        CentreOnParent(wxBOTH);
+    } else {
+        CentreOnScreen(wxBOTH);
+    }
+#if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(this)) {
+        wxPersistenceManager::Get().RegisterAndRestore(this);
+    } else {
+        wxPersistenceManager::Get().Restore(this);
+    }
+#endif
+}
+
+SettingsFrameBase::~SettingsFrameBase()
+{
 }

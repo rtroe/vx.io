@@ -140,6 +140,8 @@
       <File Name="SettingsDialog.cpp"/>
       <File Name="src/Settings.h"/>
       <File Name="src/Settings.cpp"/>
+      <File Name="SettingsFrame.h"/>
+      <File Name="SettingsFrame.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="colorscheme">
       <File Name="src/colorscheme/ColourScheme.cpp"/>
@@ -339,4 +341,9 @@
       </Completion>
     </Configuration>
   </Settings>
+  <VirtualDirectory Name="wxcrafter">
+    <VirtualDirectory Name="XRC">
+      <File Name="wxcrafter.xrc"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
 </CodeLite_Project>

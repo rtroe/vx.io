@@ -21,10 +21,17 @@
 #include <wx/statbmp.h>
 #include <wx/menu.h>
 #include <wx/toolbar.h>
+#include <wx/treebook.h>
 #include <wx/stattext.h>
+#include <wx/button.h>
+#include <wx/checkbox.h>
 #include <wx/choice.h>
 #include <wx/arrstr.h>
-#include <wx/button.h>
+#include <wx/statline.h>
+#include <wx/textctrl.h>
+#include <wx/clrpicker.h>
+#include <wx/listctrl.h>
+#include <wx/combobox.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
 #include <wx/persist/toplevel.h>
@@ -147,16 +154,37 @@ public:
         ID_CHOICE_FONT = 1001,
     };
 protected:
-    wxNotebook* m_notebook113;
+    wxTreebook* m_treebook249;
     wxPanel* m_panel115;
+    wxStaticBitmap* m_staticBitmap269;
+    wxStaticText* m_staticText285;
+    wxStaticText* m_staticText273;
+    wxStaticText* m_staticText279;
+    wxButton* m_button298;
+    wxCheckBox* m_checkBox296;
+    wxStaticBitmap* m_staticBitmap309;
+    wxStaticText* m_staticText311;
+    wxButton* m_button319;
+    wxPanel* m_panel255;
     wxStaticText* m_staticText138;
     wxChoice* cmbbx_fonts;
     wxStaticText* m_staticText154;
     wxChoice* cmbbx_font_size;
-    wxPanel* m_panel117;
+    wxPanel* m_panel257;
     wxPanel* m_panel160;
     wxStaticText* m_staticText166;
     wxChoice* cmbbx_theme;
+    wxStaticLine* m_staticLine353;
+    wxStaticLine* m_staticLine351;
+    wxStaticText* m_staticText347;
+    wxTextCtrl* m_textCtrl349;
+    wxStaticText* m_staticText328;
+    wxColourPickerCtrl* m_colourPicker330;
+    wxListCtrl* m_listCtrl336;
+    wxPanel* m_panel117;
+    wxPanel* m_panel259;
+    wxPanel* m_panel261;
+    wxPanel* m_panel265;
     wxButton* btn_OK;
     wxButton* btn_apply;
     wxButton* btn_cancel;
@@ -170,21 +198,80 @@ protected:
     virtual void OnBtn_cancelButtonClicked(wxCommandEvent& event) { event.Skip(); }
 
 public:
+    wxStaticBitmap* GetStaticBitmap269() { return m_staticBitmap269; }
+    wxStaticText* GetStaticText285() { return m_staticText285; }
+    wxStaticText* GetStaticText273() { return m_staticText273; }
+    wxStaticText* GetStaticText279() { return m_staticText279; }
+    wxButton* GetButton298() { return m_button298; }
+    wxCheckBox* GetCheckBox296() { return m_checkBox296; }
+    wxStaticBitmap* GetStaticBitmap309() { return m_staticBitmap309; }
+    wxStaticText* GetStaticText311() { return m_staticText311; }
+    wxButton* GetButton319() { return m_button319; }
+    wxPanel* GetPanel115() { return m_panel115; }
     wxStaticText* GetStaticText138() { return m_staticText138; }
     wxChoice* GetCmbbx_fonts() { return cmbbx_fonts; }
     wxStaticText* GetStaticText154() { return m_staticText154; }
     wxChoice* GetCmbbx_font_size() { return cmbbx_font_size; }
-    wxPanel* GetPanel115() { return m_panel115; }
     wxPanel* GetPanel160() { return m_panel160; }
     wxStaticText* GetStaticText166() { return m_staticText166; }
     wxChoice* GetCmbbx_theme() { return cmbbx_theme; }
+    wxStaticLine* GetStaticLine353() { return m_staticLine353; }
+    wxStaticLine* GetStaticLine351() { return m_staticLine351; }
+    wxStaticText* GetStaticText347() { return m_staticText347; }
+    wxTextCtrl* GetTextCtrl349() { return m_textCtrl349; }
+    wxStaticText* GetStaticText328() { return m_staticText328; }
+    wxColourPickerCtrl* GetColourPicker330() { return m_colourPicker330; }
+    wxListCtrl* GetListCtrl336() { return m_listCtrl336; }
+    wxPanel* GetPanel257() { return m_panel257; }
+    wxPanel* GetPanel255() { return m_panel255; }
     wxPanel* GetPanel117() { return m_panel117; }
-    wxNotebook* GetNotebook113() { return m_notebook113; }
+    wxPanel* GetPanel261() { return m_panel261; }
+    wxPanel* GetPanel259() { return m_panel259; }
+    wxPanel* GetPanel265() { return m_panel265; }
+    wxTreebook* GetTreebook249() { return m_treebook249; }
     wxButton* GetBtn_OK() { return btn_OK; }
     wxButton* GetBtn_apply() { return btn_apply; }
     wxButton* GetBtn_cancel() { return btn_cancel; }
-    SettingsDialogBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(600,300), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxSTAY_ON_TOP);
+    SettingsDialogBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(700,400), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP);
     virtual ~SettingsDialogBase();
+};
+
+
+class SettingsFrameBase : public wxFrame
+{
+protected:
+    wxTreebook* m_treebook233;
+    wxPanel* m_panel235;
+    wxButton* m_button201;
+    wxButton* m_button199;
+    wxButton* m_button197;
+    wxPanel* m_panel241;
+    wxTextCtrl* m_textCtrl245;
+    wxChoice* m_choice247;
+    wxPanel* m_panel237;
+    wxStaticText* m_staticText221;
+    wxTextCtrl* m_textCtrl223;
+    wxStaticText* m_staticText226;
+    wxComboBox* m_comboBox228;
+
+protected:
+
+public:
+    wxButton* GetButton201() { return m_button201; }
+    wxButton* GetButton199() { return m_button199; }
+    wxButton* GetButton197() { return m_button197; }
+    wxTextCtrl* GetTextCtrl245() { return m_textCtrl245; }
+    wxChoice* GetChoice247() { return m_choice247; }
+    wxPanel* GetPanel241() { return m_panel241; }
+    wxPanel* GetPanel235() { return m_panel235; }
+    wxStaticText* GetStaticText221() { return m_staticText221; }
+    wxTextCtrl* GetTextCtrl223() { return m_textCtrl223; }
+    wxStaticText* GetStaticText226() { return m_staticText226; }
+    wxComboBox* GetComboBox228() { return m_comboBox228; }
+    wxPanel* GetPanel237() { return m_panel237; }
+    wxTreebook* GetTreebook233() { return m_treebook233; }
+    SettingsFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT(""), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(630,400), long style = wxDEFAULT_FRAME_STYLE);
+    virtual ~SettingsFrameBase();
 };
 
 #endif

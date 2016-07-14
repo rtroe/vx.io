@@ -162,13 +162,6 @@ END_EVENT_TABLE()
 
 void MainFrame::LoadAllImages()
 {
-//    if(!bBitmapLoaded) {
-//        // We need to initialise the default bitmap handler
-//        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
-//        wxC9ED9InitBitmapResources();
-//        bBitmapLoaded = true;
-//    }
-
     vxAppImgs = new vxIcons();
 
     wxIcon icon;
@@ -190,121 +183,6 @@ MainFrame::MainFrame(wxWindow* parent,
 
     vxAppImgs = new vxIcons();
     
-
-    	ColourScheme *settings=new ColourScheme();
-         settings->Name = "Monokai";
-        settings->Col_Main_Foreground.SetColour(225,255,255, 255);
-        settings->Col_Main_Background.SetColour(39,40,34, 255);
-        settings->Col_Main_CaretForeground.SetColour(225,255,255, 255);
-        
-        settings->Col_Margin_LineNum_Foreground.SetColour(150, 150, 150, 255);
-        settings->Col_Margin_LineNum_Background.SetColour(25,25,15, 255);
-        
-        settings->Col_Main_BracketsGood.SetColour(0,204,255, 255);
-        settings->Col_Main_BracketsBad.SetColour(255, 0, 0, 255);
-        
-        settings->Col_Margin_Fold_Background.SetColour(75, 75, 75, 255);
-        settings->Col_Margin_FoldArrow_Foreground.SetColour(70, 70, 70, 255);
-        settings->Col_Margin_FoldArrow_Background.SetColour(120, 120, 120, 255);
-             
-
-        settings->Col_Sel_Foreground.SetColour(45,45,45, 255);
-        settings->Col_Sel_Background.SetColour(225,151,31, 255);
-        
-        settings->Col_C_StringSingle.SetColour(230,219,116,255);
-        settings->Col_C_StringDouble.SetColour(230,219,116,255);
-        settings->Col_C_Preprocessor.SetColour(166,226,46,255);
-        settings->Col_C_Number.SetColour(200,0,255,255);
-        settings->Col_C_Char.SetColour(253,151,31,255);
-        
-        int cmnt = 115;
-        settings->Col_C_Comment.SetColour(cmnt,cmnt,cmnt,255);
-        settings->Col_C_CommentLine.SetColour(cmnt,cmnt,cmnt,255);
-        settings->Col_C_CommentDoc.SetColour(cmnt,cmnt,cmnt,255);
-        settings->Col_C_CommentDocKeyword.SetColour(cmnt,255,cmnt,255);
-        settings->Col_C_CommentDocKeywordError.SetColour(100,0,0,255);
-        settings->Col_Main_Word.SetColour(249,38,114,255);
-        settings->Col_Main_Word2.SetColour(102,217,239,255);
-        //settings->Save();
-        
-        
-        /*
-         settings->Name = "Monokai";
-        settings->Col_Main_Foreground.SetColour(225,255,255, 255);
-        settings->Col_Main_Background.SetColour(39,40,34, 255);
-        settings->Col_Main_CaretForeground.SetColour(225,255,255, 255);
-        
-        settings->Col_Margin_LineNum_Foreground.SetColour(150, 150, 150, 255);
-        settings->Col_Margin_LineNum_Background.SetColour(25,25,15, 255);
-        
-        settings->Col_Main_BracketsGood.SetColour(0,204,255, 255);
-        settings->Col_Main_BracketsBad.SetColour(255, 0, 0, 255);
-        
-        settings->Col_Margin_Fold_Background.SetColour(75, 75, 75, 255);
-        settings->Col_Margin_FoldArrow_Foreground.SetColour(70, 70, 70, 255);
-        settings->Col_Margin_FoldArrow_Background.SetColour(120, 120, 120, 255);
-             
-
-        settings->Col_Sel_Foreground.SetColour(45,45,45, 255);
-        settings->Col_Sel_Background.SetColour(225,151,31, 255);
-        
-        settings->Col_C_StringSingle.SetColour(230,219,116,255);
-        settings->Col_C_StringDouble.SetColour(230,219,116,255);
-        settings->Col_C_Preprocessor.SetColour(166,226,46,255);
-        settings->Col_C_Number.SetColour(200,0,255,255);
-        settings->Col_C_Char.SetColour(253,151,31,255);
-        
-        int cmnt = 115;
-        settings->Col_C_Comment.SetColour(cmnt,cmnt,cmnt,255);
-        settings->Col_C_CommentLine.SetColour(cmnt,cmnt,cmnt,255);
-        settings->Col_C_CommentDoc.SetColour(cmnt,cmnt,cmnt,255);
-        settings->Col_C_CommentDocKeyword.SetColour(cmnt,255,cmnt,255);
-        settings->Col_C_CommentDocKeywordError.SetColour(100,0,0,255);
-        settings->Col_Main_Word.SetColour(249,38,114,255);
-        settings->Col_Main_Word2.SetColour(102,217,239,255);
-        settings->Save();
-         */
-        
-        /*
-         settings->Name = "Visual Studio";
-        settings->Col_Main_Foreground.SetColour(0,0,0, 255);
-        settings->Col_Main_Background.SetColour(255,255,255, 255);
-        settings->Col_Main_CaretForeground.SetColour(0,0,0, 255);
-        
-        settings->Col_Main_BracketsGood.SetColour(255,204,0, 255);
-        settings->Col_Main_BracketsBad.SetColour(255, 0, 0, 255);
-        
-        settings->Col_Margin_LineNum_Foreground.SetColour(25, 25, 25, 255);
-        settings->Col_Margin_LineNum_Background.SetColour(220, 220, 220, 255);
-        
-        settings->Col_Margin_Fold_Background.SetColour(235, 235, 235, 255);
-        settings->Col_Margin_FoldArrow_Foreground.SetColour(235, 235, 235, 255);
-        settings->Col_Margin_FoldArrow_Background.SetColour(25, 25, 25, 255);
-        
-        
-        settings->Col_Sel_Foreground.SetColour(235,235,235, 255);
-        settings->Col_Sel_Background.SetColour(0,75,255, 255);
-        
-        settings->Col_C_StringSingle.SetColour(163,21, 21,255);
-        settings->Col_C_StringDouble.SetColour(163,21, 21,255);
-        settings->Col_C_Preprocessor.SetColour(0,0,225,255);
-        settings->Col_C_Number.SetColour(220,0,220,255);
-        settings->Col_C_Char.SetColour(150,0,0,255);
-        settings->Col_C_Comment.SetColour(0,128,0,255);
-        settings->Col_C_CommentLine.SetColour(0,128,0,255);
-        settings->Col_C_CommentDoc.SetColour(0,100,0,255);
-        settings->Col_C_CommentDocKeyword.SetColour(0,0,200,255);
-        settings->Col_C_CommentDocKeywordError.SetColour(0,0,200,255);
-        settings->Col_Main_Word.SetColour(0,0,255,255);
-        settings->Col_Main_Word2.SetColour(43,145,175,255);
-        settings->Save();
-         */
-    	// Serialize the Settings object
-//	cout << "Serializing object... " << endl;
-//	string xmlData = settings->toXML();
-//	cout << "OK" << endl << endl;
-//	cout << "Result:" << endl;
-//	cout << xmlData << endl << endl;
 
     //Check  Directories
     if(wxDir::Exists("config") == false)
@@ -404,12 +282,12 @@ MainFrame::MainFrame(wxWindow* parent,
 
     // -- edit --
     wxMenu* menu_search = new wxMenu;
-    menu_search->Append(ID_FIND, "&Find...\tCTRL+F", "Creates a new XYZ document");
-    menu_search->Append(ID_FIND_NEXT, "&Find Next\tF3", "Creates a new XYZ document");
-    menu_search->Append(ID_FIND_PREV, "&Find Prev\tSHIFT+F3", "Creates a new XYZ document");
+    menu_search->Append(ID_FIND, "&Find...\tCTRL+F", "Search for a String of Text in the current document...");
+    menu_search->Append(ID_FIND_NEXT, "&Find Next\tF3", "Find the next occurance of the searched text...");
+    menu_search->Append(ID_FIND_PREV, "&Find Prev\tSHIFT+F3", "Find the previous occurance of the searched text...");
     menu_search->AppendSeparator();
-    menu_search->Append(ID_REPLACE, "&Replace...\tCTRL+H", "Creates a new XYZ document");
-    menu_search->Append(ID_REPLACE_NEXT, "& Replace Next\tSHIFT+CTRL+H", "Creates a new XYZ document");
+    menu_search->Append(ID_REPLACE, "&Replace...\tCTRL+H", "Replace one String of text with another in the current document");
+    menu_search->Append(ID_REPLACE_NEXT, "& Replace Next\tSHIFT+CTRL+H", "Replace the occurance...");
 
     /********************************************************************************************/
     /*          view            */
@@ -451,6 +329,8 @@ MainFrame::MainFrame(wxWindow* parent,
     view_menu->AppendCheckItem(ID_ToggleTree, _("Toggle Tree View"));
     view_menu->AppendCheckItem(ID_ToggleConsole, _("Toggle Console"));
     view_menu->AppendSeparator();
+    view_menu->Append(ID_WORDWRAP, _("&Toggle Word Wrap"));
+    view_menu->AppendSeparator();
     view_menu->Append(ID_DISPLAYEOL, _("&Toggle EOL"));
     view_menu->Append(wxID_ANY, _("Convert line &endings to .."), menuConvertEOL);
     view_menu->AppendSeparator();
@@ -462,45 +342,6 @@ MainFrame::MainFrame(wxWindow* parent,
     /*          settings            */
     /********************************************************************************************/
 
-    // notebook settings
-    wxMenu* options_menu = new wxMenu;
-    options_menu->AppendRadioItem(ID_TransparentHint, _("Transparent Hint"));
-    options_menu->AppendRadioItem(ID_VenetianBlindsHint, _("Venetian Blinds Hint"));
-    options_menu->AppendRadioItem(ID_RectangleHint, _("Rectangle Hint"));
-    options_menu->AppendRadioItem(ID_NoHint, _("No Hint"));
-    options_menu->AppendSeparator();
-    options_menu->AppendCheckItem(ID_HintFade, _("Hint Fade-in"));
-    options_menu->AppendCheckItem(ID_AllowFloating, _("Allow Floating"));
-    options_menu->AppendCheckItem(ID_NoVenetianFade, _("Disable Venetian Blinds Hint Fade-in"));
-    options_menu->AppendCheckItem(ID_TransparentDrag, _("Transparent Drag"));
-    options_menu->AppendCheckItem(ID_AllowActivePane, _("Allow Active Pane"));
-    options_menu->AppendCheckItem(ID_LiveUpdate, _("Live Resize Update"));
-    options_menu->AppendSeparator();
-    options_menu->AppendRadioItem(ID_NoGradient, _("No Caption Gradient"));
-    options_menu->AppendRadioItem(ID_VerticalGradient, _("Vertical Caption Gradient"));
-    options_menu->AppendRadioItem(ID_HorizontalGradient, _("Horizontal Caption Gradient"));
-    options_menu->AppendSeparator();
-    options_menu->AppendCheckItem(ID_AllowToolbarResizing, _("Allow Toolbar Resizing"));
-    options_menu->AppendSeparator();
-    options_menu->Append(ID_Settings, _("Settings Pane"));
-
-    // toolbar settings
-    wxMenu* notebook_menu = new wxMenu;
-    notebook_menu->AppendRadioItem(ID_NotebookNoCloseButton, _("No Close Button"));
-    notebook_menu->AppendRadioItem(ID_NotebookCloseButton, _("Close Button at Right"));
-    notebook_menu->AppendRadioItem(ID_NotebookCloseButtonAll, _("Close Button on All Tabs"));
-    notebook_menu->AppendRadioItem(ID_NotebookCloseButtonActive, _("Close Button on Active Tab"));
-    notebook_menu->AppendSeparator();
-    notebook_menu->AppendRadioItem(ID_NotebookAlignTop, _("Tab Top Alignment"));
-    notebook_menu->AppendRadioItem(ID_NotebookAlignBottom, _("Tab Bottom Alignment"));
-    notebook_menu->AppendSeparator();
-    notebook_menu->AppendCheckItem(ID_NotebookAllowTabMove, _("Allow Tab Move"));
-    notebook_menu->AppendCheckItem(ID_NotebookAllowTabExternalMove, _("Allow External Tab Move"));
-    notebook_menu->AppendCheckItem(ID_NotebookAllowTabSplit, _("Allow Notebook Split"));
-    notebook_menu->AppendCheckItem(ID_NotebookScrollButtons, _("Scroll Buttons Visible"));
-    notebook_menu->AppendCheckItem(ID_NotebookWindowList, _("Window List Button Visible"));
-    notebook_menu->AppendCheckItem(ID_NotebookTabFixedWidth, _("Fixed-width Tabs"));
-
     // layout
     m_perspectives_menu = new wxMenu;
     m_perspectives_menu->Append(ID_CreatePerspective, _("Save Layout"));
@@ -510,9 +351,11 @@ MainFrame::MainFrame(wxWindow* parent,
     m_perspectives_menu->Append(ID_FirstPerspective + 1, _("All Panes"));
 
     wxMenu* menu_setting = new wxMenu;
+    menu_setting->Append(ID_Settings, _("Settings Pane"));
+    menu_setting->AppendSeparator();
     menu_setting->Append(wxID_ANY, _("Layout"), m_perspectives_menu);
-    menu_setting->Append(wxID_ANY, _("Toolbars"), notebook_menu);
-    menu_setting->Append(wxID_ANY, _("Notebook"), options_menu);
+    //menu_setting->Append(wxID_ANY, _("Toolbars"), notebook_menu);
+    //menu_setting->Append(wxID_ANY, _("Notebook"), options_menu);
 
     /********************************************************************************************/
     /*          help            */
@@ -624,28 +467,6 @@ MainFrame::MainFrame(wxWindow* parent,
     // tb_mainmenu->EnableTool(ID_SampleItem+6, false);
     tb_textmodify->Realize();
 
-    tb_find =
-        new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
-    tb_find->SetArtProvider(new vxAuiToolbarArt());
-    tb_find->SetToolBitmapSize(wxSize(16, 16));
-
-    txtCntrl_Find = new wxTextCtrl(tb_find, ID_TEXTCHANGE, wxT(""), wxDefaultPosition, wxSize(250, -1));
-
-    wxStaticText* textFind = new wxStaticText(tb_find, -1, wxT("Find: "));
-    int clr = 150;
-    textFind->SetForegroundColour(wxColor(clr, clr, clr));
-    tb_find->AddControl(textFind);
-    tb_find->AddControl(txtCntrl_Find);
-
-    tb_find->AddTool(ID_FIND, wxT("Find"), vxAppImgs->FindWord);
-    tb_find->AddSeparator();
-    tb_find->AddTool(ID_FIND_PREV, wxT("Find Previous"), vxAppImgs->FindPrev);
-    tb_find->AddTool(ID_FIND_NEXT, wxT("Find Next"), vxAppImgs->FindNext);
-
-    tb_find->SetCustomOverflowItems(prepend_items, append_items);
-
-    // tb_mainmenu->EnableTool(ID_SampleItem+6, false);
-    tb_find->Realize();
 
     m_mgr.AddPane(CreateNotebook(), wxAuiPaneInfo().Name(wxT("notebook_content")).CenterPane().PaneBorder(false));
 
@@ -657,9 +478,15 @@ MainFrame::MainFrame(wxWindow* parent,
         tb_textmodify,
         wxAuiPaneInfo().Name(wxT("tb_textmodify")).Caption(wxT("Text Modify")).ToolbarPane().Bottom().Row(1).Position(1));
 
-    m_mgr.AddPane(
-        tb_find,
-        wxAuiPaneInfo().Name(wxT("tb_find")).Caption(wxT("Find")).ToolbarPane().Bottom().Row(1).Position(1).Hide());
+
+wndw_FIndReplace = new FindReplace(this);
+        
+            m_mgr.AddPane(wndw_FIndReplace,
+                  wxAuiPaneInfo()
+                      .Name(wxT("wndw_FIndReplace"))
+                      .Caption(wxT("Find"))
+                  .Bottom().Position(1).
+                  CloseButton(true).PinButton(true));
 
     ctrl_DirTreeView = CreateDirViewCtrl();
     m_mgr.AddPane(ctrl_DirTreeView,

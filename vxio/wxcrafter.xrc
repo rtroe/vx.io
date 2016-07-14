@@ -371,7 +371,7 @@
     <title>Settings</title>
     <centered>1</centered>
     <style>wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP</style>
-    <size>700,400</size>
+    <size>800,400</size>
     <object class="wxBoxSizer">
       <orient>wxVERTICAL</orient>
       <object class="sizeritem">
@@ -632,11 +632,11 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
               <style>wxTAB_TRAVERSAL</style>
               <object class="wxBoxSizer">
                 <orient>wxHORIZONTAL</orient>
-                <object class="sizeritem" name="staticBoxSizer263">
+                <object class="sizeritem" name="m_staticBoxSizer263">
                   <flag>wxALL|wxEXPAND</flag>
                   <border>5</border>
                   <option>1</option>
-                  <object class="wxStaticBoxSizer" name="staticBoxSizer263">
+                  <object class="wxStaticBoxSizer" name="m_staticBoxSizer263">
                     <sizeritem>
                       <object class="spacer"/>
                     </sizeritem>
@@ -686,7 +686,7 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
                               <border>5</border>
                               <object class="wxChoice" name="cmbbx_theme">
                                 <style/>
-                                <size>150,-1</size>
+                                <size>125,-1</size>
                                 <content/>
                                 <selection/>
                               </object>
@@ -716,9 +716,9 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
                             <object class="sizeritem">
                               <flag>wxALL</flag>
                               <border>5</border>
-                              <object class="wxTextCtrl" name="m_textCtrl349">
+                              <object class="wxTextCtrl" name="m_textCtrl_themeName">
                                 <style/>
-                                <size>150,-1</size>
+                                <size>125,-1</size>
                               </object>
                             </object>
                             <object class="sizeritem">
@@ -734,7 +734,7 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
                               <border>5</border>
                               <object class="wxColourPickerCtrl" name="m_colourPicker330">
                                 <style>wxCLRP_DEFAULT_STYLE</style>
-                                <size>150,-1</size>
+                                <size>125,-1</size>
                                 <value>wxSYS_COLOUR_WINDOWTEXT</value>
                               </object>
                             </object>
@@ -743,9 +743,9 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
                         <object class="sizeritem">
                           <flag>wxALL</flag>
                           <border>5</border>
-                          <object class="wxListCtrl" name="m_listCtrl336">
+                          <object class="wxListCtrl" name="m_colourListCtrl">
                             <style>wxLC_REPORT</style>
-                            <size>275,-1</size>
+                            <size>245,202</size>
                           </object>
                         </object>
                       </object>
@@ -780,6 +780,13 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
             <expanded>1</expanded>
             <object class="wxPanel" name="m_panel261">
               <style>wxTAB_TRAVERSAL</style>
+              <object class="wxStaticBoxSizer" name="staticBoxSizer355">
+                <sizeritem>
+                  <object class="spacer"/>
+                </sizeritem>
+                <orient>wxVERTICAL</orient>
+                <label>My Label</label>
+              </object>
             </object>
           </object>
           <object class="treebookpage">
@@ -852,160 +859,293 @@ most complex needs of modern code devlopment in any computer enviroment.</label>
       </object>
     </object>
   </object>
-  <object class="wxFrame" name="SettingsFrameBase">
-    <title/>
-    <centered>1</centered>
-    <style>wxDEFAULT_FRAME_STYLE</style>
-    <size>630,400</size>
+  <object class="wxPanel" name="FindReplaceBase">
+    <size>800,200</size>
+    <style>wxTAB_TRAVERSAL</style>
     <object class="wxFlexGridSizer">
+      <minsize>800,200</minsize>
       <cols>1</cols>
-      <rows>3</rows>
+      <rows>2</rows>
       <vgap>0</vgap>
       <hgap>0</hgap>
       <growablecols/>
       <growablerows/>
-      <object class="sizeritem" name="gridSizer205">
+      <object class="sizeritem" name="flexGridSizer360">
         <flag>wxALL|wxEXPAND</flag>
         <border>5</border>
         <option>1</option>
-        <object class="wxGridSizer">
-          <cols>2</cols>
-          <rows>0</rows>
+        <object class="wxFlexGridSizer">
+          <cols>4</cols>
+          <rows>2</rows>
           <vgap>0</vgap>
           <hgap>0</hgap>
+          <growablecols/>
+          <growablerows/>
+          <object class="sizeritem" name="findCriteriaBtns">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxFlexGridSizer">
+              <cols>3</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapToggleButton" name="m_matchCase">
+                  <style/>
+                  <bitmap>img/find/matchCase.png</bitmap>
+                  <tooltip>
+                    <![CDATA[Match Case]]>
+                  </tooltip>
+                  <checked>1</checked>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapToggleButton" name="m_btn_wholeWord">
+                  <style/>
+                  <bitmap>img/find/text_findWord.png</bitmap>
+                  <checked>0</checked>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="findText">
+            <flag>wxALL</flag>
+            <border>5</border>
+            <object class="wxFlexGridSizer">
+              <cols>2</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxStaticText" name="m_staticText385">
+                  <label>Find:</label>
+                  <style/>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="findTxtBx">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxFlexGridSizer">
+              <cols>2</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxComboBox" name="m_txtCntrl_Find">
+                  <style/>
+                  <size>500,-1</size>
+                  <selection>-1</selection>
+                  <content/>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="findBtns">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxFlexGridSizer">
+              <cols>4</cols>
+              <rows>1</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapButton" name="m_btn_find">
+                  <bitmap>img/find/page_find.png</bitmap>
+                  <style>wxBU_AUTODRAW</style>
+                  <tooltip>
+                    <![CDATA[Find]]>
+                  </tooltip>
+                  <default>0</default>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapButton" name="m_btn_findPrev">
+                  <bitmap>img/find/search_minus.png</bitmap>
+                  <style>wxBU_AUTODRAW</style>
+                  <tooltip>
+                    <![CDATA[Find Previous]]>
+                  </tooltip>
+                  <default>0</default>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapButton" name="m_btn_findNext">
+                  <bitmap>img/find/search_plus.png</bitmap>
+                  <style>wxBU_AUTODRAW</style>
+                  <tooltip>
+                    <![CDATA[Find Next]]>
+                  </tooltip>
+                  <default>0</default>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="rplcCriteriaBtns">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxFlexGridSizer">
+              <cols>3</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapToggleButton" name="m_bmpToggleBtn411">
+                  <style/>
+                  <checked>1</checked>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapToggleButton" name="m_bmpToggleBtn413">
+                  <style/>
+                  <checked>1</checked>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapToggleButton" name="m_bmpToggleBtn415">
+                  <style/>
+                  <checked>1</checked>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="rplcText">
+            <flag>wxALL</flag>
+            <border>5</border>
+            <object class="wxFlexGridSizer">
+              <cols>2</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxStaticText" name="m_staticText419">
+                  <label>Replace:</label>
+                  <style/>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="rplcTxtBx">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxFlexGridSizer">
+              <cols>2</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxComboBox" name="m_txtCntrl_Repalce">
+                  <style/>
+                  <size>500,-1</size>
+                  <selection>-1</selection>
+                  <content/>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="sizeritem" name="flexGridSizer425">
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+            <option>1</option>
+            <object class="wxFlexGridSizer">
+              <cols>3</cols>
+              <rows>0</rows>
+              <vgap>0</vgap>
+              <hgap>0</hgap>
+              <growablecols/>
+              <growablerows/>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapButton" name="m_replaceNext">
+                  <bitmap>img/find/text_replace.png</bitmap>
+                  <style>wxBU_AUTODRAW</style>
+                  <tooltip>
+                    <![CDATA[Replace]]>
+                  </tooltip>
+                  <default>0</default>
+                </object>
+              </object>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxBitmapButton" name="m_replaceAll">
+                  <bitmap>img/find/text_replace_all.png</bitmap>
+                  <style>wxBU_AUTODRAW</style>
+                  <tooltip>
+                    <![CDATA[Replace All]]>
+                  </tooltip>
+                  <default>0</default>
+                </object>
+              </object>
+            </object>
+          </object>
         </object>
       </object>
       <object class="sizeritem">
         <flag>wxALL</flag>
         <border>5</border>
-        <object class="wxTreebook" name="m_treebook233">
-          <style>wxBK_DEFAULT</style>
-          <object class="treebookpage">
-            <label>Page</label>
-            <selected>0</selected>
-            <depth>0</depth>
-            <expanded>1</expanded>
-            <object class="wxPanel" name="m_panel235">
-              <style>wxTAB_TRAVERSAL</style>
-              <object class="wxBoxSizer">
-                <orient>wxVERTICAL</orient>
-                <object class="sizeritem" name="flexGridSizer207">
-                  <flag>wxALL|wxEXPAND</flag>
-                  <border>5</border>
-                  <option>1</option>
-                  <object class="wxFlexGridSizer">
-                    <cols>3</cols>
-                    <rows>0</rows>
-                    <vgap>0</vgap>
-                    <hgap>0</hgap>
-                    <growablecols/>
-                    <growablerows/>
-                    <object class="sizeritem">
-                      <flag>wxALL</flag>
-                      <border>5</border>
-                      <object class="wxButton" name="m_button201">
-                        <label>OK</label>
-                        <style/>
-                        <bitmapposition>wxLEFT</bitmapposition>
-                        <default>0</default>
-                      </object>
-                    </object>
-                    <object class="sizeritem">
-                      <flag>wxALL</flag>
-                      <border>5</border>
-                      <object class="wxButton" name="m_button199">
-                        <label>Apply</label>
-                        <style/>
-                        <bitmapposition>wxLEFT</bitmapposition>
-                        <default>0</default>
-                      </object>
-                    </object>
-                    <object class="sizeritem">
-                      <flag>wxALL</flag>
-                      <border>5</border>
-                      <object class="wxButton" name="m_button197">
-                        <label>Cancel</label>
-                        <style/>
-                        <bitmapposition>wxLEFT</bitmapposition>
-                        <default>0</default>
-                      </object>
-                    </object>
-                  </object>
-                </object>
-              </object>
-            </object>
-          </object>
-          <object class="treebookpage">
-            <label>Page</label>
-            <selected>0</selected>
-            <depth>1</depth>
-            <expanded>1</expanded>
-            <object class="wxPanel" name="m_panel241">
-              <style>wxTAB_TRAVERSAL</style>
-              <object class="wxBoxSizer">
-                <orient>wxVERTICAL</orient>
-                <object class="sizeritem">
-                  <flag>wxALL</flag>
-                  <border>5</border>
-                  <object class="wxTextCtrl" name="m_textCtrl245">
-                    <style/>
-                  </object>
-                </object>
-                <object class="sizeritem">
-                  <flag>wxALL</flag>
-                  <border>5</border>
-                  <object class="wxChoice" name="m_choice247">
-                    <style/>
-                    <content/>
-                    <selection/>
-                  </object>
-                </object>
-              </object>
-            </object>
-          </object>
-          <object class="treebookpage">
-            <label>Page</label>
-            <selected>0</selected>
-            <depth>0</depth>
-            <expanded>1</expanded>
-            <object class="wxPanel" name="m_panel237">
-              <style>wxTAB_TRAVERSAL</style>
-              <object class="wxGridSizer">
-                <cols>2</cols>
-                <rows>2</rows>
-                <vgap>0</vgap>
-                <hgap>0</hgap>
-                <object class="sizeritem">
-                  <flag>wxALL</flag>
-                  <border>5</border>
-                  <object class="wxStaticText" name="m_staticText221">
-                    <label>Static Text Label</label>
-                    <style/>
-                  </object>
-                </object>
-                <object class="sizeritem">
-                  <flag>wxALL</flag>
-                  <border>5</border>
-                  <object class="wxTextCtrl" name="m_textCtrl223">
-                    <style/>
-                  </object>
-                </object>
-                <object class="sizeritem">
-                  <flag>wxALL</flag>
-                  <border>5</border>
-                  <object class="wxStaticText" name="m_staticText226">
-                    <label>Static Text Label</label>
-                    <style/>
-                  </object>
-                </object>
-                <object class="sizeritem">
-                  <flag>wxALL</flag>
-                  <border>5</border>
-                  <object class="wxComboBox" name="m_comboBox228">
-                    <style/>
-                    <selection>-1</selection>
-                    <content/>
-                  </object>
+        <object class="wxCollapsiblePane" name="m_collPane465">
+          <label>Label</label>
+          <size>750,200</size>
+          <collapsed>1</collapsed>
+          <object class="panewindow" name="m_collpaneWin473">
+            <bg/>
+            <fg/>
+            <style/>
+            <object class="wxBoxSizer">
+              <orient>wxVERTICAL</orient>
+              <object class="sizeritem">
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxCheckListBox" name="m_checkListBox477">
+                  <size>750, 200</size>
+                  <style>wxLB_SINGLE</style>
+                  <content/>
                 </object>
               </object>
             </object>

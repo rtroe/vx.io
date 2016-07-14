@@ -17,6 +17,8 @@ public:
     Settings tempSettings;
     
 protected:
+    virtual void OnColourpicker330ColourpickerChanged(wxColourPickerEvent& event);
+    virtual void OnColourlistctrlListItemSelected(wxListEvent& event);
     virtual void OnCmbbx_themeChoiceSelected(wxCommandEvent& event);
     virtual void OnCmbbx_font_sizeChoiceSelected(wxCommandEvent& event);
     virtual void OnBtn_applyButtonClicked(wxCommandEvent& event);

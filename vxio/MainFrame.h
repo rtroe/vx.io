@@ -45,6 +45,7 @@
 #include "controls/vxTextCtrl.h"
 #include "include/gui/Icon.h"
 #include "src/Settings.h"
+#include "FindReplace.h"
 
 
 // -- menu methods --
@@ -115,6 +116,7 @@ class MainFrame : public MainFrameBase
         ID_CheckForUpdates,
 
         // -- View --
+        ID_WORDWRAP,
         ID_DISPLAYEOL,
         ID_CONVERTCR,
         ID_CONVERTCRLF,
@@ -216,6 +218,14 @@ public:
      //Applies Settings across vx.io
      void ApplySettings();
     
+    // -- search --
+    void Find(wxString);
+    void FindNext();
+    void FindPrev();
+
+    void ReplaceNext(wxString, wxString);
+    void ReplaceAll(wxString, wxString);
+    
     std::vector<FindResult> FindResults;
     int FindResultIndex;
     
@@ -266,7 +276,8 @@ private:
     void OnEraseBackground(wxEraseEvent& evt);
     void OnSize(wxSizeEvent& evt);
     
-    // -- search --
+    
+    // -- search commands --
     void OnFind(wxCommandEvent& evt);
     void OnFindNext(wxCommandEvent& evt);
     void OnFindPrev(wxCommandEvent& evt);
@@ -350,8 +361,7 @@ private:
     wxAuiToolBar* tb_mainmenu;
     wxAuiToolBar* tb_system;
     
-    wxAuiToolBar* tb_find;
-    wxTextCtrl* txtCntrl_Find;
+    FindReplace* wndw_FIndReplace;
     
     wxGenericDirCtrl* ctrl_DirTreeView;
 

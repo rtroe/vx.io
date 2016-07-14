@@ -4,6 +4,7 @@
 
 #include "../../lib/xmls/XMLSerialization.h"
 #include <wx/colour.h>
+#include <vector>
 
 using namespace xmls;
 
@@ -14,15 +15,20 @@ public:
     ~vxColour();
     
    void SetColour(float,float,float,float);
-   
+   void SetColour(wxColour);
    //Returns a wxColor object of this vxColor.
    wxColor TowxColour();
+   
+   //A Description of what this colour represents
+   wxString Description;
     
     xFloat R;
 	xFloat G;
 	xFloat B;
 	xFloat A;
 };
+
+
 
 class ColourScheme : public Serializable
 {
@@ -33,7 +39,10 @@ public:
     wxTextFile file;
     void Save();
     void Load(wxString);
-
+    
+    //Collection of Colour Settings
+     std::vector<vxColour*>  Colours;
+     void SetColourList();
     
     xString Name;
     vxColour Col_Main_Background;

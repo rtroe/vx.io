@@ -209,7 +209,7 @@ namespace xmls
 	{
 		friend class CollectionBase;
 	private:
-		Serializable operator=(Serializable const &s) {return *this;};
+		//Serializable operator=(Serializable const &s) {return *this;};
 		static string strReplaceAll(string source, const string from, const string to);
 	protected:
 		string m_sXML;
@@ -219,7 +219,6 @@ namespace xmls
 		vector<ClassMapping*> m_SubclassMappings;
 		vector<CollectionBase*> m_SubclassCollections;
 		Serializable();
-		virtual ~Serializable();
 		void setClassName(string ClassName){m_sClassName=ClassName;};
 		void Register(string MemberName, MemberBase *Member, string DefaultValue="");
 		void Register(string MemberName, Serializable *Member);
@@ -228,6 +227,8 @@ namespace xmls
 		static void Deserialize(Serializable *classItem, tinyxml2::XMLDocument *classDoc, tinyxml2::XMLElement *rootNode);
 	public:
 		Serializable(Serializable const &s) { }
+        Serializable operator=(Serializable const &s) {return *this;};
+		virtual ~Serializable();
 		static bool fromXML(string XMLSource, Serializable *classObject);
 		static string IdentifyClass(string XMLSource);
 		static string IdentifyClassVersion(string XMLSource);

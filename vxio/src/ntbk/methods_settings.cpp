@@ -1,6 +1,5 @@
 #include "MainFrame.h"
 #include "SettingsDialog.h"
-#include "SettingsFrame.h"
 
 void MainFrame::OnSettings(wxCommandEvent& WXUNUSED(evt))
 {

@@ -31,7 +31,11 @@
 #include <wx/textctrl.h>
 #include <wx/clrpicker.h>
 #include <wx/listctrl.h>
+#include <wx/tglbtn.h>
 #include <wx/combobox.h>
+#include <wx/bmpbuttn.h>
+#include <wx/collpane.h>
+#include <wx/checklst.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
 #include <wx/persist/toplevel.h>
@@ -152,6 +156,8 @@ class SettingsDialogBase : public wxFrame
 public:
     enum {
         ID_CHOICE_FONT = 1001,
+        ID_CNTRL_COLOURLIST = 1002,
+        ID_CNTRL_THEMENAME = 1003,
     };
 protected:
     wxTreebook* m_treebook249;
@@ -177,10 +183,10 @@ protected:
     wxStaticLine* m_staticLine353;
     wxStaticLine* m_staticLine351;
     wxStaticText* m_staticText347;
-    wxTextCtrl* m_textCtrl349;
+    wxTextCtrl* m_textCtrl_themeName;
     wxStaticText* m_staticText328;
     wxColourPickerCtrl* m_colourPicker330;
-    wxListCtrl* m_listCtrl336;
+    wxListCtrl* m_colourListCtrl;
     wxPanel* m_panel117;
     wxPanel* m_panel259;
     wxPanel* m_panel261;
@@ -193,6 +199,8 @@ protected:
     virtual void OnCmbbx_fontsChoiceSelected(wxCommandEvent& event) { event.Skip(); }
     virtual void OnCmbbx_font_sizeChoiceSelected(wxCommandEvent& event) { event.Skip(); }
     virtual void OnCmbbx_themeChoiceSelected(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnColourpicker330ColourpickerChanged(wxColourPickerEvent& event) { event.Skip(); }
+    virtual void OnColourlistctrlListItemSelected(wxListEvent& event) { event.Skip(); }
     virtual void OnBtn_okButtonClicked(wxCommandEvent& event) { event.Skip(); }
     virtual void OnBtn_applyButtonClicked(wxCommandEvent& event) { event.Skip(); }
     virtual void OnBtn_cancelButtonClicked(wxCommandEvent& event) { event.Skip(); }
@@ -218,10 +226,10 @@ public:
     wxStaticLine* GetStaticLine353() { return m_staticLine353; }
     wxStaticLine* GetStaticLine351() { return m_staticLine351; }
     wxStaticText* GetStaticText347() { return m_staticText347; }
-    wxTextCtrl* GetTextCtrl349() { return m_textCtrl349; }
+    wxTextCtrl* GetTextCtrl_themeName() { return m_textCtrl_themeName; }
     wxStaticText* GetStaticText328() { return m_staticText328; }
     wxColourPickerCtrl* GetColourPicker330() { return m_colourPicker330; }
-    wxListCtrl* GetListCtrl336() { return m_listCtrl336; }
+    wxListCtrl* GetColourListCtrl() { return m_colourListCtrl; }
     wxPanel* GetPanel257() { return m_panel257; }
     wxPanel* GetPanel255() { return m_panel255; }
     wxPanel* GetPanel117() { return m_panel117; }
@@ -232,46 +240,66 @@ public:
     wxButton* GetBtn_OK() { return btn_OK; }
     wxButton* GetBtn_apply() { return btn_apply; }
     wxButton* GetBtn_cancel() { return btn_cancel; }
-    SettingsDialogBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(700,400), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP);
+    SettingsDialogBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(800,400), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_TOOL_WINDOW|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP);
     virtual ~SettingsDialogBase();
 };
 
 
-class SettingsFrameBase : public wxFrame
+class FindReplaceBase : public wxPanel
 {
+public:
+    enum {
+        ID_CNTRL_FIND = 1001,
+        ID_CNTRL_REPLACE = 1002,
+    };
 protected:
-    wxTreebook* m_treebook233;
-    wxPanel* m_panel235;
-    wxButton* m_button201;
-    wxButton* m_button199;
-    wxButton* m_button197;
-    wxPanel* m_panel241;
-    wxTextCtrl* m_textCtrl245;
-    wxChoice* m_choice247;
-    wxPanel* m_panel237;
-    wxStaticText* m_staticText221;
-    wxTextCtrl* m_textCtrl223;
-    wxStaticText* m_staticText226;
-    wxComboBox* m_comboBox228;
+    wxBitmapToggleButton* m_matchCase;
+    wxBitmapToggleButton* m_btn_wholeWord;
+    wxStaticText* m_staticText385;
+    wxComboBox* m_txtCntrl_Find;
+    wxBitmapButton* m_btn_find;
+    wxBitmapButton* m_btn_findPrev;
+    wxBitmapButton* m_btn_findNext;
+    wxBitmapToggleButton* m_bmpToggleBtn411;
+    wxBitmapToggleButton* m_bmpToggleBtn413;
+    wxBitmapToggleButton* m_bmpToggleBtn415;
+    wxStaticText* m_staticText419;
+    wxComboBox* m_txtCntrl_Repalce;
+    wxBitmapButton* m_replaceNext;
+    wxBitmapButton* m_replaceAll;
+    wxCollapsiblePane* m_collPane465;
+    wxCheckListBox* m_checkListBox477;
 
 protected:
+    virtual void OnMatchcaseTogglebuttonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_wholewordTogglebuttonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnTxtcntrl_findTextUpdated(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnTxtcntrl_findTextEnter(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_findButtonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_findprevButtonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnBtn_findnextButtonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnReplacenextButtonClicked(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnReplaceallButtonClicked(wxCommandEvent& event) { event.Skip(); }
 
 public:
-    wxButton* GetButton201() { return m_button201; }
-    wxButton* GetButton199() { return m_button199; }
-    wxButton* GetButton197() { return m_button197; }
-    wxTextCtrl* GetTextCtrl245() { return m_textCtrl245; }
-    wxChoice* GetChoice247() { return m_choice247; }
-    wxPanel* GetPanel241() { return m_panel241; }
-    wxPanel* GetPanel235() { return m_panel235; }
-    wxStaticText* GetStaticText221() { return m_staticText221; }
-    wxTextCtrl* GetTextCtrl223() { return m_textCtrl223; }
-    wxStaticText* GetStaticText226() { return m_staticText226; }
-    wxComboBox* GetComboBox228() { return m_comboBox228; }
-    wxPanel* GetPanel237() { return m_panel237; }
-    wxTreebook* GetTreebook233() { return m_treebook233; }
-    SettingsFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT(""), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(630,400), long style = wxDEFAULT_FRAME_STYLE);
-    virtual ~SettingsFrameBase();
+    wxBitmapToggleButton* GetMatchCase() { return m_matchCase; }
+    wxBitmapToggleButton* GetBtn_wholeWord() { return m_btn_wholeWord; }
+    wxStaticText* GetStaticText385() { return m_staticText385; }
+    wxComboBox* GetTxtCntrl_Find() { return m_txtCntrl_Find; }
+    wxBitmapButton* GetBtn_find() { return m_btn_find; }
+    wxBitmapButton* GetBtn_findPrev() { return m_btn_findPrev; }
+    wxBitmapButton* GetBtn_findNext() { return m_btn_findNext; }
+    wxBitmapToggleButton* GetBmpToggleBtn411() { return m_bmpToggleBtn411; }
+    wxBitmapToggleButton* GetBmpToggleBtn413() { return m_bmpToggleBtn413; }
+    wxBitmapToggleButton* GetBmpToggleBtn415() { return m_bmpToggleBtn415; }
+    wxStaticText* GetStaticText419() { return m_staticText419; }
+    wxComboBox* GetTxtCntrl_Repalce() { return m_txtCntrl_Repalce; }
+    wxBitmapButton* GetReplaceNext() { return m_replaceNext; }
+    wxBitmapButton* GetReplaceAll() { return m_replaceAll; }
+    wxCheckListBox* GetCheckListBox477() { return m_checkListBox477; }
+    wxCollapsiblePane* GetCollPane465() { return m_collPane465; }
+    FindReplaceBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(800,200), long style = wxTAB_TRAVERSAL);
+    virtual ~FindReplaceBase();
 };
 
 #endif

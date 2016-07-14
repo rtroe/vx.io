@@ -227,7 +227,7 @@ ImageFrameBaseClass::ImageFrameBaseClass(wxWindow* parent, wxWindowID id, const 
     #endif
     
     SetName(wxT("ImageFrameBaseClass"));
-    SetSizeHints(500,400);
+    SetSize(500,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
@@ -267,7 +267,7 @@ MainFrameBase::MainFrameBase(wxWindow* parent, wxWindowID id, const wxString& ti
     }
     
     SetName(wxT("MainFrameBase"));
-    SetSizeHints(500,300);
+    SetSize(500,300);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
@@ -426,20 +426,20 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     wxBoxSizer* boxSizer158 = new wxBoxSizer(wxHORIZONTAL);
     m_panel257->SetSizer(boxSizer158);
     
-    wxStaticBoxSizer* staticBoxSizer263 = new wxStaticBoxSizer( new wxStaticBox(m_panel257, wxID_ANY, _("Editor Colour Scheme")), wxHORIZONTAL);
+    wxStaticBoxSizer* m_staticBoxSizer263 = new wxStaticBoxSizer( new wxStaticBox(m_panel257, wxID_ANY, _("Editor Colour Scheme")), wxHORIZONTAL);
     
-    boxSizer158->Add(staticBoxSizer263, 1, wxALL|wxEXPAND, 5);
+    boxSizer158->Add(m_staticBoxSizer263, 1, wxALL|wxEXPAND, 5);
     
     m_panel160 = new wxPanel(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(350,350), wxTAB_TRAVERSAL);
     m_panel160->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNSHADOW));
     
-    staticBoxSizer263->Add(m_panel160, 0, wxALL, 5);
+    m_staticBoxSizer263->Add(m_panel160, 0, wxALL, 5);
     
     wxFlexGridSizer* flexGridSizer345 = new wxFlexGridSizer(2, 1, 0, 0);
     flexGridSizer345->SetFlexibleDirection( wxBOTH );
     flexGridSizer345->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    staticBoxSizer263->Add(flexGridSizer345, 1, wxALL|wxEXPAND, 5);
+    m_staticBoxSizer263->Add(flexGridSizer345, 1, wxALL|wxEXPAND, 5);
     
     wxFlexGridSizer* flexGridSizer164 = new wxFlexGridSizer(5, 2, 0, 0);
     flexGridSizer164->SetFlexibleDirection( wxBOTH );
@@ -452,7 +452,7 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     flexGridSizer164->Add(m_staticText166, 0, wxALL, 5);
     
     wxArrayString cmbbx_themeArr;
-    cmbbx_theme = new wxChoice(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(150,-1), cmbbx_themeArr, 0);
+    cmbbx_theme = new wxChoice(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(125,-1), cmbbx_themeArr, 0);
     
     flexGridSizer164->Add(cmbbx_theme, 0, wxALL, 5);
     
@@ -468,24 +468,24 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     
     flexGridSizer164->Add(m_staticText347, 0, wxALL, 5);
     
-    m_textCtrl349 = new wxTextCtrl(m_panel257, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(150,-1), 0);
+    m_textCtrl_themeName = new wxTextCtrl(m_panel257, ID_CNTRL_THEMENAME, wxT(""), wxDefaultPosition, wxSize(125,-1), 0);
     #if wxVERSION_NUMBER >= 3000
-    m_textCtrl349->SetHint(wxT(""));
+    m_textCtrl_themeName->SetHint(wxT(""));
     #endif
     
-    flexGridSizer164->Add(m_textCtrl349, 0, wxALL, 5);
+    flexGridSizer164->Add(m_textCtrl_themeName, 0, wxALL, 5);
     
     m_staticText328 = new wxStaticText(m_panel257, wxID_ANY, _("Setting Colour:"), wxDefaultPosition, wxSize(-1,-1), 0);
     
     flexGridSizer164->Add(m_staticText328, 0, wxALL, 5);
     
-    m_colourPicker330 = new wxColourPickerCtrl(m_panel257, wxID_ANY, wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT), wxDefaultPosition, wxSize(150,-1), wxCLRP_DEFAULT_STYLE);
+    m_colourPicker330 = new wxColourPickerCtrl(m_panel257, wxID_ANY, wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT), wxDefaultPosition, wxSize(125,-1), wxCLRP_DEFAULT_STYLE);
     
     flexGridSizer164->Add(m_colourPicker330, 0, wxALL, 5);
     
-    m_listCtrl336 = new wxListCtrl(m_panel257, wxID_ANY, wxDefaultPosition, wxSize(275,-1), wxLC_REPORT);
+    m_colourListCtrl = new wxListCtrl(m_panel257, ID_CNTRL_COLOURLIST, wxDefaultPosition, wxSize(245,202), wxLC_REPORT);
     
-    flexGridSizer345->Add(m_listCtrl336, 0, wxALL, 5);
+    flexGridSizer345->Add(m_colourListCtrl, 0, wxALL, 5);
     
     m_panel117 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
     m_treebook249->AddPage(m_panel117, _("Snippets"), false, wxNOT_FOUND);
@@ -495,6 +495,9 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     
     m_panel261 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
     m_treebook249->InsertSubPage(4, m_panel261, _("Python Scripts"), false, wxNOT_FOUND);
+    
+    wxStaticBoxSizer* staticBoxSizer355 = new wxStaticBoxSizer( new wxStaticBox(m_panel261, wxID_ANY, _("My Label")), wxVERTICAL);
+    m_panel261->SetSizer(staticBoxSizer355);
     
     m_panel265 = new wxPanel(m_treebook249, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
     m_treebook249->AddPage(m_panel265, _("Plugins"), false, wxNOT_FOUND);
@@ -540,7 +543,7 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     m_treebook249->ExpandNode( 6, true );
     
     SetName(wxT("SettingsDialogBase"));
-    SetSizeHints(700,400);
+    SetSize(800,400);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
@@ -560,6 +563,8 @@ SettingsDialogBase::SettingsDialogBase(wxWindow* parent, wxWindowID id, const wx
     cmbbx_fonts->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_fontsChoiceSelected), NULL, this);
     cmbbx_font_size->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_font_sizeChoiceSelected), NULL, this);
     cmbbx_theme->Connect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_themeChoiceSelected), NULL, this);
+    m_colourPicker330->Connect(wxEVT_COMMAND_COLOURPICKER_CHANGED, wxColourPickerEventHandler(SettingsDialogBase::OnColourpicker330ColourpickerChanged), NULL, this);
+    m_colourListCtrl->Connect(wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler(SettingsDialogBase::OnColourlistctrlListItemSelected), NULL, this);
     btn_OK->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_okButtonClicked), NULL, this);
     btn_apply->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
     btn_cancel->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);
@@ -571,14 +576,16 @@ SettingsDialogBase::~SettingsDialogBase()
     cmbbx_fonts->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_fontsChoiceSelected), NULL, this);
     cmbbx_font_size->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_font_sizeChoiceSelected), NULL, this);
     cmbbx_theme->Disconnect(wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler(SettingsDialogBase::OnCmbbx_themeChoiceSelected), NULL, this);
+    m_colourPicker330->Disconnect(wxEVT_COMMAND_COLOURPICKER_CHANGED, wxColourPickerEventHandler(SettingsDialogBase::OnColourpicker330ColourpickerChanged), NULL, this);
+    m_colourListCtrl->Disconnect(wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler(SettingsDialogBase::OnColourlistctrlListItemSelected), NULL, this);
     btn_OK->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_okButtonClicked), NULL, this);
     btn_apply->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_applyButtonClicked), NULL, this);
     btn_cancel->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SettingsDialogBase::OnBtn_cancelButtonClicked), NULL, this);
     
 }
 
-SettingsFrameBase::SettingsFrameBase(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
-    : wxFrame(parent, id, title, pos, size, style)
+FindReplaceBase::FindReplaceBase(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style)
+    : wxPanel(parent, id, pos, size, style)
 {
     if ( !bBitmapLoaded ) {
         // We need to initialise the default bitmap handler
@@ -587,122 +594,181 @@ SettingsFrameBase::SettingsFrameBase(wxWindow* parent, wxWindowID id, const wxSt
         bBitmapLoaded = true;
     }
     
-    wxFlexGridSizer* flexGridSizer204 = new wxFlexGridSizer(3, 1, 0, 0);
-    flexGridSizer204->SetFlexibleDirection( wxBOTH );
-    flexGridSizer204->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-    this->SetSizer(flexGridSizer204);
+    wxFlexGridSizer* flexGridSizer449 = new wxFlexGridSizer(2, 1, 0, 0);
+    flexGridSizer449->SetFlexibleDirection( wxBOTH );
+    flexGridSizer449->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    this->SetSizer(flexGridSizer449);
     
-    wxGridSizer* gridSizer205 = new wxGridSizer(0, 2, 0, 0);
+    wxFlexGridSizer* flexGridSizer360 = new wxFlexGridSizer(2, 4, 0, 0);
+    flexGridSizer360->SetFlexibleDirection( wxBOTH );
+    flexGridSizer360->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    flexGridSizer204->Add(gridSizer205, 1, wxALL|wxEXPAND, 5);
+    flexGridSizer449->Add(flexGridSizer360, 1, wxALL|wxEXPAND, 5);
     
-    m_treebook233 = new wxTreebook(this, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxBK_DEFAULT);
-    m_treebook233->SetName(wxT("m_treebook233"));
+    wxFlexGridSizer* findCriteriaBtns = new wxFlexGridSizer(0, 3, 0, 0);
+    findCriteriaBtns->SetFlexibleDirection( wxBOTH );
+    findCriteriaBtns->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    flexGridSizer204->Add(m_treebook233, 0, wxALL, 5);
+    flexGridSizer360->Add(findCriteriaBtns, 1, wxALL|wxEXPAND, 5);
     
-    m_panel235 = new wxPanel(m_treebook233, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
-    m_treebook233->AddPage(m_panel235, _("Page"), false, wxNOT_FOUND);
+    m_matchCase = new wxBitmapToggleButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("matchCase")), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_matchCase->SetToolTip(_("Match Case"));
+    m_matchCase->SetValue(true);
     
-    wxBoxSizer* boxSizer239 = new wxBoxSizer(wxVERTICAL);
-    m_panel235->SetSizer(boxSizer239);
+    findCriteriaBtns->Add(m_matchCase, 0, wxALL, 5);
     
-    wxFlexGridSizer* flexGridSizer207 = new wxFlexGridSizer(0, 3, 0, 0);
-    flexGridSizer207->SetFlexibleDirection( wxBOTH );
-    flexGridSizer207->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    m_btn_wholeWord = new wxBitmapToggleButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("text_findWord")), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_btn_wholeWord->SetValue(false);
     
-    boxSizer239->Add(flexGridSizer207, 1, wxALL|wxEXPAND, 5);
+    findCriteriaBtns->Add(m_btn_wholeWord, 0, wxALL, 5);
     
-    m_button201 = new wxButton(m_panel235, wxID_ANY, _("OK"), wxDefaultPosition, wxSize(-1,-1), 0);
+    wxFlexGridSizer* findText = new wxFlexGridSizer(0, 2, 0, 0);
+    findText->SetFlexibleDirection( wxBOTH );
+    findText->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    flexGridSizer207->Add(m_button201, 0, wxALL, 5);
+    flexGridSizer360->Add(findText, 0, wxALL, 5);
     
-    m_button199 = new wxButton(m_panel235, wxID_ANY, _("Apply"), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_staticText385 = new wxStaticText(this, wxID_ANY, _("Find:"), wxDefaultPosition, wxSize(-1,-1), 0);
     
-    flexGridSizer207->Add(m_button199, 0, wxALL, 5);
+    findText->Add(m_staticText385, 0, wxALL, 5);
     
-    m_button197 = new wxButton(m_panel235, wxID_ANY, _("Cancel"), wxDefaultPosition, wxSize(-1,-1), 0);
+    wxFlexGridSizer* findTxtBx = new wxFlexGridSizer(0, 2, 0, 0);
+    findTxtBx->SetFlexibleDirection( wxBOTH );
+    findTxtBx->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    flexGridSizer207->Add(m_button197, 0, wxALL, 5);
+    flexGridSizer360->Add(findTxtBx, 1, wxALL|wxEXPAND, 5);
     
-    m_panel241 = new wxPanel(m_treebook233, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
-    m_treebook233->InsertSubPage(0, m_panel241, _("Page"), false, wxNOT_FOUND);
-    
-    wxBoxSizer* boxSizer243 = new wxBoxSizer(wxVERTICAL);
-    m_panel241->SetSizer(boxSizer243);
-    
-    m_textCtrl245 = new wxTextCtrl(m_panel241, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), 0);
+    wxArrayString m_txtCntrl_FindArr;
+    m_txtCntrl_Find = new wxComboBox(this, ID_CNTRL_FIND, wxT(""), wxDefaultPosition, wxSize(500,-1), m_txtCntrl_FindArr, 0);
     #if wxVERSION_NUMBER >= 3000
-    m_textCtrl245->SetHint(wxT(""));
+    m_txtCntrl_Find->SetHint(wxT(""));
     #endif
     
-    boxSizer243->Add(m_textCtrl245, 0, wxALL, 5);
+    findTxtBx->Add(m_txtCntrl_Find, 0, wxALL, 5);
     
-    wxArrayString m_choice247Arr;
-    m_choice247 = new wxChoice(m_panel241, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), m_choice247Arr, 0);
+    wxFlexGridSizer* findBtns = new wxFlexGridSizer(1, 4, 0, 0);
+    findBtns->SetFlexibleDirection( wxBOTH );
+    findBtns->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    boxSizer243->Add(m_choice247, 0, wxALL, 5);
+    flexGridSizer360->Add(findBtns, 1, wxALL|wxEXPAND, 5);
     
-    m_panel237 = new wxPanel(m_treebook233, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxTAB_TRAVERSAL);
-    m_treebook233->AddPage(m_panel237, _("Page"), false, wxNOT_FOUND);
+    m_btn_find = new wxBitmapButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("page_find")), wxDefaultPosition, wxSize(-1,-1), wxBU_AUTODRAW);
+    m_btn_find->SetToolTip(_("Find"));
     
-    wxGridSizer* gridSizer231 = new wxGridSizer(2, 2, 0, 0);
-    m_panel237->SetSizer(gridSizer231);
+    findBtns->Add(m_btn_find, 0, wxALL, 5);
     
-    m_staticText221 = new wxStaticText(m_panel237, wxID_ANY, _("Static Text Label"), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_btn_findPrev = new wxBitmapButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("search_minus")), wxDefaultPosition, wxSize(-1,-1), wxBU_AUTODRAW);
+    m_btn_findPrev->SetToolTip(_("Find Previous"));
     
-    gridSizer231->Add(m_staticText221, 0, wxALL, 5);
+    findBtns->Add(m_btn_findPrev, 0, wxALL, 5);
     
-    m_textCtrl223 = new wxTextCtrl(m_panel237, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), 0);
+    m_btn_findNext = new wxBitmapButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("search_plus")), wxDefaultPosition, wxSize(-1,-1), wxBU_AUTODRAW);
+    m_btn_findNext->SetToolTip(_("Find Next"));
+    
+    findBtns->Add(m_btn_findNext, 0, wxALL, 5);
+    
+    wxFlexGridSizer* rplcCriteriaBtns = new wxFlexGridSizer(0, 3, 0, 0);
+    rplcCriteriaBtns->SetFlexibleDirection( wxBOTH );
+    rplcCriteriaBtns->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    flexGridSizer360->Add(rplcCriteriaBtns, 1, wxALL|wxEXPAND, 5);
+    
+    m_bmpToggleBtn411 = new wxBitmapToggleButton(this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize(-1,-1), 0);
+    m_bmpToggleBtn411->SetValue(true);
+    
+    rplcCriteriaBtns->Add(m_bmpToggleBtn411, 0, wxALL, 5);
+    
+    m_bmpToggleBtn413 = new wxBitmapToggleButton(this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize(-1,-1), 0);
+    m_bmpToggleBtn413->SetValue(true);
+    
+    rplcCriteriaBtns->Add(m_bmpToggleBtn413, 0, wxALL, 5);
+    
+    m_bmpToggleBtn415 = new wxBitmapToggleButton(this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize(-1,-1), 0);
+    m_bmpToggleBtn415->SetValue(true);
+    
+    rplcCriteriaBtns->Add(m_bmpToggleBtn415, 0, wxALL, 5);
+    
+    wxFlexGridSizer* rplcText = new wxFlexGridSizer(0, 2, 0, 0);
+    rplcText->SetFlexibleDirection( wxBOTH );
+    rplcText->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    flexGridSizer360->Add(rplcText, 0, wxALL, 5);
+    
+    m_staticText419 = new wxStaticText(this, wxID_ANY, _("Replace:"), wxDefaultPosition, wxSize(-1,-1), 0);
+    
+    rplcText->Add(m_staticText419, 0, wxALL, 5);
+    
+    wxFlexGridSizer* rplcTxtBx = new wxFlexGridSizer(0, 2, 0, 0);
+    rplcTxtBx->SetFlexibleDirection( wxBOTH );
+    rplcTxtBx->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+    flexGridSizer360->Add(rplcTxtBx, 1, wxALL|wxEXPAND, 5);
+    
+    wxArrayString m_txtCntrl_RepalceArr;
+    m_txtCntrl_Repalce = new wxComboBox(this, ID_CNTRL_REPLACE, wxT(""), wxDefaultPosition, wxSize(500,-1), m_txtCntrl_RepalceArr, 0);
     #if wxVERSION_NUMBER >= 3000
-    m_textCtrl223->SetHint(wxT(""));
+    m_txtCntrl_Repalce->SetHint(wxT(""));
     #endif
     
-    gridSizer231->Add(m_textCtrl223, 0, wxALL, 5);
+    rplcTxtBx->Add(m_txtCntrl_Repalce, 0, wxALL, 5);
     
-    m_staticText226 = new wxStaticText(m_panel237, wxID_ANY, _("Static Text Label"), wxDefaultPosition, wxSize(-1,-1), 0);
+    wxFlexGridSizer* flexGridSizer425 = new wxFlexGridSizer(0, 3, 0, 0);
+    flexGridSizer425->SetFlexibleDirection( wxBOTH );
+    flexGridSizer425->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     
-    gridSizer231->Add(m_staticText226, 0, wxALL, 5);
+    flexGridSizer360->Add(flexGridSizer425, 1, wxALL|wxEXPAND, 5);
     
-    wxArrayString m_comboBox228Arr;
-    m_comboBox228 = new wxComboBox(m_panel237, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), m_comboBox228Arr, 0);
-    #if wxVERSION_NUMBER >= 3000
-    m_comboBox228->SetHint(wxT(""));
-    #endif
+    m_replaceNext = new wxBitmapButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("text_replace")), wxDefaultPosition, wxSize(-1,-1), wxBU_AUTODRAW);
+    m_replaceNext->SetToolTip(_("Replace"));
     
-    gridSizer231->Add(m_comboBox228, 0, wxALL, 5);
+    flexGridSizer425->Add(m_replaceNext, 0, wxALL, 5);
     
+    m_replaceAll = new wxBitmapButton(this, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("text_replace_all")), wxDefaultPosition, wxSize(-1,-1), wxBU_AUTODRAW);
+    m_replaceAll->SetToolTip(_("Replace All"));
     
-    #if wxVERSION_NUMBER >= 2900
-    if(!wxPersistenceManager::Get().Find(m_treebook233)){
-        wxPersistenceManager::Get().RegisterAndRestore(m_treebook233);
-    } else {
-        wxPersistenceManager::Get().Restore(m_treebook233);
-    }
-    #endif
-    m_treebook233->ExpandNode( 0, true );
-    m_treebook233->ExpandNode( 1, true );
-    m_treebook233->ExpandNode( 2, true );
+    flexGridSizer425->Add(m_replaceAll, 0, wxALL, 5);
     
-    SetName(wxT("SettingsFrameBase"));
-    SetSizeHints(630,400);
+    m_collPane465 = new wxCollapsiblePane(this, wxID_ANY, _("Label"), wxDefaultPosition, wxSize(750,200), wxCP_DEFAULT_STYLE);
+    
+    flexGridSizer449->Add(m_collPane465, 0, wxALL, 5);
+    
+    wxBoxSizer* boxSizer475 = new wxBoxSizer(wxVERTICAL);
+    m_collPane465->GetPane()->SetSizer(boxSizer475);
+    
+    wxArrayString m_checkListBox477Arr;
+    m_checkListBox477 = new wxCheckListBox(m_collPane465->GetPane(), wxID_ANY, wxDefaultPosition, wxSize(750, 200), m_checkListBox477Arr, wxLB_SINGLE);
+    
+    boxSizer475->Add(m_checkListBox477, 0, wxALL, 5);
+    
+    SetName(wxT("FindReplaceBase"));
+    SetMinClientSize(wxSize(800,200));
+    SetSize(800,200);
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }
-    if(GetParent()) {
-        CentreOnParent(wxBOTH);
-    } else {
-        CentreOnScreen(wxBOTH);
-    }
-#if wxVERSION_NUMBER >= 2900
-    if(!wxPersistenceManager::Get().Find(this)) {
-        wxPersistenceManager::Get().RegisterAndRestore(this);
-    } else {
-        wxPersistenceManager::Get().Restore(this);
-    }
-#endif
+    // Connect events
+    m_matchCase->Connect(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnMatchcaseTogglebuttonClicked), NULL, this);
+    m_btn_wholeWord->Connect(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_wholewordTogglebuttonClicked), NULL, this);
+    m_txtCntrl_Find->Connect(wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(FindReplaceBase::OnTxtcntrl_findTextUpdated), NULL, this);
+    m_txtCntrl_Find->Connect(wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler(FindReplaceBase::OnTxtcntrl_findTextEnter), NULL, this);
+    m_btn_find->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_findButtonClicked), NULL, this);
+    m_btn_findPrev->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_findprevButtonClicked), NULL, this);
+    m_btn_findNext->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_findnextButtonClicked), NULL, this);
+    m_replaceNext->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnReplacenextButtonClicked), NULL, this);
+    m_replaceAll->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnReplaceallButtonClicked), NULL, this);
+    
 }
 
-SettingsFrameBase::~SettingsFrameBase()
+FindReplaceBase::~FindReplaceBase()
 {
+    m_matchCase->Disconnect(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnMatchcaseTogglebuttonClicked), NULL, this);
+    m_btn_wholeWord->Disconnect(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_wholewordTogglebuttonClicked), NULL, this);
+    m_txtCntrl_Find->Disconnect(wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(FindReplaceBase::OnTxtcntrl_findTextUpdated), NULL, this);
+    m_txtCntrl_Find->Disconnect(wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler(FindReplaceBase::OnTxtcntrl_findTextEnter), NULL, this);
+    m_btn_find->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_findButtonClicked), NULL, this);
+    m_btn_findPrev->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_findprevButtonClicked), NULL, this);
+    m_btn_findNext->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnBtn_findnextButtonClicked), NULL, this);
+    m_replaceNext->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnReplacenextButtonClicked), NULL, this);
+    m_replaceAll->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FindReplaceBase::OnReplaceallButtonClicked), NULL, this);
+    
 }

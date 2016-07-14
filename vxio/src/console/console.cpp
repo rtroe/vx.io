@@ -13,7 +13,9 @@ void MainFrame::CreateConsole()
     ctrl_console->StyleSetBackground (Nr, wxColour(25, 25, 50));
     }
     
-ctrl_console->SetLexer(wxSTC_LEX_PYTHON);
+    ctrl_console->SetMainFont("courier",10);
+    
+    ctrl_console->SetLexer(wxSTC_LEX_PYTHON);
 
     ctrl_console->StyleSetForeground (wxSTC_P_WORD,         wxColour(0,170,170));
     ctrl_console->StyleSetBold(wxSTC_P_WORD, true);
@@ -50,7 +52,7 @@ ctrl_console->SetLexer(wxSTC_LEX_PYTHON);
                               //vxIris
     m_mgr.AddPane(ctrl_console, wxAuiPaneInfo().
                   Name(wxT("ctrl_console")).Caption(wxT("console")).
-                  Bottom().Position(1).
+                  Bottom().Position(1).Layer(2).
                   CloseButton(true).PinButton(true));
 }
 

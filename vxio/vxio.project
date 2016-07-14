@@ -125,6 +125,8 @@
     </VirtualDirectory>
     <VirtualDirectory Name="find">
       <File Name="src/find/find.cpp"/>
+      <File Name="FindReplace.h"/>
+      <File Name="FindReplace.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ntbk">
       <File Name="src/ntbk/OnCntrlCreate.cpp"/>
@@ -140,8 +142,6 @@
       <File Name="SettingsDialog.cpp"/>
       <File Name="src/Settings.h"/>
       <File Name="src/Settings.cpp"/>
-      <File Name="SettingsFrame.h"/>
-      <File Name="SettingsFrame.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="colorscheme">
       <File Name="src/colorscheme/ColourScheme.cpp"/>
